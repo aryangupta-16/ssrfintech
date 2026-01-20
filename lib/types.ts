@@ -48,11 +48,12 @@ export interface CaseStudy {
   slug: string;
   client: string;
   industry: string;
-  challenge: string;
-  solution: string;
-  results: string[];
+  summary?: string;
+  challengeHighlights: string[];
+  solutionHighlights: string[];
   image?: string;
-  tags: string[];
+  logo?: string;
+  accentColor?: string;
 }
 
 export interface BlogPost {

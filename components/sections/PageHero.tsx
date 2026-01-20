@@ -42,7 +42,7 @@ export function PageHero({
   gradient = "multi",
 }: PageHeroProps) {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       {backgroundImage && (
         <div className="absolute inset-0 z-0">

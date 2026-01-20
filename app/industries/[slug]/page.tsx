@@ -17,12 +17,13 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
   return (
     <GradientWrapper className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        {/* Animated Background */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-3xl -top-48 -left-48 animate-pulse" />
-          <div className="absolute w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl -bottom-48 -right-48 animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/ssrfintech_2.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/92 via-emerald-900/75 to-slate-900/92" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">

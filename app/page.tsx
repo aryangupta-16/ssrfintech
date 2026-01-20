@@ -16,6 +16,50 @@ export default function Home() {
     <GradientWrapper>
       <HeroPremium />
       
+      {/* What We Do Video Section */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Text Content */}
+              <div className="space-y-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white">
+                  What We Do
+                </h2>
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  At SSR Fintech, we specialize in transforming complex financial challenges into streamlined, 
+                  scalable solutions. Our expert team combines deep industry knowledge with cutting-edge 
+                  technology to help financial institutions and fintech startups navigate regulatory compliance, 
+                  optimize operations, and accelerate digital transformation.
+                </p>
+                <p className="text-gray-400">
+                  From strategic consulting to hands-on implementation, we partner with you to build 
+                  robust financial systems that drive growth and innovation.
+                </p>
+              </div>
+
+              {/* Video Container */}
+              <div className="relative">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-indigo-900/20 bg-slate-800/50 backdrop-blur-sm border border-slate-700">
+                  <div className="aspect-video">
+                    <iframe
+                      src="https://www.youtube.com/embed/EHrxlZNRHrk?rel=1&modestbranding=1"
+                      title="What We Do - SSR Fintech"
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-full blur-2xl -z-10" />
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-full blur-2xl -z-10" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       <WhoWeHelp
         audiences={targetAudiences}
         title="Who We Help"

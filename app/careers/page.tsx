@@ -148,7 +148,9 @@ export default function CareersPage() {
                           {job.description}
                         </CardDescription>
                       </div>
-                      <Button className="self-start bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white">Apply Now</Button>
+                      <Link href={`/careers/apply/${job.id}`}>
+                        <Button className="self-start bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white">Apply Now</Button>
+                      </Link>
                     </div>
                   </CardHeader>
                   <CardContent>

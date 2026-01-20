@@ -21,24 +21,42 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
   return (
     <GradientWrapper className="pt-20">
-      {/* Back Button */}
-      <section className="py-8">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/ssrfintech_5.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-indigo-900/80 to-slate-900/90" />
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Back Button */}
           <Link href="/products">
-            <Button variant="ghost" className="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-500/10">
+            <Button variant="ghost" className="text-indigo-400 hover:text-indigo-300 hover:bg-indigo-500/10 mb-8">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Products
             </Button>
           </Link>
+
+          {/* Hero Content */}
+          <ProductHero 
+            title={product.title}
+            description={product.description}
+            icon={product.icon}
+          />
         </div>
       </section>
 
-      {/* Hero */}
-      <ProductHero 
-        title={product.title}
-        description={product.description}
-        icon={product.icon}
-      />
+      {/* Spacer - keeping original hero component but hiding it */}
+      <div className="hidden">
+        <ProductHero 
+          title={product.title}
+          description={product.description}
+          icon={product.icon}
+        />
+      </div>
 
       {/* Features & Benefits */}
       <ProductFeatures 

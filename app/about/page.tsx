@@ -125,6 +125,129 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Global Presence */}
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Map */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{ backgroundImage: 'url(/world-map.jpg)' }}
+        />
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Heading */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="text-center mb-20"
+          >
+            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-white mb-4">
+              Our Global Presence
+            </motion.h2>
+            <motion.p variants={fadeInUp} className="text-xl text-gray-400">
+              Serving clients worldwide with excellence and innovation
+            </motion.p>
+          </motion.div>
+
+          {/* Map Container with Pins */}
+          <div className="relative max-w-6xl mx-auto h-[500px] md:h-[600px]">
+            {/* United States Pin - Left side */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="absolute left-[15%] top-[30%] md:left-[20%] md:top-[35%] flex flex-col items-center group"
+            >
+              <div className="relative flex flex-col items-center">
+                {/* Pin - Arrow Shape */}
+                <div className="relative group-hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <svg width="32" height="40" viewBox="0 0 32 40" className="w-6 h-8 md:w-8 md:h-10 drop-shadow-lg">
+                    {/* Pin Body */}
+                    <path
+                      d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
+                      fill="#6366f1"
+                      stroke="white"
+                      strokeWidth="2"
+                    />
+                    {/* Inner Circle */}
+                    <circle cx="16" cy="12" r="4" fill="white" />
+                  </svg>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-indigo-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+                {/* Label */}
+                <div className="mt-1 px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-indigo-500/30 rounded-lg shadow-xl">
+                  <p className="text-white font-semibold text-sm md:text-base whitespace-nowrap">United States</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Middle East Pin - Center */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="absolute left-[50%] top-[35%] md:left-[52%] md:top-[40%] flex flex-col items-center group"
+            >
+              <div className="relative flex flex-col items-center">
+                {/* Pin - Arrow Shape */}
+                <div className="relative group-hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <svg width="32" height="40" viewBox="0 0 32 40" className="w-6 h-8 md:w-8 md:h-10 drop-shadow-lg">
+                    {/* Pin Body */}
+                    <path
+                      d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
+                      fill="#a855f7"
+                      stroke="white"
+                      strokeWidth="2"
+                    />
+                    {/* Inner Circle */}
+                    <circle cx="16" cy="12" r="4" fill="white" />
+                  </svg>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+                {/* Label */}
+                <div className="mt-1 px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-purple-500/30 rounded-lg shadow-xl">
+                  <p className="text-white font-semibold text-sm md:text-base whitespace-nowrap">Middle East</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* India Pin - Right side */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="absolute right-[20%] top-[40%] md:right-[25%] md:top-[45%] flex flex-col items-center group"
+            >
+              <div className="relative flex flex-col items-center">
+                {/* Pin - Arrow Shape */}
+                <div className="relative group-hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <svg width="32" height="40" viewBox="0 0 32 40" className="w-6 h-8 md:w-8 md:h-10 drop-shadow-lg">
+                    {/* Pin Body */}
+                    <path
+                      d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
+                      fill="#6366f1"
+                      stroke="white"
+                      strokeWidth="2"
+                    />
+                    {/* Inner Circle */}
+                    <circle cx="16" cy="12" r="4" fill="white" />
+                  </svg>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-indigo-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+                {/* Label */}
+                <div className="mt-1 px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-indigo-500/30 rounded-lg shadow-xl">
+                  <p className="text-white font-semibold text-sm md:text-base whitespace-nowrap">India</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Team */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,7 +266,7 @@ export default function AboutPage() {
             </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {team.map((member, index) => (
               <motion.div
                 key={member.id}
