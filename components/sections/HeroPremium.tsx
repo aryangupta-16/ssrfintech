@@ -86,9 +86,9 @@ export default function Hero() {
               className="grid grid-cols-3 gap-8 mt-12"
             >
               {[
-                { value: "12+", label: "Years" },
+                { value: "15+", label: "Years" },
                 { value: "200+", label: "Projects" },
-                { value: "98%", label: "Satisfaction" },
+                { value: "99.3%", label: "Satisfaction" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-1">
@@ -154,7 +154,7 @@ export default function Hero() {
               >
                 <div className="text-white">
                   <div className="text-sm font-semibold mb-2">
-                    Cloud Migration
+                    Financial planning
                   </div>
                   <div className="text-3xl font-bold mb-1">60%</div>
                   <div className="text-sm opacity-80">Faster Deployment</div>

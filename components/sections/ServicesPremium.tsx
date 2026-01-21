@@ -126,7 +126,7 @@ export default function ServicesPremium() {
                       <Icon className="w-8 h-8 text-white" />
                     </div>
 
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-gradient transition-all duration-300">
+                    <h3 className="text-2xl font-bold mb-3 text-black transition-all duration-300">
                       {service.title}
                     </h3>
                     <p className="text-gray-600 mb-6">{service.description}</p>

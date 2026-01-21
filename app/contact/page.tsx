@@ -176,9 +176,9 @@ export default function ContactPage() {
                     <div>
                       <CardTitle className="text-lg mb-2 text-white">Visit Us</CardTitle>
                       <p className="text-gray-300">
-                        123 Business Park, Mumbai,
+                        13B Kasturba Nagar, Bhopal
                         <br />
-                        Maharashtra 400001, India
+                        {/* Singapore 409015 */}
                       </p>
                     </div>
                   </div>
@@ -193,11 +193,23 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <CardTitle className="text-lg mb-2 text-white">Call Us</CardTitle>
-                      <p className="text-gray-300">
-                        <a href="tel:+911234567890" className="hover:text-indigo-400">
-                          +91 123 456 7890
-                        </a>
-                      </p>
+                      <div className="space-y-1 text-sm text-gray-300">
+                        <p>
+                          <a href="tel:+919669336333" className="hover:text-indigo-400">
+                            +91 9669336333
+                          </a>
+                        </p>
+                        <p>
+                          <a href="tel:+971581637510" className="hover:text-indigo-400">
+                            +971 581637510
+                          </a>
+                        </p>
+                        <p>
+                          <a href="tel:+6580867644" className="hover:text-indigo-400">
+                            +65 80867644
+                          </a>
+                        </p>
+                      </div>
                       <p className="text-sm text-gray-400 mt-1">
                         Mon-Fri 9:00 AM - 6:00 PM IST
                       </p>
@@ -216,7 +228,7 @@ export default function ContactPage() {
                       <CardTitle className="text-lg mb-2 text-white">Email Us</CardTitle>
                       <p className="text-gray-300">
                         <a href="mailto:info@ssrfintech.com" className="hover:text-indigo-400">
-                          info@ssrfintech.com
+                          contact@ssrfintech.com
                         </a>
                       </p>
                       <p className="text-sm text-gray-400 mt-1">
@@ -227,7 +239,7 @@ export default function ContactPage() {
                 </CardHeader>
               </Card>
 
-              <Card className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-indigo-500/20 backdrop-blur-sm">
+              {/* <Card className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-indigo-500/20 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-white mb-2">Office Hours</h3>
                   <div className="space-y-1 text-sm text-gray-300">
@@ -236,7 +248,7 @@ export default function ContactPage() {
                     <p>Sunday: Closed</p>
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </motion.div>
           </div>
         </div>

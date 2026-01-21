@@ -5,10 +5,10 @@ import { useRef, useState, useEffect } from "react";
 import Container from "@/components/ui/Container";
 
 const stats = [
-  { value: 12, label: "Years of Excellence", suffix: "+" },
+  { value: 15, label: "Years of Excellence", suffix: "+" },
   { value: 200, label: "Projects Delivered", suffix: "+" },
-  { value: 50, label: "Expert Consultants", suffix: "+" },
-  { value: 98, label: "Client Satisfaction", suffix: "%" },
+  { value: 120, label: "Expert Consultants", suffix: "+" },
+  { value: 99.3, label: "Client Satisfaction", suffix: "%" },
 ];
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {

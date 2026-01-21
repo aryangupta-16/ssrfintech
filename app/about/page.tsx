@@ -327,6 +327,89 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Additional 4 Team Members */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-16">
+            {/* Siddharth Agarwal - Architect */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all group h-full">
+                <CardHeader>
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                      SA
+                    </div>
+                  </div>
+                  <CardTitle className="text-center text-white">Siddharth Agarwal</CardTitle>
+                  <CardDescription className="text-center text-indigo-400">Architect</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+
+            {/* Yash Vaidya - SAC */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all group h-full">
+                <CardHeader>
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                      YV
+                    </div>
+                  </div>
+                  <CardTitle className="text-center text-white">Yash Vaidya</CardTitle>
+                  <CardDescription className="text-center text-indigo-400">SAC</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+
+            {/* Ankush Choudhary - DataSphere */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all group h-full">
+                <CardHeader>
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                      AC
+                    </div>
+                  </div>
+                  <CardTitle className="text-center text-white">Ankush Choudhary</CardTitle>
+                  <CardDescription className="text-center text-indigo-400">DataSphere</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+
+            {/* Farry Jain - Consolidation */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all group h-full">
+                <CardHeader>
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                      FJ
+                    </div>
+                  </div>
+                  <CardTitle className="text-center text-white">Farry Jain (CA)</CardTitle>
+                  <CardDescription className="text-center text-indigo-400">Consolidation</CardDescription>
+                </CardHeader>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </section>
 
