@@ -19,7 +19,7 @@ export function ProcessSteps({ steps, title, description }: ProcessStepsProps) {
   return (
     <section className={`${spacing.section} relative`}>
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 via-pink-600/5 to-indigo-600/5" />
+      <div className="absolute inset-0 bg-[var(--bg-section)]" />
       <div className={`${spacing.container} relative z-10`}>
         {/* Header */}
         {(title || description) && (
@@ -55,14 +55,14 @@ export function ProcessSteps({ steps, title, description }: ProcessStepsProps) {
             >
               {/* Timeline Line */}
               {index < steps.length - 1 && (
-                <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-500 opacity-30 hidden md:block" />
+                <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-accent)] opacity-30 hidden md:block" />
               )}
 
               {/* Step Card */}
               <div className="grid md:grid-cols-[auto,1fr] gap-8 mb-12">
                 {/* Step Number */}
                 <div className="flex flex-col items-center md:items-start">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-2xl shadow-xl mb-4">
+                  <div className="w-16 h-16 rounded-2xl icon-bg flex items-center justify-center text-white font-bold text-2xl shadow-xl mb-4">
                     {step.id}
                   </div>
                   <div className="hidden md:block">
@@ -76,7 +76,7 @@ export function ProcessSteps({ steps, title, description }: ProcessStepsProps) {
                 <div className={`${components.card} p-8`}>
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <div className="text-sm font-semibold text-indigo-400 mb-2">
+                      <div className="text-sm font-semibold text-[var(--color-accent)] mb-2">
                         {step.phase}
                       </div>
                       <h3 className={`${typography.h4} ${colors.heading} mb-3`}>
@@ -96,7 +96,7 @@ export function ProcessSteps({ steps, title, description }: ProcessStepsProps) {
 
                   {/* Deliverables */}
                   <div>
-                    <div className="font-semibold text-white mb-3">Key Deliverables:</div>
+                    <div className="font-semibold text-[var(--text-primary)] mb-3">Key Deliverables:</div>
                     <div className="grid sm:grid-cols-2 gap-3">
                       {step.deliverables.map((deliverable, idx) => (
                         <div

@@ -91,7 +91,7 @@ export function Header() {
               <span className="text-lg font-bold text-white leading-tight">
                 SSR Fintech
               </span>
-              <span className="text-xs text-gray-400 leading-tight">
+              <span className="text-xs text-white/60 leading-tight">
                 Financial Technology Experts
               </span>
             </div>
@@ -101,10 +101,10 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
             <Link
               href="/"
-              className="text-gray-300 hover:text-white transition-colors font-medium relative group"
+              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
             >
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
 
             {/* Services Dropdown */}
@@ -113,7 +113,7 @@ export function Header() {
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors font-medium group">
+              <button className="flex items-center space-x-1 text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium group">
                 <span>Services</span>
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
               </button>
@@ -129,18 +129,18 @@ export function Header() {
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10 pointer-events-none" />
                     <Link
                       href="/services"
-                      className="relative block px-4 py-3 text-sm font-semibold text-indigo-400 hover:bg-white/5 transition-colors border-b border-white/10"
+                      className="relative block px-4 py-3 text-sm font-semibold text-[var(--color-accent)] hover:bg-white/5 transition-colors border-b border-white/10"
                     >
                       <div className="flex items-center justify-between">
                         <span>View All Services</span>
-                        <span className="text-purple-400">→</span>
+                        <span className="text-[var(--color-accent)]">→</span>
                       </div>
                     </Link>
                     {navigation.services.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="relative block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                        className="relative block px-4 py-2.5 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -156,7 +156,7 @@ export function Header() {
               onMouseEnter={() => setActiveDropdown("industries")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors font-medium group">
+              <button className="flex items-center space-x-1 text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium group">
                 <span>Industries</span>
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
               </button>
@@ -172,18 +172,18 @@ export function Header() {
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10 pointer-events-none" />
                     <Link
                       href="/industries"
-                      className="relative block px-4 py-3 text-sm font-semibold text-indigo-400 hover:bg-white/5 transition-colors border-b border-white/10"
+                      className="relative block px-4 py-3 text-sm font-semibold text-[var(--color-accent)] hover:bg-white/5 transition-colors border-b border-white/10"
                     >
                       <div className="flex items-center justify-between">
                         <span>View All Industries</span>
-                        <span className="text-purple-400">→</span>
+                        <span className="text-[var(--color-accent)]">→</span>
                       </div>
                     </Link>
                     {navigation.industries.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="relative block px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                        className="relative block px-4 py-2.5 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -199,7 +199,7 @@ export function Header() {
               onMouseEnter={() => setActiveDropdown("products")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors font-medium group">
+              <button className="flex items-center space-x-1 text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium group">
                 <span>Products</span>
                 <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
               </button>
@@ -215,22 +215,22 @@ export function Header() {
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10 pointer-events-none" />
                     <Link
                       href="/products"
-                      className="relative block px-4 py-3 text-sm font-semibold text-indigo-400 hover:bg-white/5 transition-colors border-b border-white/10"
+                      className="relative block px-4 py-3 text-sm font-semibold text-[var(--color-accent)] hover:bg-white/5 transition-colors border-b border-white/10"
                     >
                       <div className="flex items-center justify-between">
                         <span>View All Products</span>
-                        <span className="text-purple-400">→</span>
+                        <span className="text-[var(--color-accent)]">→</span>
                       </div>
                     </Link>
                     
                     {/* Financial Solutions */}
                     <div className="px-4 py-3 border-b border-white/10">
-                      <div className="text-xs font-semibold text-indigo-300 mb-2">Financial Solutions</div>
+                      <div className="text-xs font-semibold text-[var(--color-accent)] mb-2">Financial Solutions</div>
                       {navigation.products.financial.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors px-2"
+                          className="block py-2 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 rounded transition-colors px-2"
                         >
                           {item.name}
                         </Link>
@@ -239,12 +239,12 @@ export function Header() {
 
                     {/* Enterprise Solutions */}
                     <div className="px-4 py-3 border-b border-white/10">
-                      <div className="text-xs font-semibold text-indigo-300 mb-2">Enterprise Solutions</div>
+                      <div className="text-xs font-semibold text-[var(--color-accent)] mb-2">Enterprise Solutions</div>
                       {navigation.products.enterprise.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors px-2"
+                          className="block py-2 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 rounded transition-colors px-2"
                         >
                           {item.name}
                         </Link>
@@ -253,12 +253,12 @@ export function Header() {
 
                     {/* Migration Services */}
                     <div className="px-4 py-3">
-                      <div className="text-xs font-semibold text-indigo-300 mb-2">Services</div>
+                      <div className="text-xs font-semibold text-[var(--color-accent)] mb-2">Services</div>
                       {navigation.products.migration.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors px-2"
+                          className="block py-2 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 rounded transition-colors px-2"
                         >
                           {item.name}
                         </Link>
@@ -271,38 +271,38 @@ export function Header() {
 
             <Link
               href="/case-studies"
-              className="text-gray-300 hover:text-white transition-colors font-medium relative group"
+              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
             >
               Case Studies
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
             <Link
               href="/insights"
-              className="text-gray-300 hover:text-white transition-colors font-medium relative group"
+              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
             >
               Insights
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
             <Link
               href="/about"
-              className="text-gray-300 hover:text-white transition-colors font-medium relative group"
+              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
             >
               About Us
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
             <Link
               href="/careers"
-              className="text-gray-300 hover:text-white transition-colors font-medium relative group"
+              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
             >
               Careers
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Link href="/contact">
-              <Button size="default" className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0 shadow-lg hover:shadow-xl hover:shadow-indigo-500/25 transition-all">
+              <Button size="default" className="bg-[var(--color-accent)] hover:bg-[var(--link-hover)] text-white border-0 shadow-lg hover:shadow-xl transition-all">
                 Contact Us
               </Button>
             </Link>
@@ -310,7 +310,7 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-white/10 text-gray-300 hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-white/10 text-white/90 hover:text-[var(--color-accent)] transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -333,16 +333,16 @@ export function Header() {
               <div className="max-h-[calc(100vh-5rem)] overflow-y-auto py-4 space-y-1">
                 <Link
                   href="/"
-                  className="block py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <div className="px-4 pt-3 pb-2">
-                  <div className="font-semibold text-indigo-400 text-sm mb-2">Services</div>
+                  <div className="font-semibold text-[var(--color-accent)] text-sm mb-2">Services</div>
                   <Link
                     href="/services"
-                    className="block py-2 pl-4 text-sm text-purple-400 hover:text-white transition-colors"
+                    className="block py-2 pl-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     → View All Services
@@ -351,7 +351,7 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="block py-2 pl-4 text-sm text-gray-400 hover:text-white transition-colors"
+                      className="block py-2 pl-4 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -359,10 +359,10 @@ export function Header() {
                   ))}
                 </div>
                 <div className="px-4 pt-3 pb-2">
-                  <div className="font-semibold text-indigo-400 text-sm mb-2">Industries</div>
+                  <div className="font-semibold text-[var(--color-accent)] text-sm mb-2">Industries</div>
                   <Link
                     href="/industries"
-                    className="block py-2 pl-4 text-sm text-purple-400 hover:text-white transition-colors"
+                    className="block py-2 pl-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     → View All Industries
@@ -371,7 +371,7 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="block py-2 pl-4 text-sm text-gray-400 hover:text-white transition-colors"
+                      className="block py-2 pl-4 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -379,21 +379,21 @@ export function Header() {
                   ))}
                 </div>
                 <div className="px-4 pt-3 pb-2">
-                  <div className="font-semibold text-indigo-400 text-sm mb-2">Products</div>
+                  <div className="font-semibold text-[var(--color-accent)] text-sm mb-2">Products</div>
                   <Link
                     href="/products"
-                    className="block py-2 pl-4 text-sm text-purple-400 hover:text-white transition-colors"
+                    className="block py-2 pl-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     → View All Products
                   </Link>
                   <div className="pl-4 pt-2">
-                    <div className="text-xs text-indigo-300 mb-1">Financial Solutions</div>
+                    <div className="text-xs text-[var(--color-accent)]/80 mb-1">Financial Solutions</div>
                     {navigation.products.financial.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block py-1.5 pl-2 text-sm text-gray-400 hover:text-white transition-colors"
+                        className="block py-1.5 pl-2 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
@@ -401,12 +401,12 @@ export function Header() {
                     ))}
                   </div>
                   <div className="pl-4 pt-2">
-                    <div className="text-xs text-indigo-300 mb-1">Enterprise Solutions</div>
+                    <div className="text-xs text-[var(--color-accent)]/80 mb-1">Enterprise Solutions</div>
                     {navigation.products.enterprise.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block py-1.5 pl-2 text-sm text-gray-400 hover:text-white transition-colors"
+                        className="block py-1.5 pl-2 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
@@ -414,12 +414,12 @@ export function Header() {
                     ))}
                   </div>
                   <div className="pl-4 pt-2">
-                    <div className="text-xs text-indigo-300 mb-1">Services</div>
+                    <div className="text-xs text-[var(--color-accent)]/80 mb-1">Services</div>
                     {navigation.products.migration.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block py-1.5 pl-2 text-sm text-gray-400 hover:text-white transition-colors"
+                        className="block py-1.5 pl-2 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
@@ -429,42 +429,42 @@ export function Header() {
                 </div>
                 <Link
                   href="/case-studies"
-                  className="block py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Case Studies
                 </Link>
                 <Link
                   href="/insights"
-                  className="block py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Insights
                 </Link>
                 <Link
                   href="/how-we-work"
-                  className="block py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   How We Work
                 </Link>
                 <Link
                   href="/about"
-                  className="block py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/careers"
-                  className="block py-3 px-4 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Careers
                 </Link>
                 <div className="px-4 pt-2">
                   <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white border-0">
+                    <Button className="w-full bg-[var(--color-accent)] hover:bg-[var(--link-hover)] text-white border-0">
                       Contact Us
                     </Button>
                   </Link>

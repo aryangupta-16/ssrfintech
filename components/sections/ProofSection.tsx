@@ -18,7 +18,7 @@ export function ProofSection({ testimonials, title, description }: ProofSectionP
   return (
     <section className={`${spacing.section} relative`}>
       {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/5 via-purple-600/5 to-pink-600/5" />
+      <div className="absolute inset-0 bg-[var(--bg-section)]" />
       <div className={`${spacing.container} relative z-10`}>
         {/* Header */}
         {(title || description) && (
@@ -74,13 +74,13 @@ export function ProofSection({ testimonials, title, description }: ProofSectionP
                 {/* Outcome Badge */}
                 {testimonial.outcome && (
                   <div className="mb-6">
-                    <div className="flex items-start gap-2 p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                      <TrendingUp className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-2 p-4 rounded-lg bg-[var(--color-success)]/10 border border-[var(--color-success)]/20">
+                      <TrendingUp className="w-5 h-5 text-[var(--color-success)] flex-shrink-0 mt-0.5" />
                       <div>
-                        <div className="text-xs font-semibold text-green-400 mb-1">
+                        <div className="text-xs font-semibold text-[var(--color-success)] mb-1">
                           Outcome
                         </div>
-                        <p className="text-sm text-green-300/90">
+                        <p className="text-sm text-[var(--text-primary)]">
                           {testimonial.outcome}
                         </p>
                       </div>
@@ -89,9 +89,9 @@ export function ProofSection({ testimonials, title, description }: ProofSectionP
                 )}
 
                 {/* Author Info */}
-                <div className="border-t border-slate-700 pt-4">
+                <div className="border-t border-[var(--border-color)] pt-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                    <div className="w-12 h-12 rounded-full icon-bg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div className="flex-1">

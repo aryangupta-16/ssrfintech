@@ -17,22 +17,22 @@ export default function Home() {
       <HeroPremium />
       
       {/* What We Do Video Section */}
-      <section className="py-20 relative">
+      <section className="py-20 relative bg-[var(--bg-section)]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Text Content */}
               <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-bold text-white">
+                <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
                   What We Do
                 </h2>
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-lg text-[var(--text-primary)] leading-relaxed">
                   At SSR Fintech, we specialize in transforming complex financial challenges into streamlined, 
                   scalable solutions. Our expert team combines deep industry knowledge with cutting-edge 
                   technology to help financial institutions and fintech startups navigate regulatory compliance, 
                   optimize operations, and accelerate digital transformation.
                 </p>
-                <p className="text-gray-400">
+                <p className="text-[var(--text-secondary)]">
                   From strategic consulting to hands-on implementation, we partner with you to build 
                   robust financial systems that drive growth and innovation.
                 </p>
@@ -40,7 +40,7 @@ export default function Home() {
 
               {/* Video Container */}
               <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-indigo-900/20 bg-slate-800/50 backdrop-blur-sm border border-slate-700">
+                <div className="relative rounded-2xl overflow-hidden shadow-lg bg-[var(--bg-card)] backdrop-blur-sm border border-[var(--border-color)]">
                   <div className="aspect-video">
                     <iframe
                       src="https://www.youtube.com/embed/EHrxlZNRHrk?rel=1&modestbranding=1"
@@ -52,8 +52,8 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Decorative Elements */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-full blur-2xl -z-10" />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-purple-600/20 to-pink-600/20 rounded-full blur-2xl -z-10" />
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[var(--color-accent)]/10 rounded-full blur-2xl -z-10" />
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-2xl -z-10" />
               </div>
             </div>
           </div>

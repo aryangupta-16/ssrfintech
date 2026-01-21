@@ -38,15 +38,15 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full bg-gradient-to-br from-indigo-600/10 to-purple-600/10 border-indigo-500/20 backdrop-blur-sm">
+              <Card className="h-full bg-[var(--color-primary)]/5 border-[var(--color-primary)]/20 backdrop-blur-sm">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
                     <Target className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-3xl text-white">Our Mission</CardTitle>
+                  <CardTitle className="text-3xl text-[var(--text-primary)]">Our Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
                     To empower financial institutions with cutting-edge technology solutions that drive innovation,
                     enhance efficiency, and create exceptional value for their customers.
                   </p>
@@ -60,15 +60,15 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full bg-gradient-to-br from-purple-600/10 to-pink-600/10 border-purple-500/20 backdrop-blur-sm">
+              <Card className="h-full bg-[var(--color-accent)]/5 border-[var(--color-accent)]/20 backdrop-blur-sm">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
                     <Eye className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-3xl text-white">Our Vision</CardTitle>
+                  <CardTitle className="text-3xl text-[var(--text-primary)]">Our Vision</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-[var(--text-secondary)] leading-relaxed">
                     To be the most trusted technology partner for financial services globally, recognized for our
                     innovation, expertise, and commitment to client success.
                   </p>
@@ -89,10 +89,10 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="text-center mb-16"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-white mb-4">
+            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-[var(--text-primary)] mb-4">
               Our Core Values
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-gray-400">
+            <motion.p variants={fadeInUp} className="text-xl text-[var(--text-secondary)]">
               The principles that guide everything we do
             </motion.p>
           </motion.div>
@@ -108,15 +108,15 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all group">
+                <Card className="h-full card hover:scale-105 transition-all group">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                    <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
                       <value.icon className="w-6 h-6 text-white" />
                     </div>
-                    <CardTitle className="text-xl text-white text-center">{value.title}</CardTitle>
+                    <CardTitle className="text-xl text-[var(--text-primary)] text-center">{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-400 text-center">{value.desc}</p>
+                    <p className="text-[var(--text-secondary)] text-center">{value.desc}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -142,10 +142,10 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="text-center mb-20"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-white mb-4">
+            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-[var(--text-primary)] mb-4">
               Our Global Presence
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-gray-400">
+            <motion.p variants={fadeInUp} className="text-xl text-[var(--text-secondary)]">
               Serving clients worldwide with excellence and innovation
             </motion.p>
           </motion.div>
@@ -167,18 +167,18 @@ export default function AboutPage() {
                     {/* Pin Body */}
                     <path
                       d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
-                      fill="#6366f1"
+                      fill="var(--color-primary)"
                       stroke="white"
                       strokeWidth="2"
                     />
                     {/* Inner Circle */}
                     <circle cx="16" cy="12" r="4" fill="white" />
                   </svg>
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-indigo-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--color-primary)] rounded-full animate-ping opacity-75"></div>
                 </div>
                 {/* Label */}
-                <div className="mt-1 px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-indigo-500/30 rounded-lg shadow-xl">
-                  <p className="text-white font-semibold text-sm md:text-base whitespace-nowrap">United States</p>
+                <div className="mt-1 px-4 py-2 card shadow-lg">
+                  <p className="text-[var(--text-primary)] font-semibold text-sm md:text-base whitespace-nowrap">United States</p>
                 </div>
               </div>
             </motion.div>
@@ -198,18 +198,18 @@ export default function AboutPage() {
                     {/* Pin Body */}
                     <path
                       d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
-                      fill="#a855f7"
+                      fill="var(--color-accent)"
                       stroke="white"
                       strokeWidth="2"
                     />
                     {/* Inner Circle */}
                     <circle cx="16" cy="12" r="4" fill="white" />
                   </svg>
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-purple-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--color-accent)] rounded-full animate-ping opacity-75"></div>
                 </div>
                 {/* Label */}
-                <div className="mt-1 px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-purple-500/30 rounded-lg shadow-xl">
-                  <p className="text-white font-semibold text-sm md:text-base whitespace-nowrap">Middle East</p>
+                <div className="mt-1 px-4 py-2 card shadow-lg">
+                  <p className="text-[var(--text-primary)] font-semibold text-sm md:text-base whitespace-nowrap">Middle East</p>
                 </div>
               </div>
             </motion.div>
@@ -229,18 +229,18 @@ export default function AboutPage() {
                     {/* Pin Body */}
                     <path
                       d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
-                      fill="#6366f1"
+                      fill="var(--color-primary)"
                       stroke="white"
                       strokeWidth="2"
                     />
                     {/* Inner Circle */}
                     <circle cx="16" cy="12" r="4" fill="white" />
                   </svg>
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-indigo-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--color-primary)] rounded-full animate-ping opacity-75"></div>
                 </div>
                 {/* Label */}
-                <div className="mt-1 px-4 py-2 bg-slate-900/90 backdrop-blur-sm border border-indigo-500/30 rounded-lg shadow-xl">
-                  <p className="text-white font-semibold text-sm md:text-base whitespace-nowrap">India</p>
+                <div className="mt-1 px-4 py-2 card shadow-lg">
+                  <p className="text-[var(--text-primary)] font-semibold text-sm md:text-base whitespace-nowrap">India</p>
                 </div>
               </div>
             </motion.div>
@@ -258,10 +258,10 @@ export default function AboutPage() {
             variants={staggerContainer}
             className="text-center mb-16"
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-white mb-4">
+            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-[var(--text-primary)] mb-4">
               Meet Our Leadership Team
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-gray-400">
+            <motion.p variants={fadeInUp} className="text-xl text-[var(--text-secondary)]">
               Expert professionals driving innovation in fintech
             </motion.p>
           </motion.div>
@@ -275,11 +275,11 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all group h-full">
+                <Card className="card hover:scale-105 transition-all group h-full">
                   <CardHeader>
                     <div className="relative w-32 h-32 mx-auto mb-4">
                       {member.image ? (
-                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[var(--color-accent)]/20 group-hover:border-[var(--color-accent)]/50 transition-all">
                           <img
                             src={member.image}
                             alt={member.name}
@@ -287,24 +287,24 @@ export default function AboutPage() {
                             onError={(e) => {
                               // Fallback to initials if image fails to load
                               e.currentTarget.style.display = 'none';
-                              e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
+                              e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full icon-bg rounded-full flex items-center justify-center text-3xl font-bold text-white">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
                             }}
                           />
                         </div>
                       ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                        <div className="w-full h-full icon-bg rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-[var(--color-accent)]/20 group-hover:border-[var(--color-accent)]/50 transition-all">
                           {member.name.split(" ").map(n => n[0]).join("")}
                         </div>
                       )}
                     </div>
-                    <CardTitle className="text-center text-white">{member.name}</CardTitle>
-                    <CardDescription className="text-center text-indigo-400">{member.role}</CardDescription>
+                    <CardTitle className="text-center text-[var(--text-primary)]">{member.name}</CardTitle>
+                    <CardDescription className="text-center text-[var(--color-accent)]">{member.role}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-gray-400 text-sm text-center">{member.bio}</p>
+                    <p className="text-[var(--text-secondary)] text-sm text-center">{member.bio}</p>
                     
                     {member.email && (
-                      <div className="flex items-center justify-center space-x-2 text-sm text-gray-400 hover:text-indigo-400 transition-colors">
+                      <div className="flex items-center justify-center space-x-2 text-sm text-[var(--text-secondary)] hover:text-[var(--color-accent)] transition-colors">
                         <Mail className="w-4 h-4" />
                         <a href={`mailto:${member.email}`} className="hover:underline">
                           {member.email}
@@ -316,7 +316,7 @@ export default function AboutPage() {
                       <div className="flex justify-center pt-2">
                         <Link
                           href={member.linkedin}
-                          className="text-indigo-400 hover:text-indigo-300 transition-colors hover:scale-110 transform duration-200"
+                          className="text-[var(--color-accent)] hover:text-[var(--color-primary)] transition-colors hover:scale-110 transform duration-200"
                         >
                           <Linkedin className="w-5 h-5" />
                         </Link>
@@ -337,16 +337,16 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border border-indigo-500/20 rounded-2xl p-12 backdrop-blur-sm"
+            className="max-w-4xl mx-auto text-center bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 rounded-2xl p-12 backdrop-blur-sm"
           >
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-[var(--text-secondary)] mb-8">
               Partner with us to leverage cutting-edge technology and expert consulting
             </p>
             <Link href="/contact">
-              <Button size="lg" className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8">
+              <Button size="lg" className="btn-primary px-8">
                 Get in Touch
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

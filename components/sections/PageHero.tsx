@@ -82,7 +82,7 @@ export function PageHero({
           {/* Title */}
           <motion.h1
             variants={fadeInUp}
-            className={`${typography.h1} mb-6 ${colors.accentGradientText}`}
+            className={`${typography.h1} mb-6 text-[var(--color-accent)] font-bold`}
           >
             {title}
           </motion.h1>
@@ -90,7 +90,7 @@ export function PageHero({
           {/* Description */}
           <motion.p
             variants={fadeInUp}
-            className={`${typography.lead} ${colors.subheading}`}
+            className={`${typography.lead} text-white`}
           >
             {description}
           </motion.p>
@@ -104,7 +104,7 @@ export function PageHero({
               {primaryCTA && (
                 <a
                   href={primaryCTA.href}
-                  className={`${colors.primaryBtn} px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/30 inline-flex items-center gap-2`}
+                  className="bg-[var(--color-accent)] text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-[var(--link-hover)] inline-flex items-center gap-2"
                 >
                   {primaryCTA.text}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -115,7 +115,7 @@ export function PageHero({
               {secondaryCTA && (
                 <a
                   href={secondaryCTA.href}
-                  className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-300"
+                  className="px-8 py-4 bg-[var(--color-primary)] text-white border-2 border-[var(--color-accent)]/30 rounded-lg font-semibold hover:bg-[#134E7C] hover:border-[var(--color-accent)] transition-all duration-300"
                 >
                   {secondaryCTA.text}
                 </a>

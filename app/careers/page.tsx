@@ -35,7 +35,7 @@ export default function CareersPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center text-white mb-12"
+            className="text-4xl font-bold text-center text-[var(--text-primary)] mb-12"
           >
             Why Work at SSR Fintech?
           </motion.h2>
@@ -46,15 +46,15 @@ export default function CareersPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
+              <Card className="card hover:scale-105 transition-all">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🚀</span>
                   </div>
-                  <CardTitle className="text-white">Innovation First</CardTitle>
+                  <CardTitle className="text-[var(--text-primary)]">Innovation First</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300">
+                  <p className="text-[var(--text-secondary)]">
                     Work with cutting-edge technologies and contribute to innovative solutions
                     that shape the fintech industry.
                   </p>
@@ -68,15 +68,15 @@ export default function CareersPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
+              <Card className="card hover:scale-105 transition-all">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">📈</span>
                   </div>
-                  <CardTitle className="text-white">Growth Opportunities</CardTitle>
+                  <CardTitle className="text-[var(--text-primary)]">Growth Opportunities</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300">
+                  <p className="text-[var(--text-secondary)]">
                     Continuous learning, skill development, and clear career progression paths
                     to help you reach your potential.
                   </p>
@@ -90,15 +90,15 @@ export default function CareersPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
+              <Card className="card hover:scale-105 transition-all">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
                     <span className="text-2xl">🤝</span>
                   </div>
-                  <CardTitle className="text-white">Collaborative Culture</CardTitle>
+                  <CardTitle className="text-[var(--text-primary)]">Collaborative Culture</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-300">
+                  <p className="text-[var(--text-secondary)]">
                     Join a supportive team that values collaboration, diversity, and work-life
                     balance.
                   </p>
@@ -116,7 +116,7 @@ export default function CareersPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-center text-white mb-4"
+            className="text-4xl font-bold text-center text-[var(--text-primary)] mb-4"
           >
             Open Positions
           </motion.h2>
@@ -125,7 +125,7 @@ export default function CareersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-300 text-center mb-12"
+            className="text-xl text-[var(--text-secondary)] text-center mb-12"
           >
             Find your next opportunity with us
           </motion.p>
@@ -139,12 +139,12 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
+                <Card className="card hover:scale-102 transition-all shadow-md">
                   <CardHeader>
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div className="flex-1">
-                        <CardTitle className="text-2xl mb-2 text-white">{job.title}</CardTitle>
-                        <CardDescription className="text-base text-gray-300">
+                        <CardTitle className="text-2xl mb-2 text-[var(--text-primary)]">{job.title}</CardTitle>
+                        <CardDescription className="text-base text-[var(--text-secondary)]">
                           {job.description}
                         </CardDescription>
                       </div>

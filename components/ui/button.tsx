@@ -11,19 +11,19 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-blue-600 text-white shadow-lg hover:bg-blue-700 hover:shadow-xl focus-visible:ring-blue-600",
+          "bg-[var(--color-accent)] text-white shadow-lg hover:bg-[var(--link-hover)] hover:shadow-xl focus-visible:ring-[var(--color-accent)]",
         gradient:
-          "gradient-primary text-white shadow-premium hover:shadow-glow focus-visible:ring-purple-500",
+          "bg-[var(--color-accent)] text-white shadow-premium hover:shadow-glow hover:bg-[var(--link-hover)] focus-visible:ring-[var(--color-accent)]",
         secondary:
-          "gradient-secondary text-white shadow-lg hover:shadow-xl focus-visible:ring-pink-500",
+          "bg-[var(--color-primary)] text-white shadow-lg hover:bg-[#134E7C] hover:shadow-xl focus-visible:ring-[var(--color-primary)]",
         accent:
-          "gradient-accent text-white shadow-lg hover:shadow-xl focus-visible:ring-cyan-500",
+          "bg-gradient-to-r from-[var(--color-accent)] to-[#16A085] text-white shadow-lg hover:shadow-xl focus-visible:ring-[var(--color-accent)]",
         destructive:
           "bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-red-600",
         outline:
-          "border-2 border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white focus-visible:ring-blue-600",
-        ghost: "hover:bg-gray-100 hover:text-gray-900",
-        link: "text-blue-600 underline-offset-4 hover:underline",
+          "border-2 border-[var(--color-accent)] bg-transparent text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white focus-visible:ring-[var(--color-accent)]",
+        ghost: "hover:bg-[var(--bg-section)] hover:text-[var(--text-primary)]",
+        link: "text-[var(--link-color)] underline-offset-4 hover:underline hover:text-[var(--link-hover)]",
       },
       size: {
         default: "h-11 px-6 py-2",

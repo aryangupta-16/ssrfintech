@@ -57,7 +57,7 @@ export default function CTAPremium() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto"
+            className="text-xl text-white/80 mb-10 max-w-3xl mx-auto"
           >
             Join hundreds of satisfied clients who trust SSR Fintech for their
             digital transformation journey. Get started today and experience the
@@ -95,7 +95,7 @@ export default function CTAPremium() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-gray-400"
+            className="mt-12 flex flex-wrap items-center justify-center gap-8 text-white/60"
           >
             <div className="flex items-center gap-2">
               <svg

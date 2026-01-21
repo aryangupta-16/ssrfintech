@@ -64,7 +64,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-slate-950 text-gray-300 border-t border-white/10">
+    <footer className="bg-slate-950 text-white/90 border-t border-white/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-6">
           {/* Company Info */}
@@ -79,10 +79,10 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-tight">SSR Fintech</span>
-                <span className="text-xs text-gray-400 leading-tight">Financial Technology Experts</span>
+                <span className="text-xs text-white/60 leading-tight">Financial Technology Experts</span>
               </div>
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-white/70 leading-relaxed">
               Transforming financial services through innovative technology solutions
               and expert consulting.
             </p>
@@ -91,7 +91,7 @@ export function Footer() {
                 href="https://www.linkedin.com/company/ssrfintech/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-indigo-600 hover:to-purple-600 hover:border-transparent transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-[var(--color-accent)] hover:border-transparent transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -100,21 +100,21 @@ export function Footer() {
                 href="https://www.youtube.com/watch?v=IHs_1-85D08"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-indigo-600 hover:to-purple-600 hover:border-transparent transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-[var(--color-accent)] hover:border-transparent transition-all duration-300"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-indigo-600 hover:to-purple-600 hover:border-transparent transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-[var(--color-accent)] hover:border-transparent transition-all duration-300"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-indigo-600 hover:to-purple-600 hover:border-transparent transition-all duration-300"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center hover:bg-[var(--color-accent)] hover:border-transparent transition-all duration-300"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -125,7 +125,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+              <span className="w-1 h-6 bg-[var(--color-accent)] rounded-full" />
               Services
             </h3>
             <ul className="space-y-3">
@@ -133,9 +133,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-indigo-400 transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300" />
+                    <span className="w-0 group-hover:w-2 h-px bg-[var(--color-accent)] transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -146,7 +146,7 @@ export function Footer() {
           {/* Industries */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+              <span className="w-1 h-6 bg-[var(--color-accent)] rounded-full" />
               Industries
             </h3>
             <ul className="space-y-3">
@@ -154,9 +154,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-indigo-400 transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300" />
+                    <span className="w-0 group-hover:w-2 h-px bg-[var(--color-accent)] transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -167,7 +167,7 @@ export function Footer() {
           {/* Products */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+              <span className="w-1 h-6 bg-[var(--color-accent)] rounded-full" />
               Products
             </h3>
             <ul className="space-y-3">
@@ -175,9 +175,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-indigo-400 transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300" />
+                    <span className="w-0 group-hover:w-2 h-px bg-[var(--color-accent)] transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -188,7 +188,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+              <span className="w-1 h-6 bg-[var(--color-accent)] rounded-full" />
               Company
             </h3>
             <ul className="space-y-3">
@@ -196,9 +196,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-indigo-400 transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300" />
+                    <span className="w-0 group-hover:w-2 h-px bg-[var(--color-accent)] transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -209,7 +209,7 @@ export function Footer() {
           {/* Resources & Contact */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <span className="w-1 h-6 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full" />
+              <span className="w-1 h-6 bg-[var(--color-accent)] rounded-full" />
               Resources
             </h3>
             <ul className="space-y-3">
@@ -217,9 +217,9 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-indigo-400 transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300" />
+                    <span className="w-0 group-hover:w-2 h-px bg-[var(--color-accent)] transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
@@ -228,11 +228,11 @@ export function Footer() {
             <div className="mt-6 pt-4 border-t border-white/10">
               <h4 className="text-white font-semibold text-sm mb-3">Quick Contact</h4>
               <div className="space-y-2">
-                <div className="flex items-center space-x-2 text-xs text-gray-400 hover:text-indigo-400 transition-colors">
+                <div className="flex items-center space-x-2 text-xs text-white/70 hover:text-[var(--color-accent)] transition-colors">
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   <a href="tel:+911234567890">+91 123 456 7890</a>
                 </div>
-                <div className="flex items-center space-x-2 text-xs text-gray-400 hover:text-indigo-400 transition-colors">
+                <div className="flex items-center space-x-2 text-xs text-white/70 hover:text-[var(--color-accent)] transition-colors">
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   <a href="mailto:info@ssrfintech.com">info@ssrfintech.com</a>
                 </div>
@@ -247,7 +247,7 @@ export function Footer() {
             <h3 className="text-white font-semibold text-2xl mb-3">
               Stay Updated
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-white/70 mb-6">
               Subscribe to our newsletter for the latest fintech insights and updates
             </p>
             {showNewsletterSuccess && (
@@ -263,11 +263,11 @@ export function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
-                className="flex-1 px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-indigo-500 transition-colors"
+                className="flex-1 px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-lg text-white placeholder:text-white/40 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
               />
               <button
                 type="submit"
-                className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30"
+                className="px-6 py-3 bg-[var(--color-accent)] hover:bg-[var(--link-hover)] text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
               >
                 Subscribe
               </button>
@@ -279,18 +279,18 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-white font-semibold text-lg mb-6 flex items-center justify-center gap-2">
-              <MapPin className="w-5 h-5 text-indigo-400" />
+              <MapPin className="w-5 h-5 text-[var(--color-accent)]" />
               Global Presence
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               {globalLocations.map((location, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 hover:border-indigo-500/50 transition-all group"
+                  className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 hover:border-[var(--color-accent)]/50 transition-all group"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">{location.icon}</span>
-                    <span className="text-gray-300 text-sm group-hover:text-indigo-400 transition-colors">
+                    <span className="text-white/80 text-sm group-hover:text-[var(--color-accent)] transition-colors">
                       {location.region}
                     </span>
                   </div>
@@ -303,19 +303,19 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-white/60">
               © {currentYear} SSR Fintech. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link
                 href="/privacy-policy"
-                className="text-sm text-gray-400 hover:text-indigo-400 transition-colors"
+                className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms-of-service"
-                className="text-sm text-gray-400 hover:text-indigo-400 transition-colors"
+                className="text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
               >
                 Terms of Service
               </Link>

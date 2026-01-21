@@ -65,7 +65,7 @@ export default function StatsPremium() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Trusted by Industry Leaders
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 max-w-3xl mx-auto">
             Delivering exceptional results that drive business transformation
           </p>
         </motion.div>
@@ -81,12 +81,12 @@ export default function StatsPremium() {
               className="text-center"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl" />
-                <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
-                  <div className="text-5xl md:text-6xl font-bold text-white mb-2">
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 rounded-2xl blur-xl" />
+                <div className="relative card shadow-lg p-8 hover:scale-105 transition-all duration-300">
+                  <div className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] mb-2">
                     <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-gray-300 font-medium">{stat.label}</div>
+                  <div className="text-[var(--text-primary)] font-medium">{stat.label}</div>
                 </div>
               </div>
             </motion.div>

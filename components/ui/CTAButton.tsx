@@ -42,15 +42,13 @@ export function CTAButton({
   };
 
   const variantClasses = {
-    primary: colors.primaryBtn,
-    secondary: "bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10",
-    outline: `${colors.secondaryBtn} border`,
+    primary: "bg-[var(--color-accent)] text-white hover:bg-[var(--link-hover)] shadow-lg",
+    secondary: "bg-[var(--color-primary)] text-white hover:bg-[#134E7C] border border-[var(--color-accent)]/30 shadow-md",
+    outline: "bg-transparent text-[var(--color-accent)] border-2 border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white",
   };
 
   const baseClasses = "rounded-lg font-semibold transition-all duration-300 inline-flex items-center gap-2";
-  const hoverClasses = variant === "primary" 
-    ? "hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/30" 
-    : "hover:scale-105";
+  const hoverClasses = "hover:scale-105 hover:shadow-xl";
 
   const fullClassName = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${hoverClasses} ${className}`;
 

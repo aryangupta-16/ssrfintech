@@ -70,14 +70,14 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
             >
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-emerald-500/20 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
+                className="px-8 py-4 bg-[var(--color-accent)] text-white rounded-xl font-semibold hover:shadow-xl hover:bg-[var(--link-hover)] transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
               >
                 Discuss Your Needs
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/case-studies"
-                className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300"
+                className="px-8 py-4 bg-[var(--color-primary)] text-white border-2 border-[var(--color-accent)]/30 rounded-xl font-semibold hover:bg-[#134E7C] hover:border-[var(--color-accent)] transition-all duration-300"
               >
                 View Success Stories
               </Link>
@@ -210,7 +210,7 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
                 className="relative group"
               >
                 <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
-                <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl text-center">
+                <div className="relative p-8 card shadow-md rounded-2xl text-center hover:scale-105 transition-all duration-300">
                   <div className={`text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
                     {stat.value}
                   </div>

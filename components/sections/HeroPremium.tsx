@@ -44,7 +44,7 @@ export default function Hero() {
               className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
             >
               Transform Your{" "}
-              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Financial Future</span> with
+              <span className="text-[var(--color-accent)]">Financial Future</span> with
               Technology
             </motion.h1>
 
@@ -52,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-xl text-gray-300 mb-8 max-w-2xl"
+              className="text-xl text-white/90 mb-8 max-w-2xl"
             >
               Empowering financial institutions with innovative technology
               solutions, cutting-edge security, and seamless digital
@@ -94,7 +94,7 @@ export default function Hero() {
                   <div className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className="text-sm text-white/70">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -112,14 +112,14 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -20, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-10 w-64 h-40 rounded-2xl gradient-primary shadow-premium-lg p-6"
+                className="absolute top-10 right-10 w-64 h-40 rounded-2xl bg-[var(--color-primary)] shadow-premium-lg p-6 border-2 border-[var(--color-accent)]/30"
               >
                 <div className="text-white">
                   <div className="text-sm font-semibold mb-2">
                     Digital Banking
                   </div>
                   <div className="text-3xl font-bold mb-1">$2.5M</div>
-                  <div className="text-sm opacity-80">Cost Savings</div>
+                  <div className="text-sm opacity-90">Cost Savings</div>
                 </div>
               </motion.div>
 
@@ -131,14 +131,14 @@ export default function Hero() {
                   ease: "easeInOut",
                   delay: 1,
                 }}
-                className="absolute top-40 left-10 w-64 h-40 rounded-2xl gradient-accent shadow-premium-lg p-6"
+                className="absolute top-40 left-10 w-64 h-40 rounded-2xl bg-[var(--color-accent)] shadow-premium-lg p-6 border-2 border-white/20"
               >
                 <div className="text-white">
                   <div className="text-sm font-semibold mb-2">
                     AI Analytics
                   </div>
                   <div className="text-3xl font-bold mb-1">85%</div>
-                  <div className="text-sm opacity-80">Fraud Reduction</div>
+                  <div className="text-sm opacity-90">Fraud Reduction</div>
                 </div>
               </motion.div>
 
@@ -150,14 +150,14 @@ export default function Hero() {
                   ease: "easeInOut",
                   delay: 0.5,
                 }}
-                className="absolute bottom-20 right-20 w-64 h-40 rounded-2xl gradient-secondary shadow-premium-lg p-6"
+                className="absolute bottom-20 right-20 w-64 h-40 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] shadow-premium-lg p-6 border-2 border-white/20"
               >
                 <div className="text-white">
                   <div className="text-sm font-semibold mb-2">
                     Cloud Migration
                   </div>
                   <div className="text-3xl font-bold mb-1">60%</div>
-                  <div className="text-sm opacity-80">Faster Deployment</div>
+                  <div className="text-sm opacity-90">Faster Deployment</div>
                 </div>
               </motion.div>
             </div>

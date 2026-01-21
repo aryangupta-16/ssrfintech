@@ -59,7 +59,7 @@ export default function HowWeWorkPage() {
                 >
                   <Card className={`${components.card} h-full hover:scale-105 transition-all duration-300 group`}>
                     <CardHeader>
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                      <div className="w-16 h-16 rounded-xl icon-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <CardTitle className={`${typography.h4} ${colors.heading} mb-2`}>
@@ -72,14 +72,14 @@ export default function HowWeWorkPage() {
 
                     <CardContent className="space-y-6">
                       {/* Pricing */}
-                      <div className="p-4 rounded-lg bg-gradient-to-br from-indigo-600/10 to-purple-600/10 border border-indigo-500/20">
+                      <div className="p-4 rounded-lg bg-[var(--color-accent)]/5 border border-[var(--color-accent)]/20">
                         <div className="flex items-start gap-3">
-                          <DollarSign className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
+                          <DollarSign className="w-5 h-5 text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
                           <div>
-                            <div className="text-sm font-semibold text-indigo-400 mb-1">
+                            <div className="text-sm font-semibold text-[var(--color-accent)] mb-1">
                               Pricing
                             </div>
-                            <div className="text-sm text-gray-300">
+                            <div className="text-sm text-[var(--text-primary)]">
                               {model.pricing}
                             </div>
                           </div>
@@ -88,12 +88,12 @@ export default function HowWeWorkPage() {
 
                       {/* Duration */}
                       <div className="flex items-start gap-3">
-                        <Clock className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <Clock className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0 mt-0.5" />
                         <div>
-                          <div className="text-sm font-semibold text-purple-400 mb-1">
+                          <div className="text-sm font-semibold text-[var(--color-primary)] mb-1">
                             Typical Duration
                           </div>
-                          <div className="text-sm text-gray-300">
+                          <div className="text-sm text-[var(--text-primary)]">
                             {model.typicalDuration}
                           </div>
                         </div>
@@ -101,13 +101,13 @@ export default function HowWeWorkPage() {
 
                       {/* Best For */}
                       <div>
-                        <div className="text-sm font-semibold text-white mb-3">
+                        <div className="text-sm font-semibold text-[var(--text-primary)] mb-3">
                           Best For:
                         </div>
                         <div className="space-y-2">
                           {model.bestFor.map((item, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-300">
-                              <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                            <div key={idx} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+                              <CheckCircle2 className="w-4 h-4 text-[var(--color-success)] flex-shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </div>
                           ))}
@@ -116,13 +116,13 @@ export default function HowWeWorkPage() {
 
                       {/* What You Get */}
                       <div>
-                        <div className="text-sm font-semibold text-white mb-3">
+                        <div className="text-sm font-semibold text-[var(--text-primary)] mb-3">
                           What You Get:
                         </div>
                         <div className="space-y-2">
                           {model.whatYouGet.map((item, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-300">
-                              <CheckCircle2 className="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
+                            <div key={idx} className="flex items-start gap-2 text-sm text-[var(--text-secondary)]">
+                              <CheckCircle2 className="w-4 h-4 text-[var(--color-accent)] flex-shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </div>
                           ))}

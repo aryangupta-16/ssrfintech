@@ -153,7 +153,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                 className="group relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
+                <div className="relative p-8 card shadow-md rounded-2xl hover:scale-105 transition-all duration-300">
                   <CheckCircle2 className="w-8 h-8 text-blue-400 mb-4" />
                   <p className="text-white text-lg">{feature}</p>
                 </div>
