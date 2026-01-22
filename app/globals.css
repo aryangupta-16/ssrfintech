@@ -82,6 +82,42 @@ p {
   margin-bottom: 1rem;
 }
 
+/* Dark background overrides - more specific to avoid conflicts */
+.dark-bg h1,
+.dark-bg h2,
+.dark-bg h3,
+.dark-bg h4,
+.dark-bg h5,
+.dark-bg h6,
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6 {
+  color: var(--text-inverse);
+}
+
+.dark-bg p,
+footer p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Only apply to sections with specific dark background classes that don't already have text-white */
+section[class*="bg-slate"]:not([class*="text-white"]) h1:not([class*="text-white"]),
+section[class*="bg-slate"]:not([class*="text-white"]) h2:not([class*="text-white"]),
+section[class*="bg-slate"]:not([class*="text-white"]) h3:not([class*="text-white"]),
+section[class*="bg-slate"]:not([class*="text-white"]) h4:not([class*="text-white"]),
+section[class*="bg-slate"]:not([class*="text-white"]) h5:not([class*="text-white"]),
+section[class*="bg-slate"]:not([class*="text-white"]) h6:not([class*="text-white"]) {
+  color: var(--text-inverse);
+}
+
+section[class*="bg-slate"]:not([class*="text-white"]) p:not([class*="text-white"]),
+section[class*="bg-slate"]:not([class*="text-white"]) li:not([class*="text-white"]) {
+  color: rgba(255, 255, 255, 0.85);
+}
+
 a {
   transition: color 0.3s ease;
   text-decoration: none;
@@ -116,9 +152,9 @@ footer {
   border-top: 1px solid var(--border-color);
 }
 
-footer a {
+/* footer a {
   color: var(--color-accent);
-}
+} */
 
 footer a:hover {
   color: var(--link-hover);

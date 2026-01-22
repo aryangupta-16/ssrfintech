@@ -72,7 +72,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-600 mb-2">
                       Name *
                     </label>
                     <Input
@@ -86,7 +86,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
                       Email *
                     </label>
                     <Input
@@ -104,7 +104,7 @@ export default function ContactPage() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-600 mb-2">
                       Company
                     </label>
                     <Input
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-600 mb-2">
                       Phone
                     </label>
                     <Input
@@ -133,7 +133,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-2">
                     Message *
                   </label>
                   <Textarea
@@ -175,7 +175,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <CardTitle className="text-lg mb-2 text-white">Visit Us</CardTitle>
-                      <p className="text-gray-300">
+                      <p className="text-gray-600">
                         123 Business Park, Mumbai,
                         <br />
                         Maharashtra 400001, India
@@ -193,7 +193,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <CardTitle className="text-lg mb-2 text-white">Call Us</CardTitle>
-                      <p className="text-gray-300">
+                      <p className="text-gray-600">
                         <a href="tel:+911234567890" className="hover:text-indigo-400">
                           +91 123 456 7890
                         </a>
@@ -214,7 +214,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <CardTitle className="text-lg mb-2 text-white">Email Us</CardTitle>
-                      <p className="text-gray-300">
+                      <p className="text-gray-600">
                         <a href="mailto:info@ssrfintech.com" className="hover:text-indigo-400">
                           info@ssrfintech.com
                         </a>
@@ -230,7 +230,7 @@ export default function ContactPage() {
               <Card className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-indigo-500/20 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-white mb-2">Office Hours</h3>
-                  <div className="space-y-1 text-sm text-gray-300">
+                  <div className="space-y-1 text-sm text-gray-600">
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p>Saturday: 10:00 AM - 2:00 PM</p>
                     <p>Sunday: Closed</p>

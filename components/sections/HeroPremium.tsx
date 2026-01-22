@@ -8,12 +8,12 @@ import Container from "@/components/ui/Container";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-slate-50 to-slate-100">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600 rounded-full mix-blend-lighten filter blur-3xl opacity-20 animate-blob" />
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-lighten filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-600 rounded-full mix-blend-lighten filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-[var(--color-primary)] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000" />
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-[var(--color-accent)] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000" />
       </div>
 
       <Container className="relative z-10 py-20">
@@ -29,10 +29,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-sm border border-indigo-500/20 shadow-lg mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-accent)]/10 backdrop-blur-sm border border-[var(--color-accent)]/20 shadow-lg mb-6"
             >
-              <Sparkles className="w-4 h-4 text-indigo-400" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <Sparkles className="w-4 h-4 text-[var(--color-accent)]" />
+              <span className="text-sm font-semibold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
                 Leading Fintech Solutions Provider
               </span>
             </motion.div>
@@ -41,7 +41,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-[var(--color-primary)]"
             >
               Transform Your{" "}
               <span className="text-[var(--color-accent)]">Financial Future</span> with
@@ -52,7 +52,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-xl text-white/90 mb-8 max-w-2xl"
+              className="text-xl text-[var(--text-secondary)] mb-8 max-w-2xl"
             >
               Empowering financial institutions with innovative technology
               solutions, cutting-edge security, and seamless digital
@@ -91,10 +91,10 @@ export default function Hero() {
                 { value: "98%", label: "Satisfaction" },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-1">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-white/70">{stat.label}</div>
+                  <div className="text-sm text-[var(--text-secondary)]">{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -175,9 +175,9 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-indigo-400/50 rounded-full flex items-start justify-center p-2"
+          className="w-6 h-10 border-2 border-[var(--color-primary)]/50 rounded-full flex items-start justify-center p-2"
         >
-          <motion.div className="w-1 h-2 bg-indigo-400 rounded-full" />
+          <motion.div className="w-1 h-2 bg-[var(--color-primary)] rounded-full" />
         </motion.div>
       </motion.div>
     </section>

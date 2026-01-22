@@ -124,15 +124,15 @@ export default function ProductsPage() {
             <div className="grid md:grid-cols-3 gap-8">
               <div>
                 <div className="text-4xl font-bold text-indigo-400 mb-2">30+</div>
-                <p className="text-gray-300">Planning, Budgeting & Reporting Solutions Implemented</p>
+                <p className="text-gray-600">Planning, Budgeting & Reporting Solutions Implemented</p>
               </div>
               <div>
                 <div className="text-4xl font-bold text-purple-400 mb-2">20+</div>
-                <p className="text-gray-300">Consolidation Solutions Delivered</p>
+                <p className="text-gray-600">Consolidation Solutions Delivered</p>
               </div>
               <div>
                 <div className="text-4xl font-bold text-indigo-400 mb-2">7+</div>
-                <p className="text-gray-300">Migration Projects (BPC to SAC & GR)</p>
+                <p className="text-gray-600">Migration Projects (BPC to SAC & GR)</p>
               </div>
             </div>
           </motion.div>
@@ -151,7 +151,7 @@ export default function ProductsPage() {
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Transform Your Enterprise?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               Let's discuss how our SAP solutions can drive your digital transformation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

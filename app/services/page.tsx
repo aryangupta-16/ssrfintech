@@ -83,7 +83,7 @@ export default function ServicesPage() {
                       <CardContent>
                         <div className="space-y-2 mb-6">
                           {service.features.slice(0, 3).map((feature, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
                               <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                               <span>{feature}</span>
                             </div>
@@ -142,7 +142,7 @@ export default function ServicesPage() {
                       <CardContent>
                         <div className="space-y-2 mb-6">
                           {service.features.slice(0, 2).map((feature, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
                               <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                               <span>{feature}</span>
                             </div>
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                         </p>
                         <div className="space-y-2 mb-6">
                           {service.features.slice(0, 4).map((feature, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
                               <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                               <span>{feature}</span>
                             </div>

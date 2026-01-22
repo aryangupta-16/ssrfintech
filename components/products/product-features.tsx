@@ -79,7 +79,7 @@ export function ProductFeatures({ features, benefits }: ProductFeaturesProps) {
                 className="flex items-start space-x-3 bg-gradient-to-br from-slate-800/30 to-slate-900/30 border border-slate-700 rounded-lg p-4 hover:border-indigo-500/30 transition-all"
               >
                 <CheckCircle2 className="w-6 h-6 text-indigo-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">{benefit}</span>
+                <span className="text-gray-600">{benefit}</span>
               </motion.div>
             ))}
           </div>

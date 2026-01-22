@@ -155,15 +155,15 @@ export default function CareersPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-4 mb-4">
-                      <div className="flex items-center text-sm text-gray-300">
+                      <div className="flex items-center text-sm text-gray-600">
                         <Briefcase className="w-4 h-4 mr-2" />
                         {job.department}
                       </div>
-                      <div className="flex items-center text-sm text-gray-300">
+                      <div className="flex items-center text-sm text-gray-600">
                         <MapPin className="w-4 h-4 mr-2" />
                         {job.location}
                       </div>
-                      <div className="flex items-center text-sm text-gray-300">
+                      <div className="flex items-center text-sm text-gray-600">
                         <Clock className="w-4 h-4 mr-2" />
                         {job.type}
                       </div>
@@ -176,7 +176,7 @@ export default function CareersPage() {
                         </h4>
                         <ul className="space-y-1">
                           {job.requirements.slice(0, 3).map((req, idx) => (
-                            <li key={idx} className="text-sm text-gray-300 flex items-start">
+                            <li key={idx} className="text-sm text-gray-600 flex items-start">
                               <span className="text-indigo-400 mr-2">•</span>
                               {req}
                             </li>
@@ -190,7 +190,7 @@ export default function CareersPage() {
                         </h4>
                         <ul className="space-y-1">
                           {job.responsibilities.slice(0, 3).map((resp, idx) => (
-                            <li key={idx} className="text-sm text-gray-300 flex items-start">
+                            <li key={idx} className="text-sm text-gray-600 flex items-start">
                               <span className="text-indigo-400 mr-2">•</span>
                               {resp}
                             </li>
@@ -231,7 +231,7 @@ export default function CareersPage() {
               <h3 className="font-semibold text-white mb-2">
                 Competitive Salary
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-gray-600">
                 Industry-leading compensation packages
               </p>
             </motion.div>
@@ -247,7 +247,7 @@ export default function CareersPage() {
                 <span className="text-3xl">🏥</span>
               </div>
               <h3 className="font-semibold text-white mb-2">Health Insurance</h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-gray-600">
                 Comprehensive medical coverage for you and family
               </p>
             </motion.div>
@@ -263,7 +263,7 @@ export default function CareersPage() {
                 <span className="text-3xl">🏖️</span>
               </div>
               <h3 className="font-semibold text-white mb-2">Flexible Time Off</h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-gray-600">
                 Generous vacation and personal time policies
               </p>
             </motion.div>
@@ -281,7 +281,7 @@ export default function CareersPage() {
               <h3 className="font-semibold text-white mb-2">
                 Learning Budget
               </h3>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-gray-600">
                 Annual budget for courses and certifications
               </p>
             </motion.div>
@@ -299,7 +299,7 @@ export default function CareersPage() {
             className="max-w-4xl mx-auto text-center bg-gradient-to-r from-indigo-600/20 to-purple-600/20 border border-indigo-500/20 rounded-2xl p-12 backdrop-blur-sm"
           >
             <h2 className="text-4xl font-bold text-white mb-4">Don't See the Right Role?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Send us your resume anyway. We're always looking for talented individuals
               to join our team.
             </p>

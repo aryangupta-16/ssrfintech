@@ -139,10 +139,10 @@ export default function InsightDetailPage({ params }: { params: Promise<{ slug: 
                     prose-h1:text-4xl prose-h1:mb-6
                     prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
                     prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                    prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
+                    prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-6
                     prose-strong:text-indigo-400 prose-strong:font-semibold
                     prose-a:text-indigo-400 prose-a:no-underline hover:prose-a:underline
-                    prose-ul:text-gray-300 prose-ul:my-6
+                    prose-ul:text-gray-600 prose-ul:my-6
                     prose-li:mb-2
                     prose-code:text-indigo-400 prose-code:bg-indigo-950/50 prose-code:px-2 prose-code:py-1 prose-code:rounded
                   "

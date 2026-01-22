@@ -65,7 +65,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-2xl mx-auto text-center">
             <h1 className="text-4xl font-bold text-white mb-4">Job Not Found</h1>
-            <p className="text-gray-300 mb-8">The job position you're looking for doesn't exist.</p>
+            <p className="text-gray-600 mb-8">The job position you're looking for doesn't exist.</p>
             <Link href="/careers">
               <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
                 Back to Careers
@@ -90,7 +90,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
               <CheckCircle2 className="w-12 h-12 text-green-400" />
             </div>
             <h1 className="text-4xl font-bold text-white mb-4">Application Submitted!</h1>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               Thank you for applying for the <span className="text-indigo-400">{job.title}</span> position.
               We'll review your application and get back to you soon.
             </p>
@@ -127,7 +127,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                 <p className="text-gray-400">{job.department} • {job.location} • {job.type}</p>
               </div>
             </div>
-            <p className="text-gray-300 text-lg">{job.description}</p>
+            <p className="text-gray-600 text-lg">{job.description}</p>
           </motion.div>
         </div>
       </section>
@@ -152,7 +152,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="fullName" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="fullName" className="block text-sm font-medium text-gray-600 mb-2">
                           Full Name *
                         </label>
                         <Input
@@ -167,7 +167,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                       </div>
                       
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
                           Email Address *
                         </label>
                         <Input
@@ -185,7 +185,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-600 mb-2">
                           Phone Number *
                         </label>
                         <Input
@@ -201,7 +201,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                       </div>
                       
                       <div>
-                        <label htmlFor="location" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="location" className="block text-sm font-medium text-gray-600 mb-2">
                           Current Location *
                         </label>
                         <Input
@@ -226,7 +226,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="linkedin" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="linkedin" className="block text-sm font-medium text-gray-600 mb-2">
                           LinkedIn Profile
                         </label>
                         <Input
@@ -241,7 +241,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                       </div>
                       
                       <div>
-                        <label htmlFor="portfolio" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="portfolio" className="block text-sm font-medium text-gray-600 mb-2">
                           Portfolio Website
                         </label>
                         <Input
@@ -257,7 +257,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </div>
 
                     <div>
-                      <label htmlFor="github" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="github" className="block text-sm font-medium text-gray-600 mb-2">
                         GitHub Profile
                       </label>
                       <Input
@@ -281,7 +281,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="experience" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="experience" className="block text-sm font-medium text-gray-600 mb-2">
                           Years of Experience *
                         </label>
                         <Input
@@ -296,7 +296,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                       </div>
                       
                       <div>
-                        <label htmlFor="currentCompany" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="currentCompany" className="block text-sm font-medium text-gray-600 mb-2">
                           Current/Last Company *
                         </label>
                         <Input
@@ -313,7 +313,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="currentRole" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="currentRole" className="block text-sm font-medium text-gray-600 mb-2">
                           Current/Last Role *
                         </label>
                         <Input
@@ -328,7 +328,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                       </div>
                       
                       <div>
-                        <label htmlFor="noticePeriod" className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="noticePeriod" className="block text-sm font-medium text-gray-600 mb-2">
                           Notice Period *
                         </label>
                         <select
@@ -350,7 +350,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </div>
 
                     <div>
-                      <label htmlFor="expectedSalary" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="expectedSalary" className="block text-sm font-medium text-gray-600 mb-2">
                         Expected Salary (Annual) *
                       </label>
                       <Input
@@ -373,7 +373,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </h3>
                     
                     <div>
-                      <label htmlFor="resume" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="resume" className="block text-sm font-medium text-gray-600 mb-2">
                         Upload Resume/CV * (PDF, DOC, DOCX - Max 5MB)
                       </label>
                       <div className="relative">
@@ -405,7 +405,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </h3>
                     
                     <div>
-                      <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-600 mb-2">
                         Cover Letter
                       </label>
                       <Textarea
@@ -420,7 +420,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </div>
 
                     <div>
-                      <label htmlFor="whyJoin" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="whyJoin" className="block text-sm font-medium text-gray-600 mb-2">
                         Why do you want to join SSR Fintech? *
                       </label>
                       <Textarea
@@ -436,7 +436,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </div>
 
                     <div>
-                      <label htmlFor="availability" className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="availability" className="block text-sm font-medium text-gray-600 mb-2">
                         When can you start? *
                       </label>
                       <Input

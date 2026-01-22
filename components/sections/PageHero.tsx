@@ -73,7 +73,7 @@ export function PageHero({
           {/* Icon */}
           {icon && (
             <motion.div variants={fadeInUp} className="flex justify-center mb-6">
-              <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center text-white shadow-2xl`}>
+              <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center !text-white shadow-2xl`}>
                 {icon}
               </div>
             </motion.div>
@@ -82,7 +82,7 @@ export function PageHero({
           {/* Title */}
           <motion.h1
             variants={fadeInUp}
-            className={`${typography.h1} mb-6 text-[var(--color-accent)] font-bold`}
+            className={`${typography.h1} mb-6 !text-[var(--color-accent)] font-bold`}
           >
             {title}
           </motion.h1>
@@ -90,7 +90,7 @@ export function PageHero({
           {/* Description */}
           <motion.p
             variants={fadeInUp}
-            className={`${typography.lead} text-white`}
+            className={`${typography.lead} !text-white`}
           >
             {description}
           </motion.p>

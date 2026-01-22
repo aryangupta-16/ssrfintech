@@ -41,7 +41,7 @@ export function ProductHero({ title, description, icon }: ProductHeroProps) {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {title}
           </h1>
-          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
             {description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

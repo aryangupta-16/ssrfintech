@@ -92,7 +92,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                   >
                     <div className="flex items-start">
                       <span className="w-2 h-2 bg-indigo-400 rounded-full mt-2 mr-4 flex-shrink-0" />
-                      <span className="text-gray-300 text-lg">{useCase}</span>
+                      <span className="text-gray-600 text-lg">{useCase}</span>
                     </div>
                   </motion.div>
                 ))}
@@ -114,7 +114,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             <h2 className="text-4xl font-bold text-white mb-6">
               Ready to Get Started with {product.title}?
             </h2>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-600 mb-8">
               Schedule a personalized demo and discover how {product.title} can transform your business
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
