@@ -1,0 +1,185 @@
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Flexbox Utilities */
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flexBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flexStart {
+  display: flex;
+  align-items: flex-start;
+}
+
+.flexCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid Utilities */
+.grid {
+  display: grid;
+}
+
+.gridCols2 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.gridCols3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .gridCols2,
+  .gridCols3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Text Utilities */
+.textCenter {
+  text-align: center;
+}
+
+.textPrimary {
+  color: var(--text-primary);
+}
+
+.textSecondary {
+  color: var(--text-secondary);
+}
+
+.textMuted {
+  color: var(--text-muted);
+}
+
+.textInverse {
+  color: var(--text-inverse);
+}
+
+.textAccent {
+  color: var(--color-accent);
+}
+
+/* Spacing Utilities */
+.mt1 { margin-top: var(--space-md); }
+.mt2 { margin-top: var(--space-lg); }
+.mt3 { margin-top: var(--space-xl); }
+.mt4 { margin-top: var(--space-2xl); }
+
+.mb1 { margin-bottom: var(--space-md); }
+.mb2 { margin-bottom: var(--space-lg); }
+.mb3 { margin-bottom: var(--space-xl); }
+.mb4 { margin-bottom: var(--space-2xl); }
+
+.py1 { 
+  padding-top: var(--space-md); 
+  padding-bottom: var(--space-md);
+}
+
+.py2 { 
+  padding-top: var(--space-lg); 
+  padding-bottom: var(--space-lg);
+}
+
+.py3 { 
+  padding-top: var(--space-xl); 
+  padding-bottom: var(--space-xl);
+}
+
+.py4 { 
+  padding-top: var(--space-2xl); 
+  padding-bottom: var(--space-2xl);
+}
+
+/* Section Spacing */
+.section {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--space-4xl);
+    padding-bottom: var(--space-4xl);
+  }
+}
+
+/* Background Utilities */
+.bgPrimary {
+  background-color: var(--color-primary);
+}
+
+.bgAccent {
+  background-color: var(--color-accent);
+}
+
+.bgSection {
+  background-color: var(--bg-section);
+}
+
+.bgDark {
+  background: linear-gradient(135deg, var(--bg-slate-800) 0%, var(--bg-slate-900) 100%);
+}
+
+/* Shadow Utilities */
+.shadowSm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadowMd {
+  box-shadow: var(--shadow-md);
+}
+
+.shadowLg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Border Utilities */
+.border {
+  border: 1px solid var(--border-color);
+}
+
+.borderRadius {
+  border-radius: var(--radius-lg);
+}
+
+/* Transitions */
+.transition {
+  transition: all var(--transition-base) ease;
+}
+
+/* Hidden on mobile */
+@media (max-width: 768px) {
+  .hideMobile {
+    display: none;
+  }
+}
+
+/* Hidden on desktop */
+@media (min-width: 769px) {
+  .hideDesktop {
+    display: none;
+  }
+}

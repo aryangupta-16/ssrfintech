@@ -1,0 +1,53 @@
+/* Card Wrapper */
+.motionWrapper {
+  height: 100%;
+}
+
+/* Base Card */
+.card {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  background-color: white;
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+}
+
+/* Card Variants */
+.gradient {
+  background: linear-gradient(to bottom right, white, var(--bg-section));
+}
+
+.hover:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Card Sub-components */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.title {
+  font-size: var(--font-2xl);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.description {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.content {
+  padding-top: var(--space-lg);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-lg);
+}

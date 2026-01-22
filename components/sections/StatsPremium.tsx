@@ -3,12 +3,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Container from "@/components/ui/Container";
+import styles from "./StatsPremium.module.css";
 
 const stats = [
-  { value: 12, label: "Years of Excellence", suffix: "+" },
+  { value: 15, label: "Years of Excellence", suffix: "+" },
   { value: 200, label: "Projects Delivered", suffix: "+" },
-  { value: 50, label: "Expert Consultants", suffix: "+" },
-  { value: 98, label: "Client Satisfaction", suffix: "%" },
+  { value: 120, label: "Expert Consultants", suffix: "+" },
+  { value: 99.3, label: "Client Satisfaction", suffix: "%" },
 ];
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
@@ -47,30 +48,30 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 
 export default function StatsPremium() {
   return (
-    <section className="py-24 gradient-dark relative overflow-hidden">
+    <section className={styles.stats}>
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse-glow animation-delay-2000" />
+      <div className={styles.background}>
+        <div className={`${styles.glowOrb} ${styles.orb1}`} />
+        <div className={`${styles.glowOrb} ${styles.orb2}`} />
       </div>
 
-      <Container className="relative z-10">
+      <Container className={styles.content}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className={styles.header}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className={styles.title}>
             Trusted by Industry Leaders
           </h2>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <p className={styles.subtitle}>
             Delivering exceptional results that drive business transformation
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className={styles.grid}>
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -78,16 +79,14 @@ export default function StatsPremium() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
+              className={styles.statItem}
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 rounded-2xl blur-xl" />
-                <div className="relative card shadow-lg p-8 hover:scale-105 transition-all duration-300">
-                  <div className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] mb-2">
-                    <AnimatedNumber value={stat.value} suffix={stat.suffix} />
-                  </div>
-                  <div className="text-[var(--text-primary)] font-medium">{stat.label}</div>
-                </div>
+              <div className={styles.cardGlow} />
+              <div className={styles.card}>
+                <span className={styles.statValue}>
+                  <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+                </span>
+                <div className={styles.statLabel}>{stat.label}</div>
               </div>
             </motion.div>
           ))}

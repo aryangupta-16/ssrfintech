@@ -1,0 +1,294 @@
+/* Careers Apply Page */
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.headerSection {
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.jobHeader {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.jobInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.jobIcon {
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, rgb(99, 102, 241), rgb(168, 85, 247));
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.jobDescription {
+  color: rgb(203, 213, 225);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.backButton {
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: rgb(129, 140, 248);
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateX(-4px);
+}
+
+.formSection {
+  padding: 0 0 4rem 0;
+}
+
+.formWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.formCard {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.formTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.formSubtitle {
+  color: rgb(156, 163, 175);
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.successCard {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(59, 130, 246, 0.15));
+  border: 2px solid rgba(34, 197, 94, 0.4);
+  text-align: center;
+  padding: 4rem 3rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(34, 197, 94, 0.2);
+}
+
+.successIcon {
+  width: 5rem;
+  height: 5rem;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(59, 130, 246, 0.3));
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+}
+
+.successTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.successText {
+  font-size: 1.125rem;
+  color: rgb(203, 213, 225);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.successJobTitle {
+  color: rgb(34, 197, 94);
+  font-weight: 600;
+}
+
+.successRedirect {
+  color: rgb(148, 163, 184);
+  font-size: 0.875rem;
+  margin-top: 1.5rem;
+}
+
+.jobTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(to right, white, rgb(129, 140, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.jobMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  color: rgb(148, 163, 184);
+  font-size: 1.125rem;
+}
+
+.label {
+  display: block;
+  font-weight: 500;
+  color: rgb(226, 232, 240);
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgb(99, 102, 241);
+  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.input::placeholder {
+  color: rgb(100, 116, 139);
+}
+
+.submitSection {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.disclaimerText {
+  text-align: center;
+  color: rgb(148, 163, 184);
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgb(99, 102, 241), rgb(168, 85, 247));
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, rgb(79, 70, 229), rgb(147, 51, 234));
+}
+
+.notFoundCard {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.notFoundTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.notFoundText {
+  color: rgb(148, 163, 184);
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.notFoundButton {
+  background: linear-gradient(135deg, rgb(99, 102, 241), rgb(168, 85, 247));
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+.notFoundButton:hover {
+  background: linear-gradient(135deg, rgb(79, 70, 229), rgb(147, 51, 234));
+}

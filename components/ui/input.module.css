@@ -1,0 +1,30 @@
+/* Base Input */
+.input {
+  display: flex;
+  height: 44px;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background-color: white;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: var(--font-sm);
+  transition: all var(--transition-base);
+  color: var(--text-primary);
+}
+
+.input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(29, 181, 163, 0.1);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--bg-section);
+}

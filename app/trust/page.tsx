@@ -7,7 +7,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CTAButtons } from "@/components/ui/CTAButton";
 import { complianceFrameworks, securityPractices, privacyPractices, incidentResponse } from "@/data/compliance";
 import { Shield, Lock, ShieldCheck, Code, Eye, Users, GraduationCap, FileCheck, AlertTriangle } from "lucide-react";
-import { colors, components, typography, spacing } from "@/lib/design-tokens";
 
 export default function TrustPage() {
   const iconMap: Record<string, any> = {
@@ -33,18 +32,18 @@ export default function TrustPage() {
       />
 
       {/* Security Practices */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className="text-4xl font-bold text-white mb-4">
               Our Security Practices
             </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <p className="text-xl text-slate-300">
               Enterprise-grade security measures protecting your most sensitive data
             </p>
           </motion.div>
@@ -60,15 +59,15 @@ export default function TrustPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className={`${components.card} h-full hover:scale-105 transition-all duration-300 group`}>
+                  <Card className="h-full hover:scale-105 transition-all duration-300 group">
                     <CardHeader>
                       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
-                      <CardTitle className={`${typography.h5} ${colors.heading} mb-2`}>
+                      <CardTitle className="text-xl font-bold text-white mb-2">
                         {practice.title}
                       </CardTitle>
-                      <CardDescription className={colors.subheading}>
+                      <CardDescription className="text-slate-300">
                         {practice.description}
                       </CardDescription>
                     </CardHeader>
@@ -81,9 +80,9 @@ export default function TrustPage() {
       </section>
 
       {/* Compliance Frameworks */}
-      <section className={`${spacing.section} relative`}>
+      <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10" />
-        <div className={`${spacing.container} relative z-10`}>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -91,10 +90,10 @@ export default function TrustPage() {
             className="text-center mb-16"
           >
             <FileCheck className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className="text-4xl font-bold text-white mb-4">
               Compliance Frameworks
             </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <p className="text-xl text-slate-300">
               We align with international standards and regulatory requirements
             </p>
           </motion.div>
@@ -108,12 +107,12 @@ export default function TrustPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className={components.card}>
+                <Card>
                   <CardContent className="p-6">
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-600/20 to-purple-600/20 flex items-center justify-center mb-4 border border-indigo-500/20">
                       <FileCheck className="w-6 h-6 text-indigo-400" />
                     </div>
-                    <h3 className={`${typography.h5} ${colors.heading} mb-2`}>
+                    <h3 className="text-xl font-bold text-white mb-2">
                       {framework.name}
                     </h3>
                     <p className="text-sm text-gray-400 mb-4">
@@ -138,18 +137,18 @@ export default function TrustPage() {
       </section>
 
       {/* Privacy Practices */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className="text-4xl font-bold text-white mb-4">
               {privacyPractices.title}
             </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <p className="text-xl text-slate-300">
               Your data privacy is our top priority
             </p>
           </motion.div>
@@ -163,9 +162,9 @@ export default function TrustPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className={components.card}>
+                <Card>
                   <CardContent className="p-6">
-                    <h3 className={`${typography.h6} ${colors.heading} mb-2`}>
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       {item.principle}
                     </h3>
                     <p className="text-sm text-gray-400">
@@ -180,26 +179,26 @@ export default function TrustPage() {
       </section>
 
       {/* Incident Response */}
-      <section className={`${spacing.section} relative`}>
+      <section className="py-20 relative">
         <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-orange-600/10" />
-        <div className={`${spacing.container} relative z-10`}>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className={components.card}>
+            <Card>
               <CardHeader>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
                     <AlertTriangle className="w-7 h-7 text-white" />
                   </div>
                   <div>
-                    <CardTitle className={`${typography.h3} ${colors.heading}`}>
+                    <CardTitle className="text-3xl font-bold text-white">
                       {incidentResponse.title}
                     </CardTitle>
-                    <CardDescription className={colors.subheading}>
+                    <CardDescription className="text-slate-300">
                       {incidentResponse.description}
                     </CardDescription>
                   </div>
@@ -216,7 +215,7 @@ export default function TrustPage() {
                           </span>
                         </div>
                         <div>
-                          <h4 className={`${typography.h6} ${colors.heading} mb-1`}>
+                          <h4 className="text-lg font-semibold text-white mb-1">
                             {phase.phase}
                           </h4>
                           <p className="text-sm text-gray-400 mb-3">
@@ -252,8 +251,8 @@ export default function TrustPage() {
       </section>
 
       {/* NDA Culture */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -261,14 +260,14 @@ export default function TrustPage() {
             className="max-w-3xl mx-auto text-center"
           >
             <Lock className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className="text-4xl font-bold text-white mb-4">
               NDA & Confidentiality Culture
             </h2>
-            <p className={`${typography.bodyLg} ${colors.subheading} mb-6`}>
+            <p className="text-lg text-slate-300 mb-6">
               Every team member signs comprehensive NDAs before accessing client data. 
               We maintain strict information barriers between clients and projects.
             </p>
-            <p className={`${typography.body} ${colors.subheading}`}>
+            <p className="text-base text-slate-300">
               Your intellectual property, business strategies, and sensitive data remain strictly confidential. 
               We can provide custom NDAs tailored to your specific requirements.
             </p>
@@ -277,18 +276,18 @@ export default function TrustPage() {
       </section>
 
       {/* CTA Section */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className="text-4xl font-bold text-white mb-4">
               Need More Information?
             </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading} mb-8`}>
+            <p className="text-xl text-slate-300 mb-8">
               Request our comprehensive security documentation or speak with our compliance team
             </p>
             <div className="flex flex-wrap justify-center gap-4">

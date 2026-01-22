@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CTAButtons } from "@/components/ui/CTAButton";
 import { industries } from "@/data/industries";
 import { ArrowRight, Building2, CheckCircle2 } from "lucide-react";
-import { colors, components, typography, spacing } from "@/lib/design-tokens";
+import styles from "./industries.module.css";
 
 export default function IndustriesPage() {
   // Industry images mapping
@@ -40,9 +40,9 @@ export default function IndustriesPage() {
       />
 
       {/* Industries Grid */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.industriesGrid}>
             {industries.map((industry, index) => (
               <motion.div
                 key={industry.id}
@@ -52,53 +52,53 @@ export default function IndustriesPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link href={`/industries/${industry.slug}`}>
-                  <Card className={`${components.card} h-full hover:scale-105 transition-all duration-300 group overflow-hidden`}>
+                  <Card className={styles.industryCard}>
                     {/* Image Header */}
-                    <div className="relative h-48 w-full overflow-hidden">
+                    <div className={styles.industryImageWrapper}>
                       <Image
                         src={industryImages[index]}
                         alt={industry.title}
                         fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        className={styles.industryImage}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                      <div className="absolute top-4 right-4 w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-600/80 to-purple-600/80 backdrop-blur-sm flex items-center justify-center text-white font-bold text-lg border border-white/20">
+                      <div className={styles.industryImageOverlay} />
+                      <div className={styles.industryNumberBadge}>
                         {String(index + 1).padStart(2, '0')}
                       </div>
                     </div>
 
                     <CardHeader>
-                      <CardTitle className={`${typography.h5} ${colors.heading} mb-2 group-hover:text-indigo-400 transition-colors`}>
+                      <CardTitle className={styles.industryTitle}>
                         {industry.title}
                       </CardTitle>
-                      <CardDescription className={colors.subheading}>
+                      <CardDescription className={styles.industryDescription}>
                         {industry.description}
                       </CardDescription>
                     </CardHeader>
 
                     <CardContent>
                       {/* Challenges Preview */}
-                      <div className="mb-6">
-                        <div className="text-sm font-semibold text-indigo-400 mb-3">
+                      <div className={styles.challengesSection}>
+                        <div className={styles.challengesTitle}>
                           Key Challenges We Solve:
                         </div>
-                        <div className="space-y-2">
+                        <div className={styles.challengesList}>
                           {industry.challenges.slice(0, 3).map((challenge, idx) => (
-                            <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                              <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0" />
-                              <span className="line-clamp-1">{challenge}</span>
+                            <div key={idx} className={styles.challengeItem}>
+                              <div className={styles.challengeBullet} />
+                              <span className={styles.challengeText}>{challenge}</span>
                             </div>
                           ))}
                         </div>
                       </div>
 
                       {/* Divider */}
-                      <div className="h-px bg-gradient-to-r from-indigo-500/0 via-indigo-500/50 to-indigo-500/0 mb-4" />
+                      <div className={styles.gradientDivider} />
 
                       {/* CTA */}
-                      <div className="flex items-center text-indigo-400 font-semibold group-hover:translate-x-2 transition-transform">
+                      <div className={styles.industryCTA}>
                         Explore Solutions
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight className={styles.ctaArrow} />
                       </div>
                     </CardContent>
                   </Card>
@@ -110,24 +110,24 @@ export default function IndustriesPage() {
       </section>
 
       {/* Stats Section */}
-      <section className={`${spacing.section} relative`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10" />
-        <div className={`${spacing.container} relative z-10`}>
+      <section className={styles.statsSection}>
+        <div className={styles.statsBackground} />
+        <div className={styles.statsContainer}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className={styles.statsHeader}
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className={styles.statsTitle}>
               Proven Track Record
             </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <p className={styles.statsSubtitle}>
               Delivering measurable results across industries
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className={styles.statsGrid}>
             {[
               { value: "15+", label: "Years of Industry Experience" },
               { value: "200+", label: "Financial Institutions Served" },
@@ -140,12 +140,12 @@ export default function IndustriesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center"
+                className={styles.statItem}
               >
-                <div className={`${typography.h2} bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-2`}>
+                <div className={styles.statValue}>
                   {stat.value}
                 </div>
-                <div className={`${typography.body} ${colors.subheading}`}>
+                <div className={styles.statLabel}>
                   {stat.label}
                 </div>
               </motion.div>
@@ -155,21 +155,21 @@ export default function IndustriesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className={styles.section}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className={styles.finalCTA}
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+            <h2 className={styles.finalCTATitle}>
               Don't See Your Industry?
             </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading} mb-8`}>
+            <p className={styles.finalCTADescription}>
               We specialize in financial services but serve many adjacent sectors. Let's discuss your needs.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className={styles.finalCTAButtons}>
               <CTAButtons.TalkToExpert />
               <CTAButtons.BookStrategyCall variant="secondary" />
             </div>

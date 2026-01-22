@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import styles from "./header.module.css";
 
 const navigation = {
   services: [
@@ -68,54 +68,42 @@ export function Header() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-slate-900/95 backdrop-blur-lg shadow-lg border-b border-white/10"
-          : "bg-slate-900/80 backdrop-blur-sm"
-      )}
-    >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-8">
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : styles.default}`}>
+      <nav className={styles.nav}>
+        <div className={styles.navContent}>
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 flex-shrink-0">
-            <div className="w-14 h-14">
+          <Link href="/" className={styles.logo}>
+            <div className={styles.logoImage}>
               <img 
                 src="/ssrfintechLogo.webp" 
-                alt="SSR Fintech Logo" 
-                className="w-full h-full object-contain"
+                alt="SSR Fintech Logo"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-white leading-tight">
+            <div className={styles.logoText}>
+              <span className={styles.logoTitle}>
                 SSR Fintech
               </span>
-              <span className="text-xs text-white/60 leading-tight">
+              <span className={styles.logoSubtitle}>
                 Financial Technology Experts
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 flex-1 justify-center">
-            <Link
-              href="/"
-              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
-            >
+          <div className={styles.desktopNav}>
+            <Link href="/" className={styles.navLink}>
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
 
             {/* Services Dropdown */}
             <div
-              className="relative"
+              className={styles.dropdownContainer}
               onMouseEnter={() => setActiveDropdown("services")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium group">
+              <button className={`${styles.dropdownTrigger} ${activeDropdown === "services" ? styles.active : ""}`}>
                 <span>Services</span>
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
+                <ChevronDown className={styles.dropdownIcon} />
               </button>
               <AnimatePresence>
                 {activeDropdown === "services" && (
@@ -124,23 +112,18 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-80 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 py-2 overflow-hidden"
+                    className={styles.dropdownMenu}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10 pointer-events-none" />
-                    <Link
-                      href="/services"
-                      className="relative block px-4 py-3 text-sm font-semibold text-[var(--color-accent)] hover:bg-white/5 transition-colors border-b border-white/10"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span>View All Services</span>
-                        <span className="text-[var(--color-accent)]">→</span>
-                      </div>
+                    <div className={styles.dropdownOverlay} />
+                    <Link href="/services" className={styles.viewAll}>
+                      <span>View All Services</span>
+                      <span>→</span>
                     </Link>
                     {navigation.services.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="relative block px-4 py-2.5 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 transition-colors"
+                        className={styles.dropdownItem}
                       >
                         {item.name}
                       </Link>
@@ -152,13 +135,13 @@ export function Header() {
 
             {/* Industries Dropdown */}
             <div
-              className="relative"
+              className={styles.dropdownContainer}
               onMouseEnter={() => setActiveDropdown("industries")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium group">
+              <button className={`${styles.dropdownTrigger} ${activeDropdown === "industries" ? styles.active : ""}`}>
                 <span>Industries</span>
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
+                <ChevronDown className={styles.dropdownIcon} />
               </button>
               <AnimatePresence>
                 {activeDropdown === "industries" && (
@@ -167,23 +150,18 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-72 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 py-2 overflow-hidden"
+                    className={styles.dropdownMenu}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10 pointer-events-none" />
-                    <Link
-                      href="/industries"
-                      className="relative block px-4 py-3 text-sm font-semibold text-[var(--color-accent)] hover:bg-white/5 transition-colors border-b border-white/10"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span>View All Industries</span>
-                        <span className="text-[var(--color-accent)]">→</span>
-                      </div>
+                    <div className={styles.dropdownOverlay} />
+                    <Link href="/industries" className={styles.viewAll}>
+                      <span>View All Industries</span>
+                      <span>→</span>
                     </Link>
                     {navigation.industries.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="relative block px-4 py-2.5 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 transition-colors"
+                        className={styles.dropdownItem}
                       >
                         {item.name}
                       </Link>
@@ -195,13 +173,13 @@ export function Header() {
 
             {/* Products Dropdown */}
             <div
-              className="relative"
+              className={styles.dropdownContainer}
               onMouseEnter={() => setActiveDropdown("products")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center space-x-1 text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium group">
+              <button className={`${styles.dropdownTrigger} ${activeDropdown === "products" ? styles.active : ""}`}>
                 <span>Products</span>
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
+                <ChevronDown className={styles.dropdownIcon} />
               </button>
               <AnimatePresence>
                 {activeDropdown === "products" && (
@@ -210,99 +188,80 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 w-96 bg-slate-800/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 py-2 overflow-hidden"
+                    className={styles.megaMenu}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10 pointer-events-none" />
-                    <Link
-                      href="/products"
-                      className="relative block px-4 py-3 text-sm font-semibold text-[var(--color-accent)] hover:bg-white/5 transition-colors border-b border-white/10"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span>View All Products</span>
-                        <span className="text-[var(--color-accent)]">→</span>
-                      </div>
+                    <div className={styles.dropdownOverlay} />
+                    <Link href="/products" className={styles.viewAll}>
+                      <span>View All Products</span>
+                      <span>→</span>
                     </Link>
                     
-                    {/* Financial Solutions */}
-                    <div className="px-4 py-3 border-b border-white/10">
-                      <div className="text-xs font-semibold text-[var(--color-accent)] mb-2">Financial Solutions</div>
-                      {navigation.products.financial.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block py-2 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 rounded transition-colors px-2"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
+                    <div className={styles.megaMenuGrid}>
+                      {/* Financial Solutions */}
+                      <div className={styles.megaMenuSection}>
+                        <div className={styles.megaMenuTitle}>Financial Solutions</div>
+                        {navigation.products.financial.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={styles.dropdownItem}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
 
-                    {/* Enterprise Solutions */}
-                    <div className="px-4 py-3 border-b border-white/10">
-                      <div className="text-xs font-semibold text-[var(--color-accent)] mb-2">Enterprise Solutions</div>
-                      {navigation.products.enterprise.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block py-2 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 rounded transition-colors px-2"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
+                      {/* Enterprise Solutions */}
+                      <div className={styles.megaMenuSection}>
+                        <div className={styles.megaMenuTitle}>Enterprise Solutions</div>
+                        {navigation.products.enterprise.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={styles.dropdownItem}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
 
-                    {/* Migration Services */}
-                    <div className="px-4 py-3">
-                      <div className="text-xs font-semibold text-[var(--color-accent)] mb-2">Services</div>
-                      {navigation.products.migration.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block py-2 text-sm text-white/80 hover:text-[var(--color-accent)] hover:bg-white/5 rounded transition-colors px-2"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                      {/* Migration Services */}
+                      <div className={styles.megaMenuSection}>
+                        <div className={styles.megaMenuTitle}>Services</div>
+                        {navigation.products.migration.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={styles.dropdownItem}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link
-              href="/case-studies"
-              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
-            >
+            <Link href="/case-studies" className={styles.navLink}>
               Case Studies
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
-            <Link
-              href="/insights"
-              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
-            >
+            <Link href="/insights" className={styles.navLink}>
               Insights
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
-            <Link
-              href="/about"
-              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
-            >
+            <Link href="/about" className={styles.navLink}>
               About Us
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
-            <Link
-              href="/careers"
-              className="text-white/90 hover:text-[var(--color-accent)] transition-colors font-medium relative group"
-            >
+            <Link href="/careers" className={styles.navLink}>
               Careers
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-accent)] group-hover:w-full transition-all duration-300" />
             </Link>
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className={styles.ctaContainer}>
             <Link href="/contact">
-              <Button size="default" className="bg-[var(--color-accent)] hover:bg-[var(--link-hover)] text-white border-0 shadow-lg hover:shadow-xl transition-all">
+              <Button size="default">
                 Contact Us
               </Button>
             </Link>
@@ -310,13 +269,13 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-white/10 text-white/90 hover:text-[var(--color-accent)] transition-colors"
+            className={styles.mobileMenuButton}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className={styles.menuIcon} />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className={styles.menuIcon} />
             )}
           </button>
         </div>
@@ -328,143 +287,157 @@ export function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden border-t border-white/10 bg-slate-900"
+              className={styles.mobileMenu}
             >
-              <div className="max-h-[calc(100vh-5rem)] overflow-y-auto py-4 space-y-1">
+              <div className={styles.mobileMenuNav}>
                 <Link
                   href="/"
-                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
+                  className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
-                <div className="px-4 pt-3 pb-2">
-                  <div className="font-semibold text-[var(--color-accent)] text-sm mb-2">Services</div>
+
+                {/* Services */}
+                <div className={styles.mobileDropdown}>
+                  <div className={styles.megaMenuTitle}>Services</div>
                   <Link
                     href="/services"
-                    className="block py-2 pl-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
+                    className={styles.viewAll}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    → View All Services
+                    <span>→ View All Services</span>
                   </Link>
-                  {navigation.services.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-2 pl-4 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  <div className={styles.mobileDropdownContent}>
+                    {navigation.services.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={styles.mobileDropdownItem}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <div className="px-4 pt-3 pb-2">
-                  <div className="font-semibold text-[var(--color-accent)] text-sm mb-2">Industries</div>
+
+                {/* Industries */}
+                <div className={styles.mobileDropdown}>
+                  <div className={styles.megaMenuTitle}>Industries</div>
                   <Link
                     href="/industries"
-                    className="block py-2 pl-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
+                    className={styles.viewAll}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    → View All Industries
+                    <span>→ View All Industries</span>
                   </Link>
-                  {navigation.industries.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block py-2 pl-4 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  <div className={styles.mobileDropdownContent}>
+                    {navigation.industries.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={styles.mobileDropdownItem}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <div className="px-4 pt-3 pb-2">
-                  <div className="font-semibold text-[var(--color-accent)] text-sm mb-2">Products</div>
+
+                {/* Products */}
+                <div className={styles.mobileDropdown}>
+                  <div className={styles.megaMenuTitle}>Products</div>
                   <Link
                     href="/products"
-                    className="block py-2 pl-4 text-sm text-[var(--color-accent)] hover:text-white transition-colors"
+                    className={styles.viewAll}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    → View All Products
+                    <span>→ View All Products</span>
                   </Link>
-                  <div className="pl-4 pt-2">
-                    <div className="text-xs text-[var(--color-accent)]/80 mb-1">Financial Solutions</div>
-                    {navigation.products.financial.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block py-1.5 pl-2 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="pl-4 pt-2">
-                    <div className="text-xs text-[var(--color-accent)]/80 mb-1">Enterprise Solutions</div>
-                    {navigation.products.enterprise.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block py-1.5 pl-2 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="pl-4 pt-2">
-                    <div className="text-xs text-[var(--color-accent)]/80 mb-1">Services</div>
-                    {navigation.products.migration.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="block py-1.5 pl-2 text-sm text-white/70 hover:text-[var(--color-accent)] transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
+                  <div className={styles.mobileProductsSection}>
+                    <div className={styles.mobileProductCategory}>
+                      <div className={styles.mobileProductTitle}>Financial Solutions</div>
+                      {navigation.products.financial.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={styles.mobileDropdownItem}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className={styles.mobileProductCategory}>
+                      <div className={styles.mobileProductTitle}>Enterprise Solutions</div>
+                      {navigation.products.enterprise.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={styles.mobileDropdownItem}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className={styles.mobileProductCategory}>
+                      <div className={styles.mobileProductTitle}>Services</div>
+                      {navigation.products.migration.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={styles.mobileDropdownItem}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
+
                 <Link
                   href="/case-studies"
-                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
+                  className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Case Studies
                 </Link>
                 <Link
                   href="/insights"
-                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
+                  className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Insights
                 </Link>
                 <Link
                   href="/how-we-work"
-                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
+                  className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   How We Work
                 </Link>
                 <Link
                   href="/about"
-                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
+                  className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/careers"
-                  className="block py-3 px-4 text-white/90 hover:text-[var(--color-accent)] hover:bg-white/5 rounded-lg transition-colors"
+                  className={styles.mobileNavLink}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Careers
                 </Link>
-                <div className="px-4 pt-2">
+
+                <div className={styles.mobileCta}>
                   <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                    <Button className="w-full bg-[var(--color-accent)] hover:bg-[var(--link-hover)] text-white border-0">
+                    <Button className={styles.mobileCtaButton}>
                       Contact Us
                     </Button>
                   </Link>

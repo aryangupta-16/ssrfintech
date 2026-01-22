@@ -1,0 +1,179 @@
+/* Products Page - Navy & Teal Theme */
+
+.section {
+  padding: 4rem 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.sectionDescription {
+  font-size: 1.25rem;
+  color: rgb(148, 163, 184);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* Category Headers */
+.categoryHeader {
+  margin-bottom: 3rem;
+}
+
+.categoryTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.categoryTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .categoryTitle {
+    font-size: 2.25rem;
+  }
+}
+
+.categoryDescription {
+  font-size: 1.125rem;
+  color: rgb(156, 163, 175);
+}
+
+/* Products Grid */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Category Accent */
+.categoryAccent {
+  width: 0.25rem;
+  height: 2rem;
+  background: linear-gradient(to bottom, rgb(99, 102, 241), rgb(168, 85, 247));
+  border-radius: 9999px;
+}
+.achievementLabel {
+  color: rgb(148, 163, 184);
+}
+
+.achievementGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.ctaCard {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgb(51, 65, 85);
+  border-radius: 1rem;
+  padding: 3rem;
+  backdrop-filter: blur(8px);
+}
+
+.ctaTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.ctaDescription {
+  font-size: 1.25rem;
+  color: rgb(148, 163, 184);
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.ctaPrimaryButton {
+  background: linear-gradient(to right, rgb(79, 70, 229), rgb(147, 51, 234));
+  color: white;
+  border: 0;
+}
+
+.ctaPrimaryButton:hover {
+  background: linear-gradient(to right, rgb(67, 56, 202), rgb(126, 34, 206));
+}
+
+.ctaSecondaryButton {
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  color: rgb(129, 140, 248);
+}
+
+.ctaSecondaryButton:hover {
+  background: rgba(99, 102, 241, 0.1);
+}
+
+/* Achievements Section */
+.achievementsSection {
+  padding: 4rem 0;
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.achievementsIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.achievementsIcon {
+  width: 4rem;
+  height: 4rem;
+  color: rgb(129, 140, 248);
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 5rem 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .achievementGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 640px) {
+  .ctaButtons {
+    flex-direction: row;
+  }
+}

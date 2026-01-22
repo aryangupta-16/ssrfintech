@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { colors, typography, spacing } from "@/lib/design-tokens";
 import { TechStack as TechStackType } from "@/data/certifications";
-import Image from "next/image";
+import styles from "./TechStack.module.css";
 
 interface TechStackProps {
   techStack: TechStackType[];
@@ -16,26 +15,26 @@ interface TechStackProps {
  */
 export function TechStack({ techStack, title, description }: TechStackProps) {
   return (
-    <section className={`${spacing.section} relative`}>
+    <section className={styles.techStack}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 via-pink-600/10 to-red-600/10 opacity-50" />
+      <div className={styles.backgroundGradient} />
 
-      <div className={`${spacing.container} relative z-10`}>
+      <div className={styles.container}>
         {/* Header */}
         {(title || description) && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className={styles.header}
           >
             {title && (
-              <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
+              <h2 className={styles.title}>
                 {title}
               </h2>
             )}
             {description && (
-              <p className={`${typography.bodyXl} ${colors.subheading}`}>
+              <p className={styles.description}>
                 {description}
               </p>
             )}
@@ -43,7 +42,7 @@ export function TechStack({ techStack, title, description }: TechStackProps) {
         )}
 
         {/* Tech Stack Categories */}
-        <div className="space-y-12">
+        <div className={styles.categories}>
           {techStack.map((category, catIndex) => (
             <motion.div
               key={category.category}
@@ -51,14 +50,15 @@ export function TechStack({ techStack, title, description }: TechStackProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: catIndex * 0.1 }}
+              className={styles.category}
             >
               {/* Category Header */}
-              <h3 className={`${typography.h4} ${colors.heading} mb-6 text-center`}>
+              <h3 className={styles.categoryTitle}>
                 {category.category}
               </h3>
 
               {/* Technologies Grid */}
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className={styles.techGrid}>
                 {category.technologies.map((tech, techIndex) => (
                   <motion.div
                     key={tech.name}
@@ -66,24 +66,23 @@ export function TechStack({ techStack, title, description }: TechStackProps) {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: techIndex * 0.05 }}
-                    className="group"
                   >
-                    <div className="p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700 backdrop-blur-sm rounded-lg hover:border-purple-500/50 transition-all duration-300 hover:scale-105">
+                    <div className={styles.techCard}>
                       {/* Logo Placeholder */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-xl">
+                      <div className={styles.techHeader}>
+                        <div className={styles.techLogo}>
                           {tech.name.substring(0, 2)}
                         </div>
-                        <div className="w-2 h-2 rounded-full bg-green-400 shadow-lg shadow-green-400/50" title="Available" />
+                        <div className={styles.statusIndicator} title="Available" />
                       </div>
 
                       {/* Name */}
-                      <h4 className={`font-semibold ${colors.heading} mb-2`}>
+                      <h4 className={styles.techName}>
                         {tech.name}
                       </h4>
 
                       {/* Description */}
-                      <p className="text-sm text-gray-400 line-clamp-2">
+                      <p className={styles.techDescription}>
                         {tech.description}
                       </p>
                     </div>
@@ -99,9 +98,9 @@ export function TechStack({ techStack, title, description }: TechStackProps) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className={styles.note}
         >
-          <p className="text-sm text-gray-500 italic">
+          <p>
             * Technology logos and official certifications available upon request
           </p>
         </motion.div>

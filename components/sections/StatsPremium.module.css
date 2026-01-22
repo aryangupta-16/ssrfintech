@@ -1,0 +1,150 @@
+/* Stats Section */
+.stats {
+  padding: var(--space-4xl) 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #0d1f3a 100%);
+}
+
+/* Background Elements */
+.background {
+  position: absolute;
+  inset: 0;
+}
+
+.glowOrb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.orb1 {
+  width: 256px;
+  height: 256px;
+  top: 0;
+  left: 25%;
+  background-color: rgba(168, 85, 247, 0.2);
+}
+
+.orb2 {
+  width: 256px;
+  height: 256px;
+  bottom: 0;
+  right: 25%;
+  background-color: rgba(59, 130, 246, 0.2);
+  animation-delay: 2s;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--space-lg);
+}
+
+.subtitle {
+  font-size: var(--font-xl);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+/* Stats Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statItem {
+  text-align: center;
+  position: relative;
+}
+
+/* Card Glow Effect */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 37, 69, 0.1), rgba(29, 181, 163, 0.1));
+  border-radius: var(--radius-2xl);
+  filter: blur(32px);
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-2xl);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border-color: rgba(29, 181, 163, 0.3);
+  box-shadow: 0 25px 50px -12px rgba(29, 181, 163, 0.3);
+}
+
+.statValue {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.statLabel {
+  color: white;
+  font-size: var(--font-base);
+  font-weight: 500;
+}
+
+/* Animation for numbers */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statValue {
+  animation: countUp 0.8s ease-out forwards;
+}

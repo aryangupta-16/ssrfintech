@@ -3,8 +3,8 @@ import { TeamMember } from "@/lib/types";
 export const team: TeamMember[] = [
   {
     id: "1",
-    name: "Sushil Agarwal",
-    role: "Director - APAC Region",
+    name: "Sushil Agarwal (CA)",
+    role: "Director - SAP Lead Architect",
     bio: "Leading SSR Fintech's operations across the Asia-Pacific region, Sushil brings extensive expertise in SAP solutions implementation and strategic business development. He specializes in driving digital transformation initiatives for financial institutions across APAC markets.",
     email: "sushil.a@ssrfintech.com",
     linkedin: "https://www.linkedin.com/in/sushilagrawalsap/",
@@ -12,8 +12,8 @@ export const team: TeamMember[] = [
   },
   {
     id: "2",
-    name: "Anil Agarwal",
-    role: "Director - EMEA Region",
+    name: "Anil Agarwal (CA)",
+    role: "Director - SAP lead Architect",
     bio: "Anil spearheads SSR Fintech's growth strategy across Europe, Middle East, and Africa. With deep knowledge of SAP financial solutions and regulatory compliance, he helps organizations navigate complex financial transformation journeys in diverse markets.",
     email: "anil.a@ssrfintech.com",
     linkedin: "https://www.linkedin.com/in/anilagrawal56/",
@@ -31,8 +31,8 @@ export const team: TeamMember[] = [
   {
     id: "4",
     name: "Pankaj Gupta",
-    role: "Director - ROW (Rest of World)",
-    bio: "Pankaj is a seasoned consultant specializing in SAP financial solutions and enterprise resource planning. His collaboration with SSR Fintech brings valuable insights from Ernst & Young's global consulting expertise to deliver comprehensive financial technology solutions.",
+    role: "Director - Global Solutions",
+    bio: "With an 18-year track record at leading IT firms and Big-4 consultancies like Ernst & Young, Pankaj brings a wealth of EPM expertise to the table. His role at SSR Fintech is defined by a blend of global best practices and disciplined execution, resulting in comprehensive financial technology solutions for a diverse international clientele. Pankaj is a specialist in enterprise planning who is recognized for turning technical insights into long-term value and reliable professional relationships.",
     email: "p.gupta@ssrfintech.com",
     linkedin: "https://www.linkedin.com/in/pankaj-gupta-ceo/",
     image: "/team/pankaj.jpeg",

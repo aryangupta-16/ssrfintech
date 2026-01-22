@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import styles from "./GradientWrapper.module.css";
 
 interface GradientWrapperProps {
   children: ReactNode;
@@ -16,7 +17,7 @@ export function GradientWrapper({
   className = "",
 }: GradientWrapperProps) {
   return (
-    <div className={`min-h-screen bg-[var(--bg-main)] ${className}`}>
+    <div className={`${styles.wrapper} ${className}`}>
       {children}
     </div>
   );

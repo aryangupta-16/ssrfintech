@@ -10,6 +10,7 @@ import CTAPremium from "@/components/sections/CTAPremium";
 import { targetAudiences } from "@/data/whoWeHelp";
 import { processSteps } from "@/data/howWeWork";
 import { testimonials } from "@/data/testimonials";
+import styles from "./home.module.css";
 
 export default function Home() {
   return (
@@ -17,43 +18,43 @@ export default function Home() {
       <HeroPremium />
       
       {/* What We Do Video Section */}
-      <section className="py-20 relative bg-[var(--bg-section)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className={styles.whatWeDo}>
+        <div className={styles.container}>
+          <div className={styles.contentWrapper}>
+            <div className={styles.grid}>
               {/* Text Content */}
-              <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-bold text-[var(--text-primary)]">
+              <div className={styles.textContent}>
+                <h2 className={styles.title}>
                   What We Do
                 </h2>
-                <p className="text-lg text-[var(--text-primary)] leading-relaxed">
+                <p className={styles.description}>
                   At SSR Fintech, we specialize in transforming complex financial challenges into streamlined, 
                   scalable solutions. Our expert team combines deep industry knowledge with cutting-edge 
                   technology to help financial institutions and fintech startups navigate regulatory compliance, 
                   optimize operations, and accelerate digital transformation.
                 </p>
-                <p className="text-[var(--text-secondary)]">
+                <p className={styles.subtitle}>
                   From strategic consulting to hands-on implementation, we partner with you to build 
                   robust financial systems that drive growth and innovation.
                 </p>
               </div>
 
               {/* Video Container */}
-              <div className="relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-lg bg-[var(--bg-card)] backdrop-blur-sm border border-[var(--border-color)]">
-                  <div className="aspect-video">
+              <div className={styles.videoWrapper}>
+                <div className={styles.videoContainer}>
+                  <div className={styles.videoAspect}>
                     <iframe
                       src="https://www.youtube.com/embed/EHrxlZNRHrk?rel=1&modestbranding=1"
                       title="What We Do - SSR Fintech"
                       allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
-                      className="w-full h-full"
+                      className={styles.videoIframe}
                     />
                   </div>
                 </div>
                 {/* Decorative Elements */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[var(--color-accent)]/10 rounded-full blur-2xl -z-10" />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[var(--color-primary)]/10 rounded-full blur-2xl -z-10" />
+                <div className={styles.decorTop} />
+                <div className={styles.decorBottom} />
               </div>
             </div>
           </div>

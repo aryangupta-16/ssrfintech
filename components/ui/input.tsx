@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import styles from "./input.module.css";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
@@ -9,13 +9,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         type={type}
-        className={cn(
-          "flex h-11 w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm transition-colors",
-          "placeholder:text-gray-400",
-          "focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20",
-          "disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
+        className={`${styles.input} ${className || ""}`}
         ref={ref}
         {...props}
       />

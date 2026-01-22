@@ -1,0 +1,288 @@
+/* Product Detail Page */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.4);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 37, 69, 0.92) 0%, rgba(79, 70, 229, 0.85) 50%, rgba(11, 37, 69, 0.92) 100%);
+  backdrop-filter: blur(2px);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.backButton {
+  color: rgb(129, 140, 248);
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  color: white;
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateX(-4px);
+}
+
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.sectionDark {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.5), rgba(11, 37, 69, 0.3));
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  background: linear-gradient(to right, white, rgb(129, 140, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.featureCard {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.featureCard:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+}
+
+.ctaSection {
+  padding: 5rem 0;
+}
+
+.ctaCard {
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-radius: 1.5rem;
+  padding: 4rem 3rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+}
+
+.ctaTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.ctaSubtitle {
+  font-size: 1.125rem;
+  color: rgb(203, 213, 225);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.ctaPrimary {
+  padding: 0.875rem 2.5rem;
+  background: linear-gradient(to right, rgb(79, 70, 229), rgb(147, 51, 234));
+  color: white;
+  border: 0;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.ctaPrimary:hover {
+  background: linear-gradient(to right, rgb(67, 56, 202), rgb(126, 34, 206));
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+}
+
+.ctaSecondary {
+  padding: 0.875rem 2.5rem;
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  color: rgb(129, 140, 248);
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.7);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.comparisonSection {
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1rem;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+}
+
+.comparisonTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.comparisonDescription {
+  font-size: 1.125rem;
+  color: rgb(203, 213, 225);
+  margin-bottom: 2rem;
+}
+
+/* Use Cases Section */
+.useCasesSection {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.5), rgba(11, 37, 69, 0.3));
+}
+
+.useCasesInner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.useCasesTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, white, rgb(129, 140, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.useCasesSubtitle {
+  color: rgb(156, 163, 175);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.125rem;
+}
+
+.useCasesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.useCaseCard {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.useCaseCard:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateX(8px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.useCaseContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.useCaseBullet {
+  width: 0.625rem;
+  height: 0.625rem;
+  background: linear-gradient(135deg, rgb(99, 102, 241), rgb(129, 140, 248));
+  border-radius: 9999px;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.useCaseText {
+  color: rgb(203, 213, 225);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.heroContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}

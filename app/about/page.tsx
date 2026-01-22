@@ -9,10 +9,11 @@ import { Button } from "@/components/ui/button";
 import { team } from "@/data/team";
 import { Linkedin, ArrowRight, Target, Eye, Award, Users, Mail } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import styles from "./about.module.css";
 
 export default function AboutPage() {
   return (
-    <GradientWrapper className="pt-20">
+    <GradientWrapper>
       <PageHero
         title="Transforming Finance Through Technology"
         description="With over a decade of excellence in financial technology, we empower institutions to innovate, scale, and succeed in the digital age."
@@ -29,24 +30,24 @@ export default function AboutPage() {
       />
 
       {/* Mission & Vision */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <section className={styles.missionVision}>
+        <div className={styles.container}>
+          <div className={styles.grid}>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full bg-[var(--color-primary)]/5 border-[var(--color-primary)]/20 backdrop-blur-sm">
+              <Card className={`${styles.card} ${styles.cardPrimary}`}>
                 <CardHeader>
-                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
-                    <Target className="w-6 h-6 text-white" />
+                  <div className={styles.iconContainer}>
+                    <Target className={styles.icon} />
                   </div>
-                  <CardTitle className="text-3xl text-[var(--text-primary)]">Our Mission</CardTitle>
+                  <CardTitle className={styles.cardTitle}>Our Mission</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-[var(--text-secondary)] leading-relaxed">
+                  <p className={styles.cardContent}>
                     To empower financial institutions with cutting-edge technology solutions that drive innovation,
                     enhance efficiency, and create exceptional value for their customers.
                   </p>
@@ -60,15 +61,15 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full bg-[var(--color-accent)]/5 border-[var(--color-accent)]/20 backdrop-blur-sm">
+              <Card className={`${styles.card} ${styles.cardAccent}`}>
                 <CardHeader>
-                  <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4">
-                    <Eye className="w-6 h-6 text-white" />
+                  <div className={styles.iconContainer}>
+                    <Eye className={styles.icon} />
                   </div>
-                  <CardTitle className="text-3xl text-[var(--text-primary)]">Our Vision</CardTitle>
+                  <CardTitle className={styles.cardTitle}>Our Vision</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-[var(--text-secondary)] leading-relaxed">
+                  <p className={styles.cardContent}>
                     To be the most trusted technology partner for financial services globally, recognized for our
                     innovation, expertise, and commitment to client success.
                   </p>
@@ -80,24 +81,24 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={styles.values}>
+        <div className={styles.container}>
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center mb-16"
+            className={styles.header}
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+            <motion.h2 variants={fadeInUp} className={styles.title}>
               Our Core Values
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-[var(--text-secondary)]">
+            <motion.p variants={fadeInUp} className={styles.description}>
               The principles that guide everything we do
             </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className={styles.valuesGrid}>
             {[{ icon: Award, title: "Excellence", desc: "We strive for excellence in everything we do, delivering quality solutions that exceed expectations." },
               { icon: Users, title: "Innovation", desc: "We embrace cutting-edge technologies and creative solutions to solve complex challenges." },
               { icon: Target, title: "Partnership", desc: "We build long-term relationships based on trust, transparency, and mutual success." }].map((value, index) => (
@@ -108,15 +109,15 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full card hover:scale-105 transition-all group">
+                <Card className={styles.valueCard}>
                   <CardHeader>
-                    <div className="w-12 h-12 icon-bg rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
-                      <value.icon className="w-6 h-6 text-white" />
+                    <div className={styles.valueIconContainer}>
+                      <value.icon className={styles.icon} />
                     </div>
-                    <CardTitle className="text-xl text-[var(--text-primary)] text-center">{value.title}</CardTitle>
+                    <CardTitle className={styles.valueTitle}>{value.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-[var(--text-secondary)] text-center">{value.desc}</p>
+                    <p className={styles.valueDescription}>{value.desc}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -126,44 +127,44 @@ export default function AboutPage() {
       </section>
 
       {/* Global Presence */}
-      <section className="py-24 relative overflow-hidden">
+      <section className={styles.globalPresence}>
         {/* Background Map */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          className={styles.backgroundMap}
           style={{ backgroundImage: 'url(/world-map.jpg)' }}
         />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className={styles.container}>
           {/* Section Heading */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center mb-20"
+            className={styles.header}
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+            <motion.h2 variants={fadeInUp} className={styles.title}>
               Our Global Presence
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-[var(--text-secondary)]">
+            <motion.p variants={fadeInUp} className={styles.description}>
               Serving clients worldwide with excellence and innovation
             </motion.p>
           </motion.div>
 
           {/* Map Container with Pins */}
-          <div className="relative max-w-6xl mx-auto h-[500px] md:h-[600px]">
+          <div className={styles.mapContainer}>
             {/* United States Pin - Left side */}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute left-[15%] top-[30%] md:left-[20%] md:top-[35%] flex flex-col items-center group"
+              className={`${styles.pin} ${styles.pinUS}`}
             >
-              <div className="relative flex flex-col items-center">
+              <div className={styles.pinWrapper}>
                 {/* Pin - Arrow Shape */}
-                <div className="relative group-hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <svg width="32" height="40" viewBox="0 0 32 40" className="w-6 h-8 md:w-8 md:h-10 drop-shadow-lg">
+                <div>
+                  <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
                     {/* Pin Body */}
                     <path
                       d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
@@ -174,11 +175,11 @@ export default function AboutPage() {
                     {/* Inner Circle */}
                     <circle cx="16" cy="12" r="4" fill="white" />
                   </svg>
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--color-primary)] rounded-full animate-ping opacity-75"></div>
+                  <div className={`${styles.pinPulse} ${styles.pinPulsePrimary}`}></div>
                 </div>
                 {/* Label */}
-                <div className="mt-1 px-4 py-2 card shadow-lg">
-                  <p className="text-[var(--text-primary)] font-semibold text-sm md:text-base whitespace-nowrap">United States</p>
+                <div className={styles.pinLabel}>
+                  <p className={styles.pinLabelText}>United States</p>
                 </div>
               </div>
             </motion.div>
@@ -189,12 +190,12 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute left-[50%] top-[35%] md:left-[52%] md:top-[40%] flex flex-col items-center group"
+              className={`${styles.pin} ${styles.pinME}`}
             >
-              <div className="relative flex flex-col items-center">
+              <div className={styles.pinWrapper}>
                 {/* Pin - Arrow Shape */}
-                <div className="relative group-hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <svg width="32" height="40" viewBox="0 0 32 40" className="w-6 h-8 md:w-8 md:h-10 drop-shadow-lg">
+                <div>
+                  <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
                     {/* Pin Body */}
                     <path
                       d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
@@ -205,11 +206,11 @@ export default function AboutPage() {
                     {/* Inner Circle */}
                     <circle cx="16" cy="12" r="4" fill="white" />
                   </svg>
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--color-accent)] rounded-full animate-ping opacity-75"></div>
+                  <div className={`${styles.pinPulse} ${styles.pinPulseAccent}`}></div>
                 </div>
                 {/* Label */}
-                <div className="mt-1 px-4 py-2 card shadow-lg">
-                  <p className="text-[var(--text-primary)] font-semibold text-sm md:text-base whitespace-nowrap">Middle East</p>
+                <div className={styles.pinLabel}>
+                  <p className={styles.pinLabelText}>Middle East</p>
                 </div>
               </div>
             </motion.div>
@@ -220,12 +221,12 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="absolute right-[20%] top-[40%] md:right-[25%] md:top-[45%] flex flex-col items-center group"
+              className={`${styles.pin} ${styles.pinIndia}`}
             >
-              <div className="relative flex flex-col items-center">
+              <div className={styles.pinWrapper}>
                 {/* Pin - Arrow Shape */}
-                <div className="relative group-hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <svg width="32" height="40" viewBox="0 0 32 40" className="w-6 h-8 md:w-8 md:h-10 drop-shadow-lg">
+                <div>
+                  <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
                     {/* Pin Body */}
                     <path
                       d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
@@ -236,11 +237,11 @@ export default function AboutPage() {
                     {/* Inner Circle */}
                     <circle cx="16" cy="12" r="4" fill="white" />
                   </svg>
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--color-primary)] rounded-full animate-ping opacity-75"></div>
+                  <div className={`${styles.pinPulse} ${styles.pinPulsePrimary}`}></div>
                 </div>
                 {/* Label */}
-                <div className="mt-1 px-4 py-2 card shadow-lg">
-                  <p className="text-[var(--text-primary)] font-semibold text-sm md:text-base whitespace-nowrap">India</p>
+                <div className={styles.pinLabel}>
+                  <p className={styles.pinLabelText}>India</p>
                 </div>
               </div>
             </motion.div>
@@ -249,24 +250,24 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={styles.team}>
+        <div className={styles.container}>
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="text-center mb-16"
+            className={styles.header}
           >
-            <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-[var(--text-primary)] mb-4">
+            <motion.h2 variants={fadeInUp} className={styles.title}>
               Meet Our Leadership Team
             </motion.h2>
-            <motion.p variants={fadeInUp} className="text-xl text-[var(--text-secondary)]">
+            <motion.p variants={fadeInUp} className={styles.description}>
               Expert professionals driving innovation in fintech
             </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className={styles.teamGrid}>
             {team.map((member, index) => (
               <motion.div
                 key={member.id}
@@ -275,50 +276,50 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="card hover:scale-105 transition-all group h-full">
+                <Card className={styles.teamCard}>
                   <CardHeader>
-                    <div className="relative w-32 h-32 mx-auto mb-4">
+                    <div className={styles.teamMemberImage}>
                       {member.image ? (
-                        <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[var(--color-accent)]/20 group-hover:border-[var(--color-accent)]/50 transition-all">
+                        <div className={styles.memberImage}>
                           <img
                             src={member.image}
                             alt={member.name}
-                            className="w-full h-full object-cover"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             onError={(e) => {
                               // Fallback to initials if image fails to load
                               e.currentTarget.style.display = 'none';
-                              e.currentTarget.parentElement!.innerHTML = `<div class="w-full h-full icon-bg rounded-full flex items-center justify-center text-3xl font-bold text-white">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
+                              e.currentTarget.parentElement!.innerHTML = `<div class="${styles.memberImageFallback}">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
                             }}
                           />
                         </div>
                       ) : (
-                        <div className="w-full h-full icon-bg rounded-full flex items-center justify-center text-3xl font-bold text-white border-4 border-[var(--color-accent)]/20 group-hover:border-[var(--color-accent)]/50 transition-all">
+                        <div className={styles.memberImageFallback}>
                           {member.name.split(" ").map(n => n[0]).join("")}
                         </div>
                       )}
                     </div>
-                    <CardTitle className="text-center text-[var(--text-primary)]">{member.name}</CardTitle>
-                    <CardDescription className="text-center text-[var(--color-accent)]">{member.role}</CardDescription>
+                    <CardTitle className={styles.memberName}>{member.name}</CardTitle>
+                    <CardDescription className={styles.memberRole}>{member.role}</CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-[var(--text-secondary)] text-sm text-center">{member.bio}</p>
+                  <CardContent>
+                    <p className={styles.memberBio}>{member.bio}</p>
                     
                     {member.email && (
-                      <div className="flex items-center justify-center space-x-2 text-sm text-[var(--text-secondary)] hover:text-[var(--color-accent)] transition-colors">
-                        <Mail className="w-4 h-4" />
-                        <a href={`mailto:${member.email}`} className="hover:underline">
+                      <div className={styles.memberLinkedIn} style={{ marginBottom: '0.5rem' }}>
+                        <Mail className={styles.linkedInIcon} />
+                        <a href={`mailto:${member.email}`}>
                           {member.email}
                         </a>
                       </div>
                     )}
                     
                     {member.linkedin && (
-                      <div className="flex justify-center pt-2">
+                      <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.5rem' }}>
                         <Link
                           href={member.linkedin}
-                          className="text-[var(--color-accent)] hover:text-[var(--color-primary)] transition-colors hover:scale-110 transform duration-200"
+                          className={styles.memberLinkedIn}
                         >
-                          <Linkedin className="w-5 h-5" />
+                          <Linkedin className={styles.linkedInIcon} />
                         </Link>
                       </div>
                     )}
@@ -327,28 +328,59 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Additional 4 Team Members - Simplified for now */}
+          <div className={styles.teamGrid} style={{ marginTop: 'var(--space-3xl)', maxWidth: '96rem' }}>
+            {[
+              { name: "Siddharth Agarwal", role: "Architect", initials: "SA" },
+              { name: "Yash Vaidya", role: "SAC", initials: "YV" },
+              { name: "Ankush Choudhary", role: "DataSphere", initials: "AC" },
+              { name: "Farry Jain (CA)", role: "Consolidation", initials: "FJ" }
+            ].map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+              >
+                <Card className={styles.teamCard}>
+                  <CardHeader>
+                    <div className={styles.teamMemberImage}>
+                      <div className={styles.memberImageFallback}>
+                        {member.initials}
+                      </div>
+                    </div>
+                    <CardTitle className={styles.memberName}>{member.name}</CardTitle>
+                    <CardDescription className={styles.memberRole}>{member.role}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={styles.values}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 rounded-2xl p-12 backdrop-blur-sm"
+            className={styles.valueCard}
+            style={{ maxWidth: '64rem', margin: '0 auto', textAlign: 'center', padding: 'var(--space-2xl)' }}
           >
-            <h2 className="text-4xl font-bold text-[var(--text-primary)] mb-6">
+            <h2 className={styles.title}>
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-[var(--text-secondary)] mb-8">
+            <p className={styles.description}>
               Partner with us to leverage cutting-edge technology and expert consulting
             </p>
             <Link href="/contact">
-              <Button size="lg" className="btn-primary px-8">
+              <Button size="lg" variant="gradient" style={{ marginTop: 'var(--space-xl)' }}>
                 Get in Touch
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight style={{ marginLeft: '0.5rem', width: '1.25rem', height: '1.25rem' }} />
               </Button>
             </Link>
           </motion.div>

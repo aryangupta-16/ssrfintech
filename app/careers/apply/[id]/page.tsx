@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { jobs } from "@/data/jobs";
 import { ArrowLeft, CheckCircle2, Upload, Briefcase, User, Mail, Phone, FileText, Linkedin, Github } from "lucide-react";
 import Link from "next/link";
+import styles from "./apply.module.css";
 
 export default function JobApplicationPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
@@ -62,12 +63,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
   if (!job) {
     return (
       <GradientWrapper className="pt-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="max-w-2xl mx-auto text-center">
-            <h1 className="text-4xl font-bold text-white mb-4">Job Not Found</h1>
-            <p className="text-gray-600 mb-8">The job position you're looking for doesn't exist.</p>
+        <div className={styles.container}>
+          <div className={styles.notFoundCard}>
+            <h1 className={styles.notFoundTitle}>Job Not Found</h1>
+            <p className={styles.notFoundText}>The job position you're looking for doesn't exist.</p>
             <Link href="/careers">
-              <Button className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
+              <Button className={styles.notFoundButton}>
                 Back to Careers
               </Button>
             </Link>
@@ -80,21 +81,21 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
   if (showSuccess) {
     return (
       <GradientWrapper className="pt-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="max-w-2xl mx-auto text-center"
+            className={styles.successCard}
           >
-            <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className={styles.successIcon}>
               <CheckCircle2 className="w-12 h-12 text-green-400" />
             </div>
-            <h1 className="text-4xl font-bold text-white mb-4">Application Submitted!</h1>
-            <p className="text-xl text-gray-600 mb-8">
-              Thank you for applying for the <span className="text-indigo-400">{job.title}</span> position.
+            <h1 className={styles.successTitle}>Application Submitted!</h1>
+            <p className={styles.successText}>
+              Thank you for applying for the <span className={styles.successJobTitle}>{job.title}</span> position.
               We'll review your application and get back to you soon.
             </p>
-            <p className="text-gray-400">Redirecting to careers page...</p>
+            <p className={styles.successRedirect}>Redirecting to careers page...</p>
           </motion.div>
         </div>
       </GradientWrapper>
@@ -104,10 +105,10 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
   return (
     <GradientWrapper className="pt-20">
       {/* Header */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section className={styles.headerSection}>
+        <div className={styles.container}>
           <Link href="/careers">
-            <Button variant="outline" className="group mb-6">
+            <Button variant="outline" className={styles.backButton}>
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
               Back to Careers
             </Button>
@@ -116,43 +117,43 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl"
+            className={styles.jobHeader}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
+            <div className={styles.jobInfo}>
+              <div className={styles.jobIcon}>
                 <Briefcase className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white">{job.title}</h1>
-                <p className="text-gray-400">{job.department} • {job.location} • {job.type}</p>
+                <h1 className={styles.jobTitle}>{job.title}</h1>
+                <p className={styles.jobMeta}>{job.department} • {job.location} • {job.type}</p>
               </div>
             </div>
-            <p className="text-gray-600 text-lg">{job.description}</p>
+            <p className={styles.jobDescription}>{job.description}</p>
           </motion.div>
         </div>
       </section>
 
       {/* Application Form */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm">
+      <section className={styles.formSection}>
+        <div className={styles.container}>
+          <div className={styles.formWrapper}>
+            <Card className={styles.formCard}>
               <CardHeader>
-                <CardTitle className="text-2xl text-white">Application Form</CardTitle>
-                <p className="text-gray-400">Please fill out all required fields marked with *</p>
+                <CardTitle className={styles.formTitle}>Application Form</CardTitle>
+                <p className={styles.formSubtitle}>Please fill out all required fields marked with *</p>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-8">
+                <form onSubmit={handleSubmit} className={styles.form}>
                   {/* Personal Information */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+                  <div className={styles.formGroup}>
+                    <h3 className={styles.sectionHeading}>
                       <User className="w-5 h-5 text-indigo-400" />
                       Personal Information
                     </h3>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className={styles.formGrid}>
                       <div>
-                        <label htmlFor="fullName" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="fullName" className={styles.label}>
                           Full Name *
                         </label>
                         <Input
@@ -162,12 +163,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.fullName}
                           onChange={handleChange}
                           placeholder="John Doe"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="email" className={styles.label}>
                           Email Address *
                         </label>
                         <Input
@@ -178,14 +179,14 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="john@example.com"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className={styles.formGrid}>
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="phone" className={styles.label}>
                           Phone Number *
                         </label>
                         <Input
@@ -196,12 +197,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+91 98765 43210"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="location" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="location" className={styles.label}>
                           Current Location *
                         </label>
                         <Input
@@ -211,22 +212,22 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.location}
                           onChange={handleChange}
                           placeholder="Mumbai, India"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Professional Links */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+                  <div className={styles.formGroup}>
+                    <h3 className={styles.sectionHeading}>
                       <Linkedin className="w-5 h-5 text-indigo-400" />
                       Professional Links
                     </h3>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className={styles.formGrid}>
                       <div>
-                        <label htmlFor="linkedin" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="linkedin" className={styles.label}>
                           LinkedIn Profile
                         </label>
                         <Input
@@ -236,12 +237,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.linkedin}
                           onChange={handleChange}
                           placeholder="https://linkedin.com/in/yourprofile"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="portfolio" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="portfolio" className={styles.label}>
                           Portfolio Website
                         </label>
                         <Input
@@ -251,13 +252,13 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.portfolio}
                           onChange={handleChange}
                           placeholder="https://yourportfolio.com"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="github" className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="github" className={styles.label}>
                         GitHub Profile
                       </label>
                       <Input
@@ -267,21 +268,21 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                         value={formData.github}
                         onChange={handleChange}
                         placeholder="https://github.com/yourusername"
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                        className={styles.input}
                       />
                     </div>
                   </div>
 
                   {/* Work Experience */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+                  <div className={styles.formGroup}>
+                    <h3 className={styles.sectionHeading}>
                       <Briefcase className="w-5 h-5 text-indigo-400" />
                       Work Experience
                     </h3>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className={styles.formGrid}>
                       <div>
-                        <label htmlFor="experience" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="experience" className={styles.label}>
                           Years of Experience *
                         </label>
                         <Input
@@ -291,12 +292,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.experience}
                           onChange={handleChange}
                           placeholder="5 years"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="currentCompany" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="currentCompany" className={styles.label}>
                           Current/Last Company *
                         </label>
                         <Input
@@ -306,14 +307,14 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.currentCompany}
                           onChange={handleChange}
                           placeholder="ABC Corp"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className={styles.formGrid}>
                       <div>
-                        <label htmlFor="currentRole" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="currentRole" className={styles.label}>
                           Current/Last Role *
                         </label>
                         <Input
@@ -323,12 +324,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                           value={formData.currentRole}
                           onChange={handleChange}
                           placeholder="Senior Developer"
-                          className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                          className={styles.input}
                         />
                       </div>
                       
                       <div>
-                        <label htmlFor="noticePeriod" className="block text-sm font-medium text-gray-600 mb-2">
+                        <label htmlFor="noticePeriod" className={styles.label}>
                           Notice Period *
                         </label>
                         <select
@@ -350,7 +351,7 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                     </div>
 
                     <div>
-                      <label htmlFor="expectedSalary" className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="expectedSalary" className={styles.label}>
                         Expected Salary (Annual) *
                       </label>
                       <Input
@@ -360,20 +361,20 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                         value={formData.expectedSalary}
                         onChange={handleChange}
                         placeholder="₹15,00,000"
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                        className={styles.input}
                       />
                     </div>
                   </div>
 
                   {/* Resume Upload */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+                  <div className={styles.formGroup}>
+                    <h3 className={styles.sectionHeading}>
                       <FileText className="w-5 h-5 text-indigo-400" />
                       Resume & Documents
                     </h3>
                     
                     <div>
-                      <label htmlFor="resume" className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="resume" className={styles.label}>
                         Upload Resume/CV * (PDF, DOC, DOCX - Max 5MB)
                       </label>
                       <div className="relative">
@@ -398,14 +399,14 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                   </div>
 
                   {/* Additional Information */}
-                  <div className="space-y-6">
-                    <h3 className="text-xl font-semibold text-white flex items-center gap-2">
+                  <div className={styles.formGroup}>
+                    <h3 className={styles.sectionHeading}>
                       <Mail className="w-5 h-5 text-indigo-400" />
                       Additional Information
                     </h3>
                     
                     <div>
-                      <label htmlFor="coverLetter" className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="coverLetter" className={styles.label}>
                         Cover Letter
                       </label>
                       <Textarea
@@ -415,12 +416,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                         onChange={handleChange}
                         placeholder="Tell us about yourself and why you're interested in this position..."
                         rows={6}
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                        className={styles.input}
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="whyJoin" className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="whyJoin" className={styles.label}>
                         Why do you want to join SSR Fintech? *
                       </label>
                       <Textarea
@@ -431,12 +432,12 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                         onChange={handleChange}
                         placeholder="Share your motivation for joining our team..."
                         rows={4}
-                        className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                        className={styles.input}
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="availability" className="block text-sm font-medium text-gray-600 mb-2">
+                      <label htmlFor="availability" className={styles.label}>
                         When can you start? *
                       </label>
                       <Input
@@ -446,21 +447,21 @@ export default function JobApplicationPage({ params }: { params: Promise<{ id: s
                         required
                         value={formData.availability}
                         onChange={handleChange}
-                        className="bg-slate-900/50 border-slate-700 text-white"
+                        className={styles.input}
                       />
                     </div>
                   </div>
 
                   {/* Submit Button */}
-                  <div className="pt-6 border-t border-slate-700">
+                  <div className={styles.submitSection}>
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full md:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-12"
+                      className={styles.submitButton}
                     >
                       Submit Application
                     </Button>
-                    <p className="mt-4 text-sm text-gray-400">
+                    <p className={styles.disclaimerText}>
                       By submitting this application, you agree to our privacy policy and terms of service.
                     </p>
                   </div>

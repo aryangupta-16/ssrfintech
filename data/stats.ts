@@ -3,7 +3,7 @@ import { Stat } from "@/lib/types";
 export const stats: Stat[] = [
   {
     id: "1",
-    value: "12",
+    value: "15",
     label: "Years of Excellence",
     suffix: "+",
   },
@@ -15,13 +15,13 @@ export const stats: Stat[] = [
   },
   {
     id: "3",
-    value: "50",
+    value: "120",
     label: "Expert Consultants",
     suffix: "+",
   },
   {
     id: "4",
-    value: "98",
+    value: "99.2",
     label: "Client Satisfaction",
     suffix: "%",
   },

@@ -1,69 +1,40 @@
 "use client";
 
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import styles from "./button.module.css";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden",
-  {
-    variants: {
-      variant: {
-        default:
-          "bg-[var(--color-accent)] text-white shadow-lg hover:bg-[var(--link-hover)] hover:shadow-xl focus-visible:ring-[var(--color-accent)]",
-        gradient:
-          "bg-[var(--color-accent)] text-white shadow-premium hover:shadow-glow hover:bg-[var(--link-hover)] focus-visible:ring-[var(--color-accent)]",
-        secondary:
-          "bg-[var(--color-primary)] text-white shadow-lg hover:bg-[#134E7C] hover:shadow-xl focus-visible:ring-[var(--color-primary)]",
-        accent:
-          "bg-gradient-to-r from-[var(--color-accent)] to-[#16A085] text-white shadow-lg hover:shadow-xl focus-visible:ring-[var(--color-accent)]",
-        destructive:
-          "bg-red-600 text-white shadow-sm hover:bg-red-700 focus-visible:ring-red-600",
-        outline:
-          "border-2 border-[var(--color-accent)] bg-transparent text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white focus-visible:ring-[var(--color-accent)]",
-        ghost: "hover:bg-[var(--bg-section)] hover:text-[var(--text-primary)]",
-        link: "text-[var(--link-color)] underline-offset-4 hover:underline hover:text-[var(--link-hover)]",
-      },
-      size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 px-4 text-xs",
-        lg: "h-12 px-8 text-base",
-        xl: "h-14 px-10 text-lg",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-);
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "default" | "gradient" | "secondary" | "accent" | "destructive" | "outline" | "ghost" | "link";
+  size?: "default" | "sm" | "lg" | "xl" | "icon";
   isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, isLoading, children, disabled, ...props }, ref) => {
+  ({ className, variant = "default", size = "default", isLoading, children, disabled, ...props }, ref) => {
+    const buttonClasses = [
+      styles.button,
+      styles[variant],
+      styles[size],
+      className
+    ].filter(Boolean).join(" ");
+
     return (
       <motion.div
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="inline-block"
+        className={styles.motionWrapper}
       >
         <button
-          className={cn(buttonVariants({ variant, size, className }))}
+          className={buttonClasses}
           ref={ref}
           disabled={disabled || isLoading}
           {...props}
         >
           {isLoading ? (
-            <div className="flex items-center gap-2">
+            <div className={styles.loading}>
               <svg
-                className="animate-spin h-5 w-5"
+                className={styles.spinner}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -80,14 +51,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                   className="opacity-75"
                   fill="currentColor"
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              />
-            </svg>
-            Loading...
-          </div>
+                />
+              </svg>
+              Loading...
+            </div>
           ) : (
             children
           )}
-          <span className="absolute inset-0 bg-white opacity-0 hover:opacity-10 transition-opacity duration-300" />
+          <span className={styles.overlay} />
         </button>
       </motion.div>
     );
@@ -95,4 +66,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export { Button };

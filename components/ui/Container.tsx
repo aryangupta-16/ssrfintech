@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import { HTMLAttributes } from "react";
+import styles from "./Container.module.css";
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   size?: "sm" | "md" | "lg" | "xl";
@@ -11,22 +11,14 @@ export default function Container({
   children,
   ...props
 }: ContainerProps) {
-  const sizes = {
-    sm: "max-w-3xl",
-    md: "max-w-5xl",
-    lg: "max-w-6xl",
-    xl: "max-w-7xl",
-  };
+  const containerClasses = [
+    styles.container,
+    styles[size],
+    className
+  ].filter(Boolean).join(" ");
 
   return (
-    <div
-      className={cn(
-        "mx-auto w-full px-4 sm:px-6 lg:px-8",
-        sizes[size],
-        className
-      )}
-      {...props}
-    >
+    <div className={containerClasses} {...props}>
       {children}
     </div>
   );

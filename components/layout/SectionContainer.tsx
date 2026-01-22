@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { spacing } from "@/lib/design-tokens";
+import styles from "./SectionContainer.module.css";
 
 interface SectionContainerProps {
   children: ReactNode;
@@ -20,16 +20,16 @@ export function SectionContainer({
   spacing: spacingVariant = "default"
 }: SectionContainerProps) {
   const containerClass = variant === "narrow" 
-    ? spacing.containerNarrow 
+    ? styles.containerNarrow 
     : variant === "wide"
-    ? spacing.containerWide
-    : spacing.container;
+    ? styles.containerWide
+    : styles.container;
     
   const spacingClass = spacingVariant === "sm"
-    ? spacing.sectionSm
+    ? styles.sectionSm
     : spacingVariant === "lg"
-    ? spacing.sectionLg
-    : spacing.section;
+    ? styles.sectionLg
+    : styles.section;
   
   return (
     <section className={`${spacingClass} ${className}`}>
