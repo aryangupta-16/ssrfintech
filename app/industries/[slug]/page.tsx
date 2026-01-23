@@ -184,70 +184,71 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
         </div>
       </section>
 
+
+
+
       {/* Stats Section */}
-      <section className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { value: "50+", label: "Projects Delivered", color: "from-emerald-500 to-cyan-500" },
-              { value: "98%", label: "Client Satisfaction", color: "from-cyan-500 to-blue-500" },
-              { value: "15+", label: "Years Experience", color: "from-blue-500 to-purple-500" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={styles.statItem}
-              >
-                <div className={`${styles.statGlow} ${stat.color === 'from-emerald-500 to-cyan-600' ? styles.statGlowEmerald : stat.color === 'from-blue-500 to-indigo-600' ? styles.statGlowBlue : styles.statGlowPurple}`} />
-                <div className={styles.statCard}>
-                  <div className={`${styles.statValue} ${stat.color === 'from-emerald-500 to-cyan-600' ? styles.statValueEmerald : stat.color === 'from-blue-500 to-indigo-600' ? styles.statValueBlue : styles.statValuePurple}`}>
-                    {stat.value}
-                  </div>
-                  <div className={styles.statLabel}>{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Stats Section */}
+<section className={styles.statsSection}>
+  <div className={styles.container}>
+    <div className={styles.statsGrid}>
+      {[
+        { value: "50+", label: "Projects Delivered" },
+        { value: "98%", label: "Client Satisfaction" },
+        { value: "15+", label: "Years Experience" },
+      ].map((stat, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
+          className={styles.statCard}
+        >
+          <div className={styles.statValue}>{stat.value}</div>
+          <div className={styles.statLabel}>{stat.label}</div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+ 
 
       {/* CTA Section */}
-      <section className={styles.ctaSection}>
-        <div className={styles.ctaBackground} />
-        <div className={styles.ctaContainer}>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className={styles.ctaTitle}>
-              Let's Build Your Success Story
-            </h2>
-            <p className={styles.ctaSubtitle}>
-              Partner with experts who understand {industry.title.toLowerCase()}
-            </p>
-            <div className={styles.ctaButtons}>
-              <Link
-                href="/contact"
-                className={styles.ctaPrimary}
-              >
-                Start Your Project
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/services"
-                className={styles.ctaSecondary}
-              >
-                Explore Services
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      {/* CTA Section */}
+<section className={styles.ctaSection}>
+  <div className={styles.container}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className={styles.ctaCard}
+    >
+      <h2 className={styles.ctaTitle}>
+        Let’s Build Your Success Story
+      </h2>
+      <p className={styles.ctaSubtitle}>
+        Partner with experts who understand {industry.title.toLowerCase()}
+      </p>
+
+      <div className={styles.ctaButtons}>
+        <Link href="/contact" className={styles.ctaPrimary}>
+          Start Your Project
+          <ArrowRight className="w-5 h-5" />
+        </Link>
+
+        <Link href="/services" className={styles.ctaSecondary}>
+          Explore Services
+        </Link>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+
+
+
     </GradientWrapper>
   );
 }

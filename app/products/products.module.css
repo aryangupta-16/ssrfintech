@@ -1,179 +1,191 @@
-/* Products Page - Navy & Teal Theme */
+/* ======================================
+   SHARED LAYOUT
+   ====================================== */
 
 .section {
-  padding: 4rem 0;
+  padding: var(--space-4xl) 0;
+  background: var(--bg-main);
 }
 
 .container {
-  max-width: 1280px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--container-padding);
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 3rem;
+/* ======================================
+   CATEGORY SECTIONS
+   ====================================== */
+
+.categoryBlock {
+  margin-bottom: var(--space-4xl);
 }
 
-.sectionTitle {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 1rem;
-}
-
-.sectionDescription {
-  font-size: 1.25rem;
-  color: rgb(148, 163, 184);
-  max-width: 48rem;
-  margin: 0 auto;
-}
-
-/* Category Headers */
 .categoryHeader {
-  margin-bottom: 3rem;
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
 }
 
-.categoryTitleWrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+.categoryAccent {
+  width: 4px;
+  height: 48px;
+  background: var(--color-accent);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
 }
 
 .categoryTitle {
-  font-size: 2rem;
+  font-size: var(--font-3xl);
   font-weight: 700;
-  color: white;
-}
-
-@media (min-width: 768px) {
-  .categoryTitle {
-    font-size: 2.25rem;
-  }
+  color: var(--text-primary);
 }
 
 .categoryDescription {
-  font-size: 1.125rem;
-  color: rgb(156, 163, 175);
+  margin-top: var(--space-xs);
+  font-size: var(--font-lg);
+  color: var(--text-muted);
+  max-width: 48rem;
 }
 
-/* Products Grid */
+/* ======================================
+   PRODUCTS GRID
+   ====================================== */
+
 .productsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
-@media (max-width: 768px) {
-  .productsGrid {
-    grid-template-columns: 1fr;
-  }
+/* Make ProductCard look premium */
+.productsGrid > * {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-fast);
 }
 
-/* Category Accent */
-.categoryAccent {
-  width: 0.25rem;
-  height: 2rem;
-  background: linear-gradient(to bottom, rgb(99, 102, 241), rgb(168, 85, 247));
-  border-radius: 9999px;
+.productsGrid > *:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(29, 181, 163, 0.35);
 }
-.achievementLabel {
-  color: rgb(148, 163, 184);
+
+/* ======================================
+   ACHIEVEMENTS
+   ====================================== */
+
+.achievementsSection {
+  background: #f5f7fa;
+  padding: var(--space-4xl) 0;
+}
+
+.achievementsCard {
+  background: linear-gradient(
+    180deg,
+    var(--bg-dark) 0%,
+    var(--bg-dark-secondary) 100%
+  );
+  padding: var(--space-3xl);
+  border-radius: var(--radius-2xl);
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+}
+
+.achievementsIcon {
+  width: 56px;
+  height: 56px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.achievementsTitle {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--text-inverse);
+  margin-bottom: var(--space-2xl);
 }
 
 .achievementGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-xl);
+}
+
+.achievementItem {
+  text-align: center;
+}
+
+.achievementValue {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  color: var(--text-inverse);
+}
+
+.achievementLabel {
+  margin-top: var(--space-sm);
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+/* ======================================
+   CTA
+   ====================================== */
+
+.ctaSection {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-main);
 }
 
 .ctaCard {
-  max-width: 64rem;
+  max-width: 720px;
   margin: 0 auto;
+  background: #ffffff;
+  padding: var(--space-3xl);
+  border-radius: var(--radius-2xl);
   text-align: center;
-  background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
-  border: 1px solid rgb(51, 65, 85);
-  border-radius: 1rem;
-  padding: 3rem;
-  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
 }
 
 .ctaTitle {
-  font-size: 2.25rem;
+  font-size: var(--font-3xl);
   font-weight: 700;
-  color: white;
-  margin-bottom: 1.5rem;
+  color: var(--text-primary);
 }
 
 .ctaDescription {
-  font-size: 1.25rem;
-  color: rgb(148, 163, 184);
-  margin-bottom: 2rem;
+  margin-top: var(--space-md);
+  font-size: var(--font-lg);
+  color: var(--text-muted);
 }
 
 .ctaButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.ctaPrimaryButton {
-  background: linear-gradient(to right, rgb(79, 70, 229), rgb(147, 51, 234));
-  color: white;
-  border: 0;
-}
-
-.ctaPrimaryButton:hover {
-  background: linear-gradient(to right, rgb(67, 56, 202), rgb(126, 34, 206));
-}
-
-.ctaSecondaryButton {
-  border: 1px solid rgba(99, 102, 241, 0.5);
-  color: rgb(129, 140, 248);
-}
-
-.ctaSecondaryButton:hover {
-  background: rgba(99, 102, 241, 0.1);
-}
-
-/* Achievements Section */
-.achievementsSection {
-  padding: 4rem 0;
-  background: rgba(15, 23, 42, 0.3);
-}
-
-.achievementsIconWrapper {
+  margin-top: var(--space-xl);
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
-.achievementsIcon {
-  width: 4rem;
-  height: 4rem;
-  color: rgb(129, 140, 248);
-}
-
-/* CTA Section */
-.ctaSection {
-  padding: 5rem 0;
-  position: relative;
-}
+/* ======================================
+   RESPONSIVE TWEAKS
+   ====================================== */
 
 @media (max-width: 768px) {
-  .achievementGrid {
-    grid-template-columns: 1fr;
+  .categoryTitle {
+    font-size: var(--font-2xl);
   }
-  
-  .ctaButtons {
-    flex-direction: column;
-  }
-}
 
-@media (min-width: 640px) {
-  .ctaButtons {
-    flex-direction: row;
+  .ctaTitle,
+  .achievementsTitle {
+    font-size: var(--font-2xl);
   }
 }

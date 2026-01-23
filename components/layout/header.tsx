@@ -47,6 +47,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -284,11 +285,28 @@ export function Header() {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               className={styles.mobileMenu}
             >
+              <div className={styles.mobileMenuHeader}>
+                <Link href="/" className={styles.logo}>
+                  <div className={styles.logoImage}>
+                    <img 
+                      src="/ssrfintechLogo.webp" 
+                      alt="SSR Fintech Logo"
+                    />
+                  </div>
+                </Link>
+                <button
+                  className={styles.mobileMenuClose}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
               <div className={styles.mobileMenuNav}>
                 <Link
                   href="/"
@@ -298,105 +316,170 @@ export function Header() {
                   Home
                 </Link>
 
-                {/* Services */}
-                <div className={styles.mobileDropdown}>
-                  <div className={styles.megaMenuTitle}>Services</div>
-                  <Link
-                    href="/services"
-                    className={styles.viewAll}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                {/* Services - Expandable */}
+                <div className={styles.mobileExpandableSection}>
+                  <button
+                    className={styles.mobileExpandButton}
+                    onClick={() => setExpandedMobileSection(expandedMobileSection === "services" ? null : "services")}
                   >
-                    <span>→ View All Services</span>
-                  </Link>
-                  <div className={styles.mobileDropdownContent}>
-                    {navigation.services.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={styles.mobileDropdownItem}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                    <span>Services</span>
+                    <motion.div
+                      animate={{ rotate: expandedMobileSection === "services" ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence>
+                    {expandedMobileSection === "services" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={styles.expandableContent}
                       >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
+                        <Link
+                          href="/services"
+                          className={styles.expandableViewAll}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          View All Services →
+                        </Link>
+                        {navigation.services.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={styles.expandableItem}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                {/* Industries */}
-                <div className={styles.mobileDropdown}>
-                  <div className={styles.megaMenuTitle}>Industries</div>
-                  <Link
-                    href="/industries"
-                    className={styles.viewAll}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                {/* Industries - Expandable */}
+                <div className={styles.mobileExpandableSection}>
+                  <button
+                    className={styles.mobileExpandButton}
+                    onClick={() => setExpandedMobileSection(expandedMobileSection === "industries" ? null : "industries")}
                   >
-                    <span>→ View All Industries</span>
-                  </Link>
-                  <div className={styles.mobileDropdownContent}>
-                    {navigation.industries.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={styles.mobileDropdownItem}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                    <span>Industries</span>
+                    <motion.div
+                      animate={{ rotate: expandedMobileSection === "industries" ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence>
+                    {expandedMobileSection === "industries" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={styles.expandableContent}
                       >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
+                        <Link
+                          href="/industries"
+                          className={styles.expandableViewAll}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          View All Industries →
+                        </Link>
+                        {navigation.industries.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={styles.expandableItem}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                {/* Products */}
-                <div className={styles.mobileDropdown}>
-                  <div className={styles.megaMenuTitle}>Products</div>
-                  <Link
-                    href="/products"
-                    className={styles.viewAll}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                {/* Products - Expandable */}
+                <div className={styles.mobileExpandableSection}>
+                  <button
+                    className={styles.mobileExpandButton}
+                    onClick={() => setExpandedMobileSection(expandedMobileSection === "products" ? null : "products")}
                   >
-                    <span>→ View All Products</span>
-                  </Link>
-                  <div className={styles.mobileProductsSection}>
-                    <div className={styles.mobileProductCategory}>
-                      <div className={styles.mobileProductTitle}>Financial Solutions</div>
-                      {navigation.products.financial.map((item) => (
+                    <span>Products</span>
+                    <motion.div
+                      animate={{ rotate: expandedMobileSection === "products" ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <ChevronDown className="w-5 h-5" />
+                    </motion.div>
+                  </button>
+                  <AnimatePresence>
+                    {expandedMobileSection === "products" && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={styles.expandableContent}
+                      >
                         <Link
-                          key={item.href}
-                          href={item.href}
-                          className={styles.mobileDropdownItem}
+                          href="/products"
+                          className={styles.expandableViewAll}
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          {item.name}
+                          View All Products →
                         </Link>
-                      ))}
-                    </div>
-                    <div className={styles.mobileProductCategory}>
-                      <div className={styles.mobileProductTitle}>Enterprise Solutions</div>
-                      {navigation.products.enterprise.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={styles.mobileDropdownItem}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                    <div className={styles.mobileProductCategory}>
-                      <div className={styles.mobileProductTitle}>Services</div>
-                      {navigation.products.migration.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className={styles.mobileDropdownItem}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+                        <div className={styles.productCategoryGroup}>
+                          <div className={styles.productCategory}>
+                            <div className={styles.productCategoryTitle}>Financial Solutions</div>
+                            {navigation.products.financial.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className={styles.expandableItem}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
+                          <div className={styles.productCategory}>
+                            <div className={styles.productCategoryTitle}>Enterprise Solutions</div>
+                            {navigation.products.enterprise.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className={styles.expandableItem}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
+                          <div className={styles.productCategory}>
+                            <div className={styles.productCategoryTitle}>Migration Services</div>
+                            {navigation.products.migration.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                className={styles.expandableItem}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                {item.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 <Link

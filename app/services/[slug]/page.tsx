@@ -179,7 +179,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
               >
                 <div className={styles.benefitContent}>
                   <div className={styles.benefitNumber}>{index + 1}</div>
-                  <p className={styles.benefitText}>{benefit}</p>
+                  <div className={styles.benefitText}>{benefit}</div>
                 </div>
               </motion.div>
             ))}
