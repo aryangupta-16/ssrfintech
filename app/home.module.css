@@ -1,7 +1,7 @@
 /* Home Page Styles */
 
 .whatWeDo {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-4xl) 0;
   position: relative;
   background: var(--bg-section);
 }
@@ -20,13 +20,14 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-2xl);
+  gap: var(--space-3xl);
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4xl);
   }
 }
 
@@ -34,13 +35,14 @@
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 
 .title {
   font-size: var(--font-4xl);
   font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 @media (min-width: 768px) {
@@ -52,12 +54,13 @@
 .description {
   font-size: var(--font-lg);
   color: var(--text-primary);
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .subtitle {
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.8;
+  font-size: var(--font-base);
 }
 
 /* Video Container */

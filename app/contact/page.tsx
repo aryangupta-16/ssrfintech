@@ -83,7 +83,7 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                   <div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                 </div>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your Company"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                   <div>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 123 456 7890"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Tell us about your project..."
                     rows={6}
-                    className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                    className={styles.textarea}
                   />
                 </div>
 
@@ -174,12 +174,16 @@ export default function ContactPage() {
                     <MapPin className={styles.infoCardIcon} />
                   </div>
                   <div className={styles.infoCardContent}>
-                    <div className={styles.infoCardTitle}>Visit Us</div>
-                    <p className={styles.infoCardText}>
-                        13B Kasturba Nagar, Bhopal
-                        <br />
-                        {/* Singapore 409015 */}
-                      </p>
+                    <div className={styles.infoCardTitle}>Our Headquarters</div>
+                    <div className={styles.addressList}>
+                      <div className={styles.addressItem}>
+                        <span className={styles.locationBadge}>🇮🇳</span>
+                        <div className={styles.addressDetails}>
+                          <div className={styles.addressCountry}>Bhopal, India</div>
+                          <p className={styles.addressText}>13B Kasturba Nagar</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -191,26 +195,38 @@ export default function ContactPage() {
                   </div>
                   <div className={styles.infoCardContent}>
                     <div className={styles.infoCardTitle}>Call Us</div>
-                    <div className={styles.infoCardText} style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                        <p>
-                          <a href="tel:+919669336333" className="hover:text-indigo-400">
-                            +91 9669336333
+                    <div className={styles.phoneList}>
+                      <div className={styles.phoneItem}>
+                        <span className={styles.countryFlag}>🇮🇳</span>
+                        <div className={styles.phoneDetails}>
+                          <span className={styles.countryLabel}>India</span>
+                          <a href="tel:+919669336333" className={styles.phoneLink}>
+                            +91 96693 36333
                           </a>
-                        </p>
-                        <p>
-                          <a href="tel:+971581637510" className="hover:text-indigo-400">
-                            +971 581637510
-                          </a>
-                        </p>
-                        <p>
-                          <a href="tel:+6580867644" className="hover:text-indigo-400">
-                            +65 80867644
-                          </a>
-                        </p>
+                        </div>
                       </div>
-                      <p style={{ fontSize: 'var(--font-sm)', color: 'var(--text-tertiary)', marginTop: '0.25rem' }}>
-                        Mon-Fri 9:00 AM - 6:00 PM IST
-                      </p>
+                      <div className={styles.phoneItem}>
+                        <span className={styles.countryFlag}>🇦🇪</span>
+                        <div className={styles.phoneDetails}>
+                          <span className={styles.countryLabel}>UAE</span>
+                          <a href="tel:+971581637510" className={styles.phoneLink}>
+                            +971 581 637 510
+                          </a>
+                        </div>
+                      </div>
+                      <div className={styles.phoneItem}>
+                        <span className={styles.countryFlag}>🇸🇬</span>
+                        <div className={styles.phoneDetails}>
+                          <span className={styles.countryLabel}>Singapore</span>
+                          <a href="tel:+6580867644" className={styles.phoneLink}>
+                            +65 8086 7644
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <p className={styles.availability}>
+                      📅 Mon-Fri 9:00 AM - 6:00 PM IST
+                    </p>
                   </div>
                 </div>
               </div>

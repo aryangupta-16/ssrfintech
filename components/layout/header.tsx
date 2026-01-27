@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import styles from "./header.module.css";
 
@@ -48,6 +48,25 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const shouldBeDark = savedTheme === "dark" || (savedTheme === null && prefersDark);
+    setIsDark(shouldBeDark);
+    document.documentElement.setAttribute("data-theme", shouldBeDark ? "dark" : "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const newDark = !isDark;
+    setIsDark(newDark);
+    const theme = newDark ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -259,8 +278,23 @@ export function Header() {
             </Link>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button & Theme Toggle */}
           <div className={styles.ctaContainer}>
+            {mounted && (
+              <motion.button
+                onClick={toggleTheme}
+                className={styles.themeToggle}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                {isDark ? (
+                  <Sun className={styles.themeIcon} />
+                ) : (
+                  <Moon className={styles.themeIcon} />
+                )}
+              </motion.button>
+            )}
             <Link href="/contact">
               <Button size="default">
                 Contact Us

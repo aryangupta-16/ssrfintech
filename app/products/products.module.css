@@ -61,9 +61,9 @@
 
 /* Make ProductCard look premium */
 .productsGrid > * {
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
   transition:
     transform var(--transition-base),
@@ -82,7 +82,7 @@
    ====================================== */
 
 .achievementsSection {
-  background: #f5f7fa;
+  background: var(--bg-section);
   padding: var(--space-4xl) 0;
 }
 
@@ -108,7 +108,7 @@
 .achievementsTitle {
   font-size: var(--font-3xl);
   font-weight: 700;
-  color: var(--text-inverse);
+  color: var(--text-primary);
   margin-bottom: var(--space-2xl);
 }
 
@@ -125,13 +125,13 @@
 .achievementValue {
   font-size: var(--font-4xl);
   font-weight: 700;
-  color: var(--text-inverse);
+  color: var(--color-accent);
 }
 
 .achievementLabel {
   margin-top: var(--space-sm);
   font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -147,11 +147,11 @@
 .ctaCard {
   max-width: 720px;
   margin: 0 auto;
-  background: #ffffff;
+  background: var(--bg-card);
   padding: var(--space-3xl);
   border-radius: var(--radius-2xl);
   text-align: center;
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-color);
   box-shadow: var(--shadow-lg);
 }
 

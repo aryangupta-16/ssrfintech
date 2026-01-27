@@ -75,10 +75,7 @@
 }
 
 .headingGradient {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 1), rgba(236, 72, 153, 1));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: rgba(168, 85, 247, 0.9);
 }
 
 /* Description */

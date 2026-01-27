@@ -479,6 +479,31 @@
   }
 }
 
+.themeToggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: white;
+}
+
+.themeToggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: rotate(20deg);
+}
+
+.themeIcon {
+  width: 20px;
+  height: 20px;
+}
+
 .mobileCta {
   margin-top: auto;
   padding: var(--space-lg);
@@ -509,3 +534,4 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
+

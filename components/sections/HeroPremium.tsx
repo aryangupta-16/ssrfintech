@@ -6,10 +6,59 @@ import { ArrowRight, Sparkles, Shield, Zap, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/Container";
 import styles from "./HeroPremium.module.css";
+import { useState, useRef, useEffect } from "react";
 
 export default function Hero() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isDark, setIsDark] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const theme = document.documentElement.getAttribute("data-theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setIsDark(theme === "dark" || (!theme && prefersDark));
+    };
+
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!sectionRef.current) return;
+
+    const rect = sectionRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+
+    setMousePosition({ x, y });
+  };
+
+  const gradientX = mousePosition.x * 100;
+  const gradientY = mousePosition.y * 100;
+
+  const lightGradient = `
+    radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(29, 181, 163, 0.35) 0%, rgba(29, 181, 163, 0.1) 30%, transparent 60%),
+    linear-gradient(135deg, white 0%, #f8fafc 50%, #f1f5f9 100%)
+  `;
+
+  const darkGradient = `
+    radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(29, 181, 163, 0.4) 0%, rgba(29, 181, 163, 0.15) 30%, transparent 60%),
+    linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)
+  `;
+
   return (
-    <section className={styles.hero}>
+    <section 
+      className={styles.hero}
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      style={{
+        background: isDark ? darkGradient : lightGradient
+      } as any}
+    >
       {/* Animated Background */}
       <div className={styles.backgroundBlobs}>
         <div className={`${styles.blob} ${styles.blob1}`} />
@@ -110,8 +159,15 @@ export default function Hero() {
               <div className={styles.imageGrid}>
                 <motion.div 
                   className={styles.featureCard}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, -10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.1 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.1 },
+                    scale: { duration: 0.4 }
+                  }}
                 >
                   <div className={styles.featureIcon}>
                     <Shield size={24} />
@@ -122,8 +178,15 @@ export default function Hero() {
 
                 <motion.div 
                   className={styles.featureCard}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, 10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.2 },
+                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+                    scale: { duration: 0.4 }
+                  }}
                 >
                   <div className={styles.featureIcon}>
                     <Zap size={24} />
@@ -134,8 +197,15 @@ export default function Hero() {
 
                 <motion.div 
                   className={styles.featureCard}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, -10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.3 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                    scale: { duration: 0.4 }
+                  }}
                 >
                   <div className={styles.featureIcon}>
                     <TrendingUp size={24} />
@@ -146,8 +216,15 @@ export default function Hero() {
 
                 <motion.div 
                   className={styles.featureCard}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, 10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.4 },
+                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+                    scale: { duration: 0.4 }
+                  }}
                 >
                   <div className={styles.featureIcon}>
                     <Sparkles size={24} />
@@ -157,39 +234,6 @@ export default function Hero() {
                 </motion.div>
               </div>
             </div>
-
-            {/* Floating Stats Cards */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className={`${styles.floatingElement} ${styles.floatingElement1}`}
-            >
-              <div className={styles.floatingCard}>
-                <div className={styles.floatingIcon}>
-                  $
-                </div>
-                <div className={styles.floatingContent}>
-                  <h4>Cost Savings</h4>
-                  <p>Up to 40% reduction</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className={`${styles.floatingElement} ${styles.floatingElement2}`}
-            >
-              <div className={styles.floatingCard}>
-                <div className={styles.floatingIcon}>
-                  %
-                </div>
-                <div className={styles.floatingContent}>
-                  <h4>Success Rate</h4>
-                  <p>99.3% satisfaction</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </Container>

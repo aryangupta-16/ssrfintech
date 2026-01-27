@@ -22,7 +22,7 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
       {/* Hero Section */}
       <section className={styles.hero}>
         {/* Background Image with Overlay */}
-        <div 
+        <div
           className={styles.heroBackground}
           style={{ backgroundImage: 'url(/ssrfintech_2.jpg)' }}
         >
@@ -137,7 +137,7 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
       {/* Solutions Section */}
       <section className={styles.solutionsSection}>
         <div className={styles.solutionsBackground} />
-        
+
         <div className={`${styles.container} relative z-10`}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -185,66 +185,63 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
       </section>
 
 
-
-
       {/* Stats Section */}
-      {/* Stats Section */}
-<section className={styles.statsSection}>
-  <div className={styles.container}>
-    <div className={styles.statsGrid}>
-      {[
-        { value: "50+", label: "Projects Delivered" },
-        { value: "98%", label: "Client Satisfaction" },
-        { value: "15+", label: "Years Experience" },
-      ].map((stat, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: index * 0.1 }}
-          className={styles.statCard}
-        >
-          <div className={styles.statValue}>{stat.value}</div>
-          <div className={styles.statLabel}>{stat.label}</div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
- 
+      <section className={styles.statsSection}>
+        <div className={styles.container}>
+          <div className={styles.statsGrid}>
+            {[
+              { value: "50+", label: "Projects Delivered" },
+              { value: "98%", label: "Client Satisfaction" },
+              { value: "15+", label: "Years Experience" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className={styles.statCard}
+              >
+                <div className={styles.statValue}>{stat.value}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       {/* CTA Section */}
-<section className={styles.ctaSection}>
-  <div className={styles.container}>
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className={styles.ctaCard}
-    >
-      <h2 className={styles.ctaTitle}>
-        Let’s Build Your Success Story
-      </h2>
-      <p className={styles.ctaSubtitle}>
-        Partner with experts who understand {industry.title.toLowerCase()}
-      </p>
+      <section className={styles.ctaSection}>
+        <div className={styles.container}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className={styles.ctaCard}
+          >
+            <h2 className={styles.ctaTitle}>
+              Let’s Build Your Success Story
+            </h2>
+            <p className={styles.ctaSubtitle}>
+              Partner with experts who understand {industry.title.toLowerCase()}
+            </p>
 
-      <div className={styles.ctaButtons}>
-        <Link href="/contact" className={styles.ctaPrimary}>
-          Start Your Project
-          <ArrowRight className="w-5 h-5" />
-        </Link>
+            <div className={styles.ctaButtons}>
+              <Link href="/contact" className={styles.ctaPrimary}>
+                Start Your Project
+                <ArrowRight className="w-5 h-5" />
+              </Link>
 
-        <Link href="/services" className={styles.ctaSecondary}>
-          Explore Services
-        </Link>
-      </div>
-    </motion.div>
-  </div>
-</section>
+              <Link href="/services" className={styles.ctaSecondary}>
+                Explore Services
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
 
 

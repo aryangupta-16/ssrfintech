@@ -14,149 +14,103 @@ export default function CaseStudiesPage() {
     <GradientWrapper>
       <PageHero
         title="Case Studies"
-        description="Real results for real clients - see how we've transformed businesses"
+        description="Real results for real clients — see how we've transformed businesses"
         backgroundImage="/ssrfintech_1.jpg"
-        primaryCTA={{
-          text: "Start Your Project",
-          href: "/contact",
-        }}
+        primaryCTA={{ text: "Start Your Project", href: "/contact" }}
         icon={<Award className="w-10 h-10" />}
       />
 
-      {/* Case Studies Grid */}
       <section className={styles.caseStudies}>
-        <div className={styles.backgroundDecor}>
-          <div className={styles.decorTop} />
-          <div className={styles.decorLeft} />
-          <div className={styles.decorRight} />
-        </div>
-
         <div className={styles.container}>
-          <div className={styles.header}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className={styles.badge}>
-                Case Study Gallery
-              </span>
-              <h2 className={styles.headerTitle}>
-                Signature Projects Across Industries
-              </h2>
-              <p className={styles.headerDescription}>
-                A snapshot of how we elevate workforce planning and analytics with SAP Analytics Cloud for global pioneers.
-              </p>
-            </motion.div>
-          </div>
-
+          {/* Header */}
           <motion.div
-            // initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className={styles.caseList}
+            viewport={{ once: true }}
+            className={styles.header}
           >
-            {caseStudies.map((caseStudy, index) => {
-              const accent = caseStudy.accentColor ?? "#1DB5A3";
-              return (
-                <motion.div
-                  key={caseStudy.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.6, delay: index * 0.08 }}
-                  whileHover={{ y: -6 }}
-                  className={styles.caseItem}
-                >
-                  <div className={styles.caseContent}>
-                    <div
-                      className={styles.decorOrb1}
-                      style={{ background: `radial-gradient(circle at center, ${accent}55 0%, transparent 60%)` }}
-                    />
-                    <div
-                      className={styles.decorOrb2}
-                      style={{ background: `radial-gradient(circle at center, ${accent}33 0%, transparent 60%)` }}
-                    />
-
-                    <div className={styles.clientInfo}>
-                      <div className={styles.clientHeader}>
-                        <div className={styles.clientLogoRow}>
-                          <div className={styles.clientLogo}>
-                            <Image
-                              src={caseStudy.logo ?? "/placeholders/logo-placeholder.svg"}
-                              alt={`${caseStudy.client} logo`}
-                              width={96}
-                              height={96}
-                              className={styles.logoImage}
-                            />
-                          </div>
-                          <div>
-                            <p className={styles.clientIndustry}>
-                              {caseStudy.industry}
-                            </p>
-                            <h3 className={styles.clientName}>
-                              {caseStudy.client}
-                            </h3>
-                          </div>
-                        </div>
-
-                        <div className={styles.caseFocus}>
-                          <span className={styles.focusBadge}>
-                            Case Focus
-                          </span>
-                          <h4 className={styles.caseTitle}>
-                            {caseStudy.title}
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className={styles.caseDetails}>
-                      <div className={styles.detailSection}>
-                        <div className={styles.sectionHeader}>
-                          <AlertTriangle className={styles.sectionIcon} />
-                          <span className={styles.sectionTitle}>Challenges</span>
-                        </div>
-                        <ul className={styles.detailList}>
-                          {caseStudy.challengeHighlights.slice(0, 3).map((item) => (
-                            <li key={item} className={styles.detailItem}>
-                              <span className={styles.bullet} />
-                              <span className={styles.detailText}>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className={styles.detailSection}>
-                        <div className={styles.sectionHeader}>
-                          <Lightbulb className={styles.sectionIcon} />
-                          <span className={styles.sectionTitle}>Solution</span>
-                        </div>
-                        <ul className={styles.detailList}>
-                          {caseStudy.solutionHighlights.slice(0, 3).map((item) => (
-                            <li key={item} className={styles.detailItem}>
-                              <span className={styles.bullet} />
-                              <span className={styles.detailText}>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <Link
-                        href="/contact"
-                        className={styles.ctaButton}
-                      >
-                        Talk to us
-                        <ArrowRight className={styles.ctaIcon} />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            <span className={styles.badge}>Case Study Gallery</span>
+            <h2 className={styles.headerTitle}>
+              Signature Projects Across Industries
+            </h2>
+            <p className={styles.headerDescription}>
+              A snapshot of how we elevate workforce planning and analytics with SAP Analytics Cloud for global pioneers.
+            </p>
           </motion.div>
+
+          {/* Cards */}
+          <div className={styles.caseList}>
+            {caseStudies.map((caseStudy, index) => (
+              <motion.div
+                key={caseStudy.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className={styles.caseCard}
+              >
+                {/* Accent Bar */}
+                <span className={styles.cardAccent} />
+
+                {/* Client */}
+                <div className={styles.clientBlock}>
+                  <div className={styles.logoWrapper}>
+                    <Image
+                      src={caseStudy.logo ?? "/placeholders/nbf-logo.webp"}
+                      alt={`${caseStudy.client} logo`}
+                      width={80}
+                      height={80}
+                    />
+                  </div>
+
+                  <div>
+                    <p className={styles.clientIndustry}>
+                      {caseStudy.industry}
+                    </p>
+                    <h3 className={styles.clientName}>
+                      {caseStudy.client}
+                    </h3>
+                    <p className={styles.caseTitle}>
+                      {caseStudy.title}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Details */}
+                <div className={styles.detailsGrid}>
+                  <div className={styles.detailSection}>
+                    <div className={styles.sectionHeader}>
+                      <AlertTriangle />
+                      <span>Challenges</span>
+                    </div>
+                    <ul>
+                      {caseStudy.challengeHighlights.slice(0, 3).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className={styles.detailSection}>
+                    <div className={styles.sectionHeader}>
+                      <Lightbulb />
+                      <span>Solution</span>
+                    </div>
+                    <ul>
+                      {caseStudy.solutionHighlights.slice(0, 3).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <Link href="/contact" className={styles.cardCTA}>
+                  Talk to us
+                  <ArrowRight />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -164,7 +118,7 @@ export default function CaseStudiesPage() {
       <section className={styles.ctaSection}>
         <div className={styles.container}>
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className={styles.ctaCard}
@@ -175,12 +129,9 @@ export default function CaseStudiesPage() {
             <p className={styles.ctaDescription}>
               Share your challenge and we'll craft a tailored solution playbook.
             </p>
-            <Link
-              href="/contact"
-              className={styles.ctaPrimaryButton}
-            >
+            <Link href="/contact" className={styles.ctaPrimaryButton}>
               Start Your Project
-              <ArrowRight className={styles.ctaIcon} />
+              <ArrowRight />
             </Link>
           </motion.div>
         </div>

@@ -103,21 +103,21 @@ export default function JobApplicationPage({
           <CardContent>
             <form onSubmit={handleSubmit} className={styles.form}>
               <FormSection icon={<User />} title="Personal details">
-                <Input placeholder="Full name *" required />
-                <Input type="email" placeholder="Email address *" required />
+                <Input className={styles.input} placeholder="Full name *" required />
+                <Input className={styles.input} type="email" placeholder="Email address *" required />
               </FormSection>
 
               <FormSection icon={<Linkedin />} title="Professional links">
-                <Input placeholder="LinkedIn profile" />
-                <Input placeholder="Portfolio website" />
+                <Input className={styles.input} placeholder="LinkedIn profile" />
+                <Input className={styles.input} placeholder="Portfolio website" />
               </FormSection>
 
               <FormSection icon={<FileText />} title="Resume">
-                <Input type="file" required />
+                <Input className={styles.input} type="file" required />
               </FormSection>
 
               <FormSection icon={<Mail />} title="Why SSR Fintech?">
-                <Textarea rows={4} required />
+                <Textarea className={styles.textarea} rows={4} required />
               </FormSection>
 
               <Button size="lg" className={styles.submitButton}>

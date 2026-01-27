@@ -2,7 +2,7 @@
 
 .processSteps {
   position: relative;
-  padding: var(--space-3xl) 0;
+  padding: var(--space-4xl) 0;
   background: linear-gradient(to bottom, var(--bg-main), var(--bg-section));
   overflow: hidden;
 }
@@ -18,28 +18,27 @@
 /* Header */
 .header {
   text-align: center;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-4xl);
 }
 
 .title {
   font-size: var(--font-4xl);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xl);
+  letter-spacing: -0.02em;
 }
 
 .title span {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
 }
 
 .description {
-  font-size: var(--font-xl);
+  font-size: var(--font-lg);
   color: var(--text-secondary);
   max-width: 48rem;
   margin: 0 auto;
+  line-height: 1.8;
 }
 
 /* Steps Container */
@@ -50,7 +49,7 @@
 
 .stepItem {
   position: relative;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-3xl);
 }
 
 /* Timeline Line */
@@ -99,9 +98,9 @@
 }
 
 .numberBadge {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 1rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 1.25rem;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   display: flex;
   align-items: center;
@@ -109,8 +108,14 @@
   color: white;
   font-weight: 700;
   font-size: var(--font-2xl);
-  box-shadow: 0 10px 30px rgba(29, 181, 163, 0.3);
-  margin-bottom: var(--space-md);
+  box-shadow: 0 12px 40px rgba(29, 181, 163, 0.35);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.stepItem:hover .numberBadge {
+  transform: scale(1.12) rotate(-5deg);
+  box-shadow: 0 18px 50px rgba(29, 181, 163, 0.45);
 }
 
 .durationBadge {
@@ -128,11 +133,18 @@
   display: none;
 }
 
+.durationBadgeMobile {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
 @media (min-width: 769px) {
-  .durationBadgeHidden {
-    display: block;
-  }
-  
   .durationBadgeMobile {
     display: none;
   }
@@ -140,18 +152,21 @@
 
 /* Step Content Card */
 .stepCard {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-normal);
+  padding: var(--space-2xl);
+  box-shadow: 0 8px 32px rgba(31, 41, 51, 0.12);
+  transition: all var(--transition-base);
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .stepCard:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-4px);
-  border-color: var(--color-accent);
+  box-shadow: 0 20px 50px rgba(29, 181, 163, 0.15);
+  transform: translateY(-6px) rotateX(1deg);
+  border-color: rgba(29, 181, 163, 0.3);
 }
 
 .stepHeader {
@@ -163,36 +178,43 @@
 }
 
 .stepPhase {
-  font-size: var(--font-sm);
-  font-weight: 600;
+  font-size: var(--font-xs);
+  font-weight: 700;
   color: var(--color-accent);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .stepTitle {
   font-size: var(--font-2xl);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
 }
 
 .stepDescription {
   color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--space-lg);
+  line-height: 1.8;
+  margin-bottom: var(--space-xl);
+  font-size: var(--font-base);
 }
 
 /* Deliverables */
 .deliverables {
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(29, 181, 163, 0.1);
 }
 
 .deliverablesTitle {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .deliverablesGrid {

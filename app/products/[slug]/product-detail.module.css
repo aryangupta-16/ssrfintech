@@ -85,8 +85,8 @@
   align-items: flex-start;
   gap: var(--space-sm);
   padding: var(--space-md);
-  background: #ffffff;
-  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
 }
@@ -118,8 +118,8 @@
   max-width: 720px;
   margin: 0 auto;
   padding: var(--space-3xl);
-  background: #ffffff;
-  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-2xl);
   text-align: center;
   box-shadow: var(--shadow-lg);

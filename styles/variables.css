@@ -79,6 +79,127 @@
   /* Container */
   --container-max-width: 1280px;
   --container-padding: 1rem;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-blur: blur(10px);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  
+  /* Enhancements */
+  --transition-normal: 300ms;
+}
+
+/* Dark mode theme - System preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Brand Colors - adjusted for dark mode */
+    --color-primary: #60A5FA;
+    --color-accent: #34D399;
+    --color-primary-light: #93C5FD;
+    --color-accent-dark: #10B981;
+    
+    /* Backgrounds */
+    --bg-main: #0F172A;
+    --bg-section: #1E293B;
+    --bg-card: #1A2332;
+    --bg-dark: #0F172A;
+    --bg-dark-secondary: #0A0F1B;
+    
+    /* Text Colors */
+    --text-primary: #F1F5F9;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --text-inverse: #0F172A;
+    
+    /* UI Elements */
+    --border-color: #334155;
+    --border-light: #475569;
+    --border-dark: #1E293B;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(30, 41, 59, 0.8);
+    --glass-border: rgba(148, 163, 184, 0.2);
+  }
+}
+
+/* Light mode theme - Manual toggle */
+html[data-theme="light"] {
+  /* Brand Colors */
+  --color-primary: #0B2545;
+  --color-accent: #1DB5A3;
+  --color-primary-light: #134E7C;
+  --color-accent-dark: #159A8B;
+  
+  /* Backgrounds */
+  --bg-main: #FFFFFF;
+  --bg-section: #F5F7FA;
+  --bg-card: #FAFBFC;
+  --bg-dark: #0B2545;
+  --bg-dark-secondary: #081C33;
+  
+  /* Text Colors */
+  --text-primary: #1F2933;
+  --text-secondary: #3E4C59;
+  --text-muted: #52606D;
+  --text-inverse: #FFFFFF;
+  
+  /* UI Elements */
+  --border-color: #E1E5EA;
+  --border-light: #F0F2F5;
+  --border-dark: #334155;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(31, 41, 51, 0.08);
+  --shadow-md: 0 4px 16px rgba(31, 41, 51, 0.12);
+  --shadow-lg: 0 8px 24px rgba(31, 41, 51, 0.16);
+  --shadow-xl: 0 20px 60px rgba(11, 37, 69, 0.25);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode theme - Manual toggle */
+html[data-theme="dark"] {
+  /* Brand Colors - adjusted for dark mode */
+  --color-primary: #60A5FA;
+  --color-accent: #34D399;
+  --color-primary-light: #93C5FD;
+  --color-accent-dark: #10B981;
+  
+  /* Backgrounds */
+  --bg-main: #0F172A;
+  --bg-section: #1E293B;
+  --bg-card: #1A2332;
+  --bg-dark: #0F172A;
+  --bg-dark-secondary: #0A0F1B;
+  
+  /* Text Colors */
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-inverse: #0F172A;
+  
+  /* UI Elements */
+  --border-color: #334155;
+  --border-light: #475569;
+  --border-dark: #1E293B;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(30, 41, 59, 0.8);
+  --glass-border: rgba(148, 163, 184, 0.2);
 }
 
 /* Responsive spacing adjustments */

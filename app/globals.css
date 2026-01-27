@@ -185,3 +185,36 @@ img {
     page-break-after: avoid;
   }
 }
+
+/* ========================================
+   DARK MODE SUPPORT
+   ======================================== */
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* Smooth theme transitions for specific elements */
+body, section, div, header, nav, footer, aside, article {
+  transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+
+/* ========================================
+   ENHANCEMENTS
+   ======================================== */
+
+/* Glassmorphic cards base */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+/* Smooth scrolling for sections */
+section {
+  scroll-margin-top: 80px;
+}

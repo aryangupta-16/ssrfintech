@@ -37,7 +37,7 @@
 }
 
 .productCard {
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   height: 100%;
@@ -121,7 +121,7 @@
 }
 
 .featureCard {
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
@@ -160,7 +160,7 @@
   display: flex;
   gap: var(--space-sm);
   padding: var(--space-md);
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
 }

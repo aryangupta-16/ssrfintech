@@ -119,10 +119,7 @@
 .statValue {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-accent);
   margin-bottom: var(--space-sm);
   display: block;
 }

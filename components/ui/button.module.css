@@ -33,25 +33,42 @@
 .default {
   background-color: var(--color-accent);
   color: white;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 32px rgba(29, 181, 163, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .default:hover {
   background-color: var(--color-accent-dark);
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-2px);
+  box-shadow: 0 15px 45px rgba(29, 181, 163, 0.4);
+  transform: translateY(-3px);
 }
 
 .gradient {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: white;
-  box-shadow: 0 8px 32px rgba(11, 37, 69, 0.15);
+  box-shadow: 0 12px 40px rgba(29, 181, 163, 0.35);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
 }
 
 .gradient:hover {
-  background: linear-gradient(135deg, var(--color-accent-dark) 0%, var(--color-accent) 100%);
-  box-shadow: 0 0 40px rgba(29, 181, 163, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 60px rgba(29, 181, 163, 0.45);
+  transform: translateY(-4px);
+}
+
+.gradient:hover::before {
+  opacity: 1;
 }
 
 .secondary {
@@ -90,22 +107,30 @@
 
 .outline {
   border: 2px solid var(--color-accent);
-  background-color: transparent;
-  color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--color-primary);
+  transition: all var(--transition-base);
 }
 
 .outline:hover {
   background-color: var(--color-accent);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(29, 181, 163, 0.25);
 }
 
 .ghost {
   background-color: transparent;
   color: var(--text-primary);
+  border: 1px solid transparent;
+  transition: all var(--transition-base);
 }
 
 .ghost:hover {
-  background-color: var(--bg-section);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(29, 181, 163, 0.2);
+  transform: translateY(-2px);
 }
 
 .link {

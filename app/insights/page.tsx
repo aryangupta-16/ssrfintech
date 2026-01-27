@@ -2,12 +2,10 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { GradientWrapper } from "@/components/layout/GradientWrapper";
 import { PageHero } from "@/components/sections/PageHero";
-import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/blogPosts";
-import { ArrowRight, BookOpen, Calendar, Clock, TrendingUp, CheckCircle2 } from "lucide-react";
+import { ArrowRight, BookOpen, Calendar, Clock, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 import styles from "./insights.module.css";
 
@@ -16,14 +14,11 @@ export default function InsightsPage() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [showNewsletterSuccess, setShowNewsletterSuccess] = useState(false);
 
-  const categories = Array.from(new Set(blogPosts.map(post => post.category)));
+  const categories = Array.from(new Set(blogPosts.map(p => p.category)));
 
   const filteredPosts = selectedCategory
-    ? blogPosts.filter(post => post.category === selectedCategory)
+    ? blogPosts.filter(p => p.category === selectedCategory)
     : blogPosts;
-
-  const featuredPost = blogPosts.find(post => post.featured);
-  const regularPosts = filteredPosts.filter(post => !post.featured || selectedCategory !== null);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,21 +40,22 @@ export default function InsightsPage() {
         icon={<BookOpen className="w-10 h-10" />}
       />
 
-      {/* Category Filter */}
+      {/* Category Filters */}
       <section className={styles.section}>
         <div className={styles.container}>
           <div className={styles.categoryFilters}>
             <button
               onClick={() => setSelectedCategory(null)}
-              className={`${styles.categoryButton} ${selectedCategory === null ? styles.active : ''}`}
+              className={`${styles.categoryButton} ${!selectedCategory ? styles.active : ""}`}
             >
               All Articles
             </button>
-            {categories.map((category) => (
+
+            {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`${styles.categoryButton} ${selectedCategory === category ? styles.active : ''}`}
+                className={`${styles.categoryButton} ${selectedCategory === category ? styles.active : ""}`}
               >
                 {category}
               </button>
@@ -68,95 +64,63 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      {/* Featured Article */}
-      {!selectedCategory && featuredPost && (
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <Link href={`/insights/${featuredPost.slug}`}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className={styles.featuredPost}
-              >
-                <span className={styles.featuredBadge}>Featured Article</span>
-                <div className={styles.featuredContent}>
-                  <span className={styles.featuredCategory}>{featuredPost.category}</span>
-                  <h2 className={styles.featuredTitle}>{featuredPost.title}</h2>
-                  <p className={styles.featuredExcerpt}>{featuredPost.excerpt}</p>
-                  <div className={styles.featuredMeta}>
-                    <div className={styles.featuredMetaItem}>
-                      <Calendar size={16} />
-                      {new Date(featuredPost.publishedDate).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric'
-                      })}
-                    </div>
-                    <div className={styles.featuredMetaItem}>
-                      <Clock size={16} />
-                      {featuredPost.readTime}
-                    </div>
-                  </div>
-                  <div className={styles.featuredLink}>
-                    Read More <ArrowRight size={20} />
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* Regular Articles Grid */}
+      {/* Articles Grid */}
       <section className={styles.section}>
         <div className={styles.container}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className={styles.header}
           >
-            <h2 className={styles.sectionTitle}>
-              {selectedCategory ? `${selectedCategory} Articles` : 'Latest Insights'}
-            </h2>
-            <p className={styles.sectionDescription}>
-              Stay ahead with insights from fintech experts
-            </p>
+            <div className={styles.sectionTitle}>
+              {selectedCategory ? `${selectedCategory} Articles` : "All Articles"}
+            </div>
+            <div className={styles.sectionDescription}>
+              Insights, trends, and expert perspectives from our team
+            </div>
           </motion.div>
 
           <div className={styles.postGrid}>
-            {regularPosts.map((post, index) => (
+            {filteredPosts.map((post, index) => (
               <motion.div
                 key={post.slug}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.08 }}
               >
                 <Link href={`/insights/${post.slug}`}>
-                  <div className={styles.postCard}>
+                  <div
+                    className={`${styles.postCard} ${
+                      post.featured ? styles.featuredCard : ""
+                    }`}
+                  >
+                    {post.featured && (
+                      <div className={styles.featuredBadge}>Featured</div>
+                    )}
+
                     <div className={styles.postImage} />
+
                     <div className={styles.postContent}>
-                      <span className={styles.postCategory}>{post.category}</span>
-                      <h3 className={styles.postTitle}>{post.title}</h3>
-                      <p className={styles.postExcerpt}>{post.excerpt}</p>
-                      <div className={styles.postMeta}>
-                        <div className={styles.postMetaItem}>
+                      <div className={styles.postCategory}>{post.category}</div>
+
+                      <div className={styles.postTitle}>{post.title}</div>
+
+                      <div className={styles.postExcerpt}>{post.excerpt}</div>
+
+                      <div className={styles.postFooter}>
+                        <div className={styles.metaItem}>
                           <Calendar size={14} />
-                          {new Date(post.publishedDate).toLocaleDateString('en-US', {
-                            month: 'short',
-                            day: 'numeric',
-                            year: 'numeric'
-                          })}
+                          {new Date(post.publishedDate).toDateString()}
                         </div>
-                        <div className={styles.postMetaItem}>
+                        <div className={styles.metaItem}>
                           <Clock size={14} />
                           {post.readTime}
                         </div>
-                      </div>
-                      <div className={styles.postLink}>
-                        Read More <ArrowRight size={16} />
+                        <div className={styles.readMore}>
+                          Read →
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -167,37 +131,37 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
+      {/* Newsletter */}
       <section className={styles.section} id="newsletter">
         <div className={styles.container}>
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className={styles.newsletterSection}
           >
-            <BookOpen className="w-16 h-16 text-white mx-auto mb-4" />
-            <h2 className={styles.newsletterTitle}>Subscribe to Our Newsletter</h2>
-            <p className={styles.newsletterDescription}>
-              Get the latest insights, trends, and best practices delivered to your inbox monthly
-            </p>
+            <div className={styles.newsletterTitle}>
+              Get Insights in Your Inbox
+            </div>
+            <div className={styles.newsletterDescription}>
+              Monthly fintech, analytics, and transformation insights — no spam.
+            </div>
 
             {showNewsletterSuccess ? (
               <div className={styles.successMessage}>
-                <CheckCircle2 size={24} />
-                Thanks for subscribing! Check your inbox for confirmation.
+                <CheckCircle2 />
+                You’re subscribed!
               </div>
             ) : (
               <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Your work email"
                   value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  onChange={e => setNewsletterEmail(e.target.value)}
                   required
-                  className={styles.newsletterInput}
                 />
-                <button type="submit" className={styles.newsletterButton}>
+                <button type="submit">
                   Subscribe
                 </button>
               </form>

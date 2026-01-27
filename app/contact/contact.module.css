@@ -27,7 +27,14 @@
 .formTitle {
   font-size: var(--font-3xl);
   font-weight: 700;
-  color: white;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.infoTitle {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: var(--space-lg);
 }
 
@@ -75,28 +82,51 @@
   display: block;
   font-size: var(--font-sm);
   font-weight: 500;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .input {
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgb(51, 65, 85);
-  color: white;
+  width: 100%;
+  background: var(--bg-section);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem;
+  font-size: var(--font-base);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .input::placeholder {
-  color: rgb(107, 114, 128);
+  color: var(--text-muted);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--bg-card);
 }
 
 .textarea {
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgb(51, 65, 85);
-  color: white;
+  width: 100%;
+  background: var(--bg-section);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem;
+  font-size: var(--font-base);
+  font-family: inherit;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .textarea::placeholder {
-  color: rgb(107, 114, 128);
+  color: var(--text-muted);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--bg-card);
 }
 
 .submitButton {
@@ -109,13 +139,6 @@
 .submitIcon {
   width: 1.25rem;
   height: 1.25rem;
-}
-
-.infoTitle {
-  font-size: var(--font-3xl);
-  font-weight: 700;
-  color: white;
-  margin-bottom: var(--space-lg);
 }
 
 .infoCards {
@@ -176,6 +199,115 @@
 .infoCardText {
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+/* Phone List Styles */
+.phoneList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.phoneItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-section);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.phoneItem:hover {
+  border-color: var(--color-accent);
+  background: rgba(29, 181, 163, 0.05);
+}
+
+.countryFlag {
+  font-size: 2rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.phoneDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.countryLabel {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.phoneLink {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  font-size: var(--font-lg);
+}
+
+.phoneLink:hover {
+  color: var(--color-primary-light);
+}
+
+.availability {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
+}
+
+/* Address List Styles */
+.addressList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.addressItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bg-section);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.addressItem:hover {
+  border-color: var(--color-accent);
+  background: rgba(29, 181, 163, 0.05);
+}
+
+.locationBadge {
+  font-size: 2.5rem;
+  min-width: 3rem;
+  text-align: center;
+}
+
+.addressDetails {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.addressCountry {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: var(--font-lg);
+}
+
+.addressText {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* Office Locations */
