@@ -18,11 +18,15 @@ const navigation = {
   ],
   industries: [
     { name: "Banking & Financial Services", href: "/industries/banking-financial-services" },
-    { name: "Insurance", href: "/industries/insurance" },
-    { name: "Wealth Management", href: "/industries/wealth-management" },
-    { name: "Payment Processing", href: "/industries/payment-processing" },
-    { name: "Capital Markets", href: "/industries/capital-markets" },
-    { name: "Fintech Startups", href: "/industries/fintech-startups" },
+    { name: "Automobile & Manufacturing", href: "/industries/automobile-manufacturing" },
+    { name: "Mining & Resources", href: "/industries/mining-resources" },
+    { name: "Oil & Gas", href: "/industries/oil-gas" },
+    { name: "FMCG & Retail", href: "/industries/fmcg-retail" },
+    { name: "Logistics & Supply Chain", href: "/industries/logistics-supply-chain" },
+    { name: "Pharmaceutical & Life Sciences", href: "/industries/pharma-life-sciences" },
+    { name: "Utilities & Energy", href: "/industries/utilities-energy" },
+    { name: "Ports & Maritime", href: "/industries/ports-maritime" },
+    { name: "Private Equity & Investment Firms", href: "/industries/private-equity-investment" },
   ],
   products: {
     financial: [

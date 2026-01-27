@@ -187,14 +187,14 @@
 }
 
 .pinUS {
-  left: 15%;
-  top: 30%;
+  left: 20%;
+  top: 45%;
 }
 
 @media (min-width: 768px) {
   .pinUS {
     left: 20%;
-    top: 35%;
+    top: 50%;
   }
 }
 
@@ -205,14 +205,14 @@
 
 @media (min-width: 768px) {
   .pinME {
-    left: 52%;
+    left: 45%;
     top: 40%;
   }
 }
 
 .pinIndia {
-  right: 20%;
-  top: 40%;
+  right: 24%;
+  top: 35%;
 }
 
 @media (min-width: 768px) {
@@ -277,17 +277,40 @@
 
 .pinLabel {
   margin-top: 0.25rem;
-  padding: 0.5rem 1rem;
-  background: var(--bg-card);
+  padding: 0.75rem 1.25rem;
+  background: transparent;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  /* backdrop-filter: blur(8px); */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.pinLabel:hover {
+  box-shadow: 0 12px 24px rgba(29, 181, 163, 0.2);
+  transform: scale(1.05);
 }
 
 .pinLabelText {
   color: var(--text-primary);
   font-weight: 600;
   font-size: var(--font-sm);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.citiesList {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.cityName {
+  color: var(--text-secondary);
+  font-size: var(--font-xs);
+  margin: 0.4rem 0;
   white-space: nowrap;
 }
 
@@ -395,8 +418,9 @@
 }
 
 .memberLinkedIn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: var(--color-accent);
   font-size: var(--font-sm);

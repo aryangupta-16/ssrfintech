@@ -1,5 +1,11 @@
 import { CaseStudy } from "@/lib/types";
 
+export interface CaseStudyMetrics {
+  metric: string;
+  value: string;
+  description: string;
+}
+
 export const caseStudies: CaseStudy[] = [
   /* ========================= GLOBE ========================= */
 
@@ -24,6 +30,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/globe-logo.png",
     accentColor: "#2563EB",
+    metrics: {
+      metric: "Process Automation",
+      value: "100%",
+      description: "Full end-to-end consolidation automation"
+    }
   },
 
   {
@@ -47,6 +58,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/globe-logo.png",
     accentColor: "#22C55E",
+    metrics: {
+      metric: "Planning Cycle Reduction",
+      value: "-60%",
+      description: "Reduced planning cycle from manual processes"
+    }
   },
 
   /* ========================= ABOITIZ ========================= */
@@ -71,6 +87,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/aboitiz-logo.png",
     accentColor: "#0EA5E9",
+    metrics: {
+      metric: "Planning Efficiency",
+      value: "+75%",
+      description: "Improved planning efficiency across 52 entities"
+    }
   },
 
   /* ========================= TAQA ========================= */
@@ -95,6 +116,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/taqa-logo.png",
     accentColor: "#8B5CF6",
+    metrics: {
+      metric: "Process Automation",
+      value: "95%",
+      description: "Automated consolidation and budgeting processes"
+    }
   },
 
   /* ========================= MANILA WATER ========================= */
@@ -119,6 +145,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/manilawater-logo.png",
     accentColor: "#F59E0B",
+    metrics: {
+      metric: "Planning Cycle",
+      value: "-50%",
+      description: "Reduced overall planning cycle time"
+    }
   },
 
   /* ========================= UCT ========================= */
@@ -143,6 +174,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/uct-logo.png",
     accentColor: "#10B981",
+    metrics: {
+      metric: "Efficiency Gain",
+      value: "+75%",
+      description: "Improved operational efficiency"
+    }
   },
 
   /* ========================= NBF ========================= */
@@ -167,6 +203,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/nbf-logo.webp",
     accentColor: "#6366F1",
+    metrics: {
+      metric: "Planning Time",
+      value: "-70%",
+      description: "Reduced planning time significantly"
+    }
   },
 
   /* ========================= ADVANZ PHARMA ========================= */
@@ -191,6 +232,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/advanzpharma-logo.png",
     accentColor: "#EF4444",
+    metrics: {
+      metric: "Planning Efficiency",
+      value: "+70%",
+      description: "Boosted planning efficiency"
+    }
   },
 
   /* ========================= AVERIS ========================= */
@@ -215,6 +261,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/averis-logo.png",
     accentColor: "#0F766E",
+    metrics: {
+      metric: "System Consolidation",
+      value: "100%",
+      description: "Unified all legacy systems into one"
+    }
   },
 
   /* ========================= CLSA ========================= */
@@ -239,6 +290,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/clsa-logo.png",
     accentColor: "#7C3AED",
+    metrics: {
+      metric: "Reporting Accuracy",
+      value: "99.9%",
+      description: "Achieved near-perfect reporting accuracy"
+    }
   },
 
   /* ========================= OTTO ========================= */
@@ -263,6 +319,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/otto-logo.png",
     accentColor: "#6366F1",
+    metrics: {
+      metric: "Process Automation",
+      value: "90%",
+      description: "Automated multi-industry planning"
+    }
   },
 
   /* ========================= MITSUBISHI ELECTRIC ========================= */
@@ -287,6 +348,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/mitsubishielectric-logo.png",
     accentColor: "#0F766E",
+    metrics: {
+      metric: "Data Accuracy",
+      value: "+85%",
+      description: "Improved data accuracy and visibility"
+    }
   },
 
   /* ========================= STANDARD CHARTERED ========================= */
@@ -311,6 +377,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/standardchartered.png",
     accentColor: "#2563EB",
+    metrics: {
+      metric: "Migration Success",
+      value: "100%",
+      description: "Successful warehouse migration"
+    }
   },
 
   /* ========================= SAUDI ELECTRICITY ========================= */
@@ -335,6 +406,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/saudielectricitycompany-logo.png",
     accentColor: "#F59E0B",
+    metrics: {
+      metric: "Planning Time",
+      value: "-65%",
+      description: "Reduced planning cycle time"
+    }
   },
 
   /* ========================= PRIVATE INFRA GROUP ========================= */
@@ -359,6 +435,11 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/pidg-logo.png",
     accentColor: "#7C3AED",
+    metrics: {
+      metric: "Process Automation",
+      value: "100%",
+      description: "Full planning and consolidation automation"
+    }
   },
 
   /* ========================= PA MEDIA GROUP ========================= */
@@ -383,5 +464,10 @@ export const caseStudies: CaseStudy[] = [
     image: "/placeholders/case-study-placeholder.svg",
     logo: "/placeholders/pamediagroup-logo.png",
     accentColor: "#8B5CF6",
+    metrics: {
+      metric: "Planning Efficiency",
+      value: "+80%",
+      description: "Enhanced regional planning efficiency"
+    }
   },
 ];

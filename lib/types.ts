@@ -37,9 +37,16 @@ export interface TeamMember {
   role: string;
   bio: string;
   email?: string;
+  phone?: string;
   image?: string;
   linkedin?: string;
   twitter?: string;
+}
+
+export interface CaseStudyMetrics {
+  metric: string;
+  value: string;
+  description: string;
 }
 
 export interface CaseStudy {
@@ -54,6 +61,7 @@ export interface CaseStudy {
   image?: string;
   logo?: string;
   accentColor?: string;
+  metrics?: CaseStudyMetrics;
 }
 
 export interface BlogPost {

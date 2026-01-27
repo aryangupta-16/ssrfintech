@@ -23,6 +23,25 @@ export default function InsightDetailPage({ params }: { params: Promise<{ slug: 
     .filter(p => p.category === post.category && p.id !== post.id)
     .slice(0, 3);
 
+  const renderContent = (content?: string) => {
+    if (!content) return null;
+
+    return content.split('\n').map((line, index) => {
+      const trimmed = line.trim();
+      if (!trimmed) return null;
+      if (trimmed.startsWith('### ')) {
+        return <h3 key={`h3-${index}`}>{trimmed.slice(4)}</h3>;
+      }
+      if (trimmed.startsWith('## ')) {
+        return <h2 key={`h2-${index}`}>{trimmed.slice(3)}</h2>;
+      }
+      if (trimmed.startsWith('# ')) {
+        return <h2 key={`h2-main-${index}`}>{trimmed.slice(2)}</h2>;
+      }
+      return <p key={`p-${index}`}>{trimmed}</p>;
+    });
+  };
+
   return (
     <GradientWrapper>
       <article className={styles.article}>
@@ -81,9 +100,7 @@ export default function InsightDetailPage({ params }: { params: Promise<{ slug: 
             transition={{ delay: 0.3 }}
             className={styles.content}
           >
-            {post.content && post.content.split('\n\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            {renderContent(post.content)}
             {post.excerpt && !post.content && (
               <p>{post.excerpt}</p>
             )}

@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { GradientWrapper } from "@/components/layout/GradientWrapper";
 import { PageHero } from "@/components/sections/PageHero";
 import { blogPosts } from "@/data/blogPosts";
 import { ArrowRight, BookOpen, Calendar, Clock, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import styles from "./insights.module.css";
 
@@ -100,7 +102,18 @@ export default function InsightsPage() {
                       <div className={styles.featuredBadge}>Featured</div>
                     )}
 
-                    <div className={styles.postImage} />
+                    <div className={styles.postImageWrapper}>
+                      {post.image ? (
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className={styles.postImage}
+                        />
+                      ) : (
+                        <div className={styles.postImagePlaceholder} />
+                      )}
+                    </div>
 
                     <div className={styles.postContent}>
                       <div className={styles.postCategory}>{post.category}</div>
@@ -110,17 +123,19 @@ export default function InsightsPage() {
                       <div className={styles.postExcerpt}>{post.excerpt}</div>
 
                       <div className={styles.postFooter}>
-                        <div className={styles.metaItem}>
-                          <Calendar size={14} />
-                          {new Date(post.publishedDate).toDateString()}
+                        <div className={styles.metaInfo}>
+                          <div className={styles.metaItem}>
+                            <Calendar size={14} />
+                            {new Date(post.publishedDate).toDateString()}
+                          </div>
+                          <div className={styles.metaItem}>
+                            <Clock size={14} />
+                            {post.readTime}
+                          </div>
                         </div>
-                        <div className={styles.metaItem}>
-                          <Clock size={14} />
-                          {post.readTime}
-                        </div>
-                        <div className={styles.readMore}>
-                          Read →
-                        </div>
+                        <button className={styles.readMoreButton}>
+                          Read More <ArrowRight size={16} />
+                        </button>
                       </div>
                     </div>
                   </div>
