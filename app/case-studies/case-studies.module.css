@@ -1,0 +1,234 @@
+/* ===============================
+   LAYOUT
+   =============================== */
+
+.caseStudies {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-main);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ===============================
+   HEADER
+   =============================== */
+
+.header {
+  max-width: 720px;
+  margin: 0 auto var(--space-4xl);
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid rgba(29, 181, 163, 0.3);
+}
+
+.headerTitle {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.headerDescription {
+  margin-top: var(--space-sm);
+  font-size: var(--font-lg);
+  color: var(--text-muted);
+}
+
+/* ===============================
+   CARDS
+   =============================== */
+
+.caseList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.caseCard {
+  position: relative;
+  padding: var(--space-2xl);
+  border-radius: var(--radius-2xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caseCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Accent bar */
+.cardAccent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 6px;
+  border-radius: 6px 0 0 6px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-accent),
+    var(--color-primary-light)
+  );
+}
+
+/* ===============================
+   CLIENT BLOCK
+   =============================== */
+
+.clientBlock {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.logoWrapper {
+  width: 100px;
+  height: 100px;
+  /* border-radius: var(--radius-lg); */
+  /* background: var(--bg-section); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clientIndustry {
+  font-size: var(--font-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+}
+
+.clientName {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.caseTitle {
+  margin-top: 0.25rem;
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+}
+
+/* ===============================
+   DETAILS
+   =============================== */
+
+.detailsGrid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .detailsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.detailSection {
+  background: var(--bg-section);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.sectionHeader svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+}
+
+.detailSection ul {
+  padding-left: 1rem;
+  color: var(--text-muted);
+}
+
+.detailSection li {
+  font-size: var(--font-sm);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* ===============================
+   CARD CTA
+   =============================== */
+
+.cardCTA {
+  margin-top: var(--space-lg);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* ===============================
+   PAGE CTA
+   =============================== */
+
+.ctaSection {
+  padding: var(--space-4xl) 0;
+}
+
+.ctaCard {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-3xl);
+  background: var(--bg-card);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xl);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ctaDescription {
+  margin-top: var(--space-md);
+  font-size: var(--font-lg);
+  color: var(--text-muted);
+}
+
+.ctaPrimaryButton {
+  margin-top: var(--space-xl);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}

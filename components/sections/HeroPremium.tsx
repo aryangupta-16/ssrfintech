@@ -2,37 +2,87 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Shield, Zap, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/Container";
+import styles from "./HeroPremium.module.css";
+import { useState, useRef, useEffect } from "react";
 
 export default function Hero() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isDark, setIsDark] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const theme = document.documentElement.getAttribute("data-theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setIsDark(theme === "dark" || (!theme && prefersDark));
+    };
+
+    checkDarkMode();
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, { attributes: true });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!sectionRef.current) return;
+
+    const rect = sectionRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+
+    setMousePosition({ x, y });
+  };
+
+  const gradientX = mousePosition.x * 100;
+  const gradientY = mousePosition.y * 100;
+
+  const lightGradient = `
+    radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(29, 181, 163, 0.35) 0%, rgba(29, 181, 163, 0.1) 30%, transparent 60%),
+    linear-gradient(135deg, white 0%, #f8fafc 50%, #f1f5f9 100%)
+  `;
+
+  const darkGradient = `
+    radial-gradient(circle at ${gradientX}% ${gradientY}%, rgba(29, 181, 163, 0.4) 0%, rgba(29, 181, 163, 0.15) 30%, transparent 60%),
+    linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%)
+  `;
+
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section 
+      className={styles.hero}
+      ref={sectionRef}
+      onMouseMove={handleMouseMove}
+      style={{
+        background: isDark ? darkGradient : lightGradient
+      } as any}
+    >
       {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600 rounded-full mix-blend-lighten filter blur-3xl opacity-20 animate-blob" />
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-lighten filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-600 rounded-full mix-blend-lighten filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
+      <div className={styles.backgroundBlobs}>
+        <div className={`${styles.blob} ${styles.blob1}`} />
+        <div className={`${styles.blob} ${styles.blob2}`} />
+        <div className={`${styles.blob} ${styles.blob3}`} />
       </div>
 
-      <Container className="relative z-10 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <Container className={styles.content}>
+        <div className={styles.grid}>
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className={styles.textContent}
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 backdrop-blur-sm border border-indigo-500/20 shadow-lg mb-6"
+              className={styles.badge}
             >
-              <Sparkles className="w-4 h-4 text-indigo-400" />
-              <span className="text-sm font-semibold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+              <Sparkles className={styles.badgeIcon} />
+              <span className={styles.badgeText}>
                 Leading Fintech Solutions Provider
               </span>
             </motion.div>
@@ -41,10 +91,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
+              className={styles.title}
             >
               Transform Your{" "}
-              <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Financial Future</span> with
+              <span className={styles.titleAccent}>Financial Future</span> with
               Technology
             </motion.h1>
 
@@ -52,7 +102,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-xl text-gray-300 mb-8 max-w-2xl"
+              className={styles.description}
             >
               Empowering financial institutions with innovative technology
               solutions, cutting-edge security, and seamless digital
@@ -63,12 +113,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className={styles.buttonContainer}
             >
               <Link href="/contact">
-                <Button size="xl" variant="gradient" className="group">
+                <Button size="xl" variant="gradient">
                   Get Started
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className={styles.arrowIcon} />
                 </Button>
               </Link>
               <Link href="/services">
@@ -83,18 +133,16 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="grid grid-cols-3 gap-8 mt-12"
+              className={styles.stats}
             >
               {[
                 { value: "15+", label: "Years" },
                 { value: "200+", label: "Projects" },
                 { value: "99.3%", label: "Satisfaction" },
               ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                <div key={index} className={styles.statItem}>
+                  <div className={styles.statValue}>{stat.value}</div>
+                  <div className={styles.statLabel}>{stat.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -105,61 +153,86 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className={styles.visualContent}
           >
-            <div className="relative w-full h-[600px]">
-              {/* Floating Cards */}
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-10 w-64 h-40 rounded-2xl gradient-primary shadow-premium-lg p-6"
-              >
-                <div className="text-white">
-                  <div className="text-sm font-semibold mb-2">
-                    Digital Banking
+            <div className={styles.heroImage}>
+              <div className={styles.imageGrid}>
+                <motion.div 
+                  className={styles.featureCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, -10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.1 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.1 },
+                    scale: { duration: 0.4 }
+                  }}
+                >
+                  <div className={styles.featureIcon}>
+                    <Shield size={24} />
                   </div>
-                  <div className="text-3xl font-bold mb-1">$2.5M</div>
-                  <div className="text-sm opacity-80">Cost Savings</div>
-                </div>
-              </motion.div>
+                  <div className={styles.featureTitle}>Secure</div>
+                  <div className={styles.featureText}>Bank-grade security</div>
+                </motion.div>
 
-              <motion.div
-                animate={{ y: [0, 20, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-                className="absolute top-40 left-10 w-64 h-40 rounded-2xl gradient-accent shadow-premium-lg p-6"
-              >
-                <div className="text-white">
-                  <div className="text-sm font-semibold mb-2">
-                    AI Analytics
+                <motion.div 
+                  className={styles.featureCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, 10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.2 },
+                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 },
+                    scale: { duration: 0.4 }
+                  }}
+                >
+                  <div className={styles.featureIcon}>
+                    <Zap size={24} />
                   </div>
-                  <div className="text-3xl font-bold mb-1">85%</div>
-                  <div className="text-sm opacity-80">Fraud Reduction</div>
-                </div>
-              </motion.div>
+                  <div className={styles.featureTitle}>Fast</div>
+                  <div className={styles.featureText}>Lightning deployment</div>
+                </motion.div>
 
-              <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{
-                  duration: 4.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-                className="absolute bottom-20 right-20 w-64 h-40 rounded-2xl gradient-secondary shadow-premium-lg p-6"
-              >
-                <div className="text-white">
-                  <div className="text-sm font-semibold mb-2">
-                    Financial planning
+                <motion.div 
+                  className={styles.featureCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, -10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.3 },
+                    y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 },
+                    scale: { duration: 0.4 }
+                  }}
+                >
+                  <div className={styles.featureIcon}>
+                    <TrendingUp size={24} />
                   </div>
-                  <div className="text-3xl font-bold mb-1">60%</div>
-                  <div className="text-sm opacity-80">Faster Deployment</div>
-                </div>
-              </motion.div>
+                  <div className={styles.featureTitle}>Scalable</div>
+                  <div className={styles.featureText}>Growth-ready</div>
+                </motion.div>
+
+                <motion.div 
+                  className={styles.featureCard}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+                  whileTap={{ scale: 0.98 }}
+                  animate={{ opacity: 1, y: [0, 10, 0] }}
+                  transition={{ 
+                    opacity: { duration: 0.6, delay: 0.4 },
+                    y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 },
+                    scale: { duration: 0.4 }
+                  }}
+                >
+                  <div className={styles.featureIcon}>
+                    <Sparkles size={24} />
+                  </div>
+                  <div className={styles.featureTitle}>Innovative</div>
+                  <div className={styles.featureText}>Cutting-edge tech</div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -170,14 +243,35 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-indigo-400/50 rounded-full flex items-start justify-center p-2"
+          style={{
+            width: '24px',
+            height: '40px',
+            border: '2px solid rgba(11, 37, 69, 0.5)',
+            borderRadius: '20px',
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            padding: '8px',
+          }}
         >
-          <motion.div className="w-1 h-2 bg-indigo-400 rounded-full" />
+          <motion.div
+            style={{
+              width: '4px',
+              height: '8px',
+              backgroundColor: 'var(--color-primary)',
+              borderRadius: '2px',
+            }}
+          />
         </motion.div>
       </motion.div>
     </section>

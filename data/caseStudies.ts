@@ -1,228 +1,387 @@
 import { CaseStudy } from "@/lib/types";
 
 export const caseStudies: CaseStudy[] = [
+  /* ========================= GLOBE ========================= */
+
   {
-    id: "s4-group-reporting-consolidation",
+    id: "globe-s4-group-reporting",
     title: "S/4HANA Group Reporting – Statutory & Management Consolidation",
-    slug: "s4hana-group-reporting-consolidation",
-    client: "Large Enterprise Group",
-    industry: "Manufacturing / Conglomerate",
+    slug: "globe-s4hana-group-reporting",
+    client: "GLOBE",
+    industry: "Telecommunications",
     summary:
-      "Implemented centralized statutory and management consolidation using S/4HANA Group Reporting with multi-currency and intercompany automation.",
+      "Implemented statutory and management consolidation using S/4HANA Group Reporting with full automation and multi-currency support.",
     challengeHighlights: [
-      "Multiple ledgers, versions, and currencies across entities",
-      "Manual intercompany eliminations causing delays",
-      "Lack of standardized consolidation process",
+      "Multiple ledgers, versions, and currencies",
+      "Manual intercompany eliminations",
+      "Tight consolidation timelines",
     ],
     solutionHighlights: [
       "Configured multi-ledger, multi-version, multi-currency consolidation",
       "Automated intercompany eliminations",
-      "Delivered statutory and management consolidation within timelines",
+      "Delivered consolidation in 6 months and planning in 7 months",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/globe-logo.png",
     accentColor: "#2563EB",
   },
 
   {
-    id: "sac-financial-analytics",
+    id: "globe-sac-analytics",
     title: "SAP Analytics Cloud – Financial & Operational Analytics",
-    slug: "sap-analytics-cloud-financial-analytics",
-    client: "Global Enterprise",
-    industry: "Enterprise Services",
+    slug: "globe-sac-financial-operational-analytics",
+    client: "GLOBE",
+    industry: "Telecommunications",
     summary:
-      "Built end-to-end financial and operational analytics covering P&L, COPA, Revenue, HR, CAPEX, and cross-functional reporting.",
+      "Delivered enterprise-scale financial and operational analytics with complex allocations and secure multidimensional reporting.",
     challengeHighlights: [
       "Disparate financial and operational data sources",
-      "Complex allocation and data mapping requirements",
-      "Need for secure, role-based multidimensional reporting",
+      "Complex allocation and data mapping logic",
+      "Cross-functional reporting requirements",
     ],
     solutionHighlights: [
       "Integrated SAC with SAP S/4HANA (ACDOCA, ACDOCU, COPA)",
-      "Developed custom CDS views and OData-based integrations",
-      "Implemented complex allocation logic and authorization matrix",
+      "Custom CDS views and OData integrations",
+      "Model-level and multidimensional authorization matrix",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/globe-logo.png",
     accentColor: "#22C55E",
   },
 
+  /* ========================= ABOITIZ ========================= */
+
   {
-    id: "sac-planning-budgeting",
+    id: "aboitiz-sac-planning",
     title: "SAP Analytics Cloud – Budgeting & Forecasting",
-    slug: "sap-analytics-cloud-budgeting-forecasting",
-    client: "Mid to Large Enterprise",
-    industry: "Financial Services / Manufacturing",
+    slug: "aboitiz-sac-budgeting-forecasting",
+    client: "Aboitiz InfraCapital",
+    industry: "Infrastructure & Utilities",
     summary:
-      "Delivered enterprise-wide budgeting and forecasting for Balance Sheet, Cash Flow, and P&L using SAP Analytics Cloud Planning.",
+      "Implemented balance sheet, cash flow, and P&L budgeting and forecasting with real-time dashboards.",
     challengeHighlights: [
-      "Manual budgeting processes across departments",
-      "No real-time integration with S/4HANA",
-      "Limited workflow and approval controls",
+      "Manual budgeting processes",
+      "Lack of real-time visibility",
     ],
     solutionHighlights: [
-      "Implemented SAC Planning integrated with SAP S/4HANA",
-      "Configured workflows, approvals, and version control",
-      "Delivered live dashboards and management reports",
+      "Integrated SAC with SAP S/4HANA",
+      "Configured workflows and approvals",
+      "Delivered live dashboards in 5 months",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/aboitiz-logo.png",
     accentColor: "#0EA5E9",
   },
 
+  /* ========================= TAQA ========================= */
+
   {
-    id: "group-reporting-investment-consolidation",
-    title: "Group Reporting with Investment Consolidation",
-    slug: "group-reporting-investment-consolidation",
-    client: "Multi-Entity Corporate Group",
-    industry: "Holding Company / Enterprise Group",
+    id: "taqa-group-reporting-sac",
+    title: "Group Reporting & SAC – Investment Consolidation",
+    slug: "taqa-group-reporting-investment-consolidation",
+    client: "TAQA",
+    industry: "Energy & Utilities",
     summary:
-      "Enabled advanced consolidation including investment accounting with SAP S/4HANA Group Reporting and SAC Planning.",
+      "Delivered statutory and management consolidation with advanced investment accounting and large-scale budgeting.",
     challengeHighlights: [
-      "Complex investment consolidation requirements",
-      "Multiple consolidation methods across entities",
-      "Large-scale budgeting across regions and business lines",
+      "Complex investment consolidation methods",
+      "Budgeting across multiple regions and entities",
     ],
     solutionHighlights: [
-      "Configured purchase, equity, and proportionate consolidation methods",
+      "Purchase, equity, and proportionate consolidation",
       "Automated intercompany eliminations",
-      "Implemented SAC budgeting for 52 entities across 8 business lines",
+      "SAC budgeting for 52 entities across 8 business lines",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/taqa-logo.png",
     accentColor: "#8B5CF6",
   },
 
+  /* ========================= MANILA WATER ========================= */
+
   {
-    id: "sac-workforce-planning",
-    title: "SAP Analytics Cloud – Workforce & Labor Cost Planning",
-    slug: "sap-analytics-cloud-workforce-planning",
-    client: "Global Enterprise",
-    industry: "IT Services / Manufacturing",
+    id: "manila-water-sac-planning",
+    title: "SAP Analytics Cloud – Integrated Planning Suite",
+    slug: "manila-water-sac-integrated-planning",
+    client: "Manila Water",
+    industry: "Utilities",
     summary:
-      "Delivered workforce automation and labor cost planning integrated with SAP SuccessFactors.",
+      "Delivered integrated financial, operational, and workforce planning using SAP Analytics Cloud.",
     challengeHighlights: [
-      "Disconnected HR and financial planning systems",
-      "Complex pay-grade-based authorization requirements",
-      "Manual workforce cost simulations",
+      "Disconnected HR and financial systems",
+      "Manual forecasting processes",
     ],
     solutionHighlights: [
-      "Integrated SAC with SAP SuccessFactors",
-      "Built workforce automation models with complex calculations",
-      "Configured pay-grade-based authorization matrix",
+      "Revenue, OPEX, COGS, BS, and cash flow planning",
+      "Integrated SAC with SuccessFactors",
+      "Delivered across two phases over 12 months",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/manilawater-logo.png",
     accentColor: "#F59E0B",
   },
 
-  {
-    id: "pharma-budgeting-automation",
-    title: "Pharma Industry Budgeting Automation (India First)",
-    slug: "pharma-budgeting-automation-india",
-    client: "Leading Pharma Company",
-    industry: "Pharmaceuticals",
-    summary:
-      "First-of-its-kind SAP Analytics Cloud budgeting automation for a pharma client in India.",
-    challengeHighlights: [
-      "Highly manual revenue and cost budgeting",
-      "Lack of real-time visibility into forecasts",
-    ],
-    solutionHighlights: [
-      "Implemented SAC-based budgeting for Revenue, OPEX, COGS",
-      "Enabled workforce planning and live dashboards",
-    ],
-    image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
-    accentColor: "#EF4444",
-  },
+  /* ========================= UCT ========================= */
 
   {
-    id: "sem-bcs-migration",
-    title: "SEM BCS – Consolidation System Replacement",
-    slug: "sem-bcs-consolidation-replacement",
-    client: "Large Enterprise Group",
-    industry: "Manufacturing / FMCG",
+    id: "uct-s4-group-reporting",
+    title: "S/4HANA Group Reporting – Investment Consolidation",
+    slug: "uct-s4hana-group-reporting",
+    client: "UCT",
+    industry: "Manufacturing",
     summary:
-      "Replaced multiple legacy consolidation systems with a unified SEM BCS solution.",
+      "Implemented statutory and management consolidation with advanced investment accounting.",
     challengeHighlights: [
-      "Multiple consolidation systems across entities",
-      "Manual intercompany and stock transfer eliminations",
+      "Multiple group currencies and versions",
+      "Manual intercompany eliminations",
     ],
     solutionHighlights: [
-      "Implemented SEM BCS with multi-ledger and multi-currency support",
-      "Automated intercompany eliminations and stock transfers",
-      "Enabled purchase and equity method investment consolidation",
+      "Multi-version, multi-currency consolidation",
+      "Purchase and equity method investment consolidation",
+      "Reporting via Group Data Analysis and Analysis for Office",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/uct-logo.png",
     accentColor: "#10B981",
   },
 
+  /* ========================= NBF ========================= */
+
   {
-    id: "sac-industry-planning-suite",
-    title: "SAP Analytics Cloud – Multi-Industry Planning Suite",
-    slug: "sap-analytics-cloud-multi-industry-planning",
-    client: "Multiple Enterprises",
-    industry: "E-Commerce, FMCG, Manufacturing, Retail",
+    id: "nbf-sac-workforce",
+    title: "SAP Analytics Cloud – Workforce Planning",
+    slug: "nbf-sac-workforce-planning",
+    client: "NBF",
+    industry: "Banking & Financial Services",
     summary:
-      "Delivered industry-specific planning solutions across multiple domains using SAP Analytics Cloud.",
+      "Delivered workforce automation planning with complex calculations and security controls.",
     challengeHighlights: [
-      "Industry-specific planning requirements",
-      "Security-driven multi-model design",
+      "Complex workforce cost calculations",
+      "Pay-grade-based authorization requirements",
     ],
     solutionHighlights: [
-      "Implemented labor, CAPEX, revenue, OPEX, COGS, and cash flow planning",
-      "Designed multi-model SAC architecture aligned with security matrix",
-      "Delivered long-term planning, simulations, and scenario analysis",
+      "Integrated SAC with SuccessFactors",
+      "Custom guided applications",
+      "Complex pay-grade-based authorization matrix",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/nbf-logo.webp",
     accentColor: "#6366F1",
   },
 
+  /* ========================= ADVANZ PHARMA ========================= */
+
   {
-    id: "datasphere-sac-financial-reporting",
-    title: "SAP Datasphere & SAC – Enterprise Financial Reporting",
-    slug: "sap-datasphere-sac-financial-reporting",
-    client: "Global Enterprise",
-    industry: "Finance / Enterprise Services",
+    id: "advanz-pharma-sac",
+    title: "SAP Analytics Cloud – Pharma Budgeting Automation",
+    slug: "advanz-pharma-sac-budgeting",
+    client: "Advanz Pharma",
+    industry: "Pharmaceuticals",
     summary:
-      "Built a modern financial analytics platform using SAP Datasphere and SAP Analytics Cloud.",
+      "India’s first SAC-based budgeting automation for a pharmaceutical enterprise.",
+    challengeHighlights: [
+      "Highly manual budgeting processes",
+      "Limited forecast visibility",
+    ],
+    solutionHighlights: [
+      "Revenue, OPEX, and COGS budgeting",
+      "Workforce planning and live dashboards",
+      "Delivered in 7 months",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/advanzpharma-logo.png",
+    accentColor: "#EF4444",
+  },
+
+  /* ========================= AVERIS ========================= */
+
+  {
+    id: "averis-sem-bcs",
+    title: "SEM BCS – Consolidation System Replacement",
+    slug: "averis-sem-bcs-consolidation",
+    client: "Averis",
+    industry: "Shared Services / Manufacturing",
+    summary:
+      "Replaced multiple legacy consolidation systems with a unified SEM BCS platform.",
+    challengeHighlights: [
+      "Multiple consolidation systems",
+      "Manual intercompany and stock eliminations",
+    ],
+    solutionHighlights: [
+      "SEM BCS with multi-ledger and multi-currency support",
+      "Automated intercompany and stock transfer eliminations",
+      "Investment consolidation using purchase and equity methods",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/averis-logo.png",
+    accentColor: "#0F766E",
+  },
+
+  /* ========================= CLSA ========================= */
+
+  {
+    id: "clsa-sem-bcs",
+    title: "SEM BCS – Statutory & Management Consolidation",
+    slug: "clsa-sem-bcs",
+    client: "CLSA",
+    industry: "Financial Services",
+    summary:
+      "Delivered statutory and management consolidation with segment-based reporting.",
+    challengeHighlights: [
+      "Complex investment consolidation requirements",
+      "Multi-ledger and multi-currency setup",
+    ],
+    solutionHighlights: [
+      "Automated intercompany eliminations",
+      "Purchase, equity, and proportionate methods",
+      "Delivered within 5 months",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/clsa-logo.png",
+    accentColor: "#7C3AED",
+  },
+
+  /* ========================= OTTO ========================= */
+
+  {
+    id: "otto-sac-planning-suite",
+    title: "SAP Analytics Cloud – Multi-Industry Planning Suite",
+    slug: "otto-sac-multi-industry-planning",
+    client: "Otto",
+    industry: "E-Commerce / FMCG / Manufacturing / Retail",
+    summary:
+      "Delivered multi-industry planning solutions with advanced simulations and long-term planning.",
+    challengeHighlights: [
+      "Complex security-driven planning models",
+      "Multi-industry planning requirements",
+    ],
+    solutionHighlights: [
+      "Labor, CAPEX, revenue, OPEX, COGS, BS & cash flow planning",
+      "3-year detailed and 5-year high-level planning",
+      "Scenario simulations and archive-based versioning",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/otto-logo.png",
+    accentColor: "#6366F1",
+  },
+
+  /* ========================= MITSUBISHI ELECTRIC ========================= */
+
+  {
+    id: "mitsubishi-datasphere-sac",
+    title: "SAP Datasphere & SAC – Enterprise Planning & Reporting",
+    slug: "mitsubishi-datasphere-sac",
+    client: "Mitsubishi Electric",
+    industry: "Manufacturing",
+    summary:
+      "Built a modern planning and reporting platform using SAP Datasphere and SAC.",
     challengeHighlights: [
       "Legacy data warehouse limitations",
       "Complex expense and inventory allocations",
     ],
     solutionHighlights: [
-      "Migrated from third-party data warehouse to SAP Datasphere",
-      "Enabled live SAC reporting on Datasphere models",
-      "Delivered executive dashboards and allocation logic",
+      "Expense, asset, inventory, and cash flow planning",
+      "Live SAC reporting on Datasphere models",
+      "Delivered in two phases over 10 months",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/mitsubishielectric-logo.png",
     accentColor: "#0F766E",
   },
 
+  /* ========================= STANDARD CHARTERED ========================= */
+
   {
-    id: "sac-planning-consolidation-suite",
-    title: "SAP Analytics Cloud – Planning & Consolidation Suite",
-    slug: "sap-analytics-cloud-planning-consolidation-suite",
-    client: "Multi-Entity Enterprise",
-    industry: "Travel / Services / Manufacturing",
+    id: "standard-chartered-datasphere",
+    title: "SAP Datasphere & SAC – Financial Analytics",
+    slug: "standard-chartered-datasphere-sac",
+    client: "Standard Chartered",
+    industry: "Banking & Financial Services",
     summary:
-      "Implemented integrated planning and consolidation covering finance, workforce, and operational domains.",
+      "Migrated enterprise financial analytics from a third-party warehouse to SAP Datasphere.",
     challengeHighlights: [
-      "Disconnected planning and consolidation processes",
-      "Complex driver-based planning across regions",
+      "Legacy data warehouse dependency",
+      "Complex treasury and liquidity analytics",
     ],
     solutionHighlights: [
-      "Delivered SAC-based budgeting, forecasting, and long-term planning",
-      "Enabled management and statutory consolidation",
-      "Built executive dashboards with driver-based planning logic",
+      "Treasury, liquidity, capital, and non-financial analytics",
+      "Executive dashboards and management reporting",
+      "3-month migration with ongoing enhancements",
     ],
     image: "/placeholders/case-study-placeholder.svg",
-    logo: "/placeholders/client-logo.png",
+    logo: "/placeholders/standardchartered.png",
+    accentColor: "#2563EB",
+  },
+
+  /* ========================= SAUDI ELECTRICITY ========================= */
+
+  {
+    id: "saudi-electricity-sac-planning",
+    title: "SAP Analytics Cloud – Enterprise Planning",
+    slug: "saudi-electricity-sac-planning",
+    client: "Saudi Electricity Company",
+    industry: "Utilities",
+    summary:
+      "Implemented enterprise-wide planning aligned with regulatory and compliance requirements.",
+    challengeHighlights: [
+      "Complex driver-based planning",
+      "Regulatory compliance requirements (SERA)",
+    ],
+    solutionHighlights: [
+      "OPEX, CAPEX, P&L, BS, cash flow, labor, and production planning",
+      "Driver-based planning across business lines",
+      "Phased delivery over 8 months",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/saudielectricitycompany-logo.png",
+    accentColor: "#F59E0B",
+  },
+
+  /* ========================= PRIVATE INFRA GROUP ========================= */
+
+  {
+    id: "private-infra-sac-suite",
+    title: "SAP Analytics Cloud – Planning & Consolidation Suite",
+    slug: "private-infra-sac-planning-consolidation",
+    client: "Private Infrastructure Development Group",
+    industry: "Infrastructure",
+    summary:
+      "Delivered integrated planning and consolidation across finance, workforce, and operations.",
+    challengeHighlights: [
+      "Disconnected planning and consolidation processes",
+      "Complex driver-based planning",
+    ],
+    solutionHighlights: [
+      "Travel, spend, revenue, BS, P&L, and workforce planning",
+      "Statutory and management consolidation",
+      "Delivered in 6 months",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/pidg-logo.png",
     accentColor: "#7C3AED",
   },
-]
-;
+
+  /* ========================= PA MEDIA GROUP ========================= */
+
+  {
+    id: "pa-media-sac-suite",
+    title: "SAP Analytics Cloud – Planning & Consolidation",
+    slug: "pa-media-sac-planning-consolidation",
+    client: "PA Media Group",
+    industry: "Media & Publishing",
+    summary:
+      "Implemented enterprise-wide planning and consolidation with tailored business logic.",
+    challengeHighlights: [
+      "Region-specific planning requirements",
+      "Complex driver-based planning logic",
+    ],
+    solutionHighlights: [
+      "Travel, OPEX, CAPEX, revenue, BS, cash flow & workforce planning",
+      "Management and statutory consolidation",
+      "Delivered consolidation and planning in 9 months",
+    ],
+    image: "/placeholders/case-study-placeholder.svg",
+    logo: "/placeholders/pamediagroup-logo.png",
+    accentColor: "#8B5CF6",
+  },
+];

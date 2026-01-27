@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import styles from "./contact.module.css";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -46,9 +47,9 @@ export default function ContactPage() {
       />
 
       {/* Contact Form & Info */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <section className={styles.contactForm}>
+        <div className={styles.container}>
+          <div className={styles.grid}>
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -56,23 +57,23 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-white mb-6">
+              <h2 className={styles.formTitle}>
                 Send us a message
               </h2>
               {showSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center gap-3"
+                  className={styles.successMessage}
                 >
-                  <CheckCircle2 className="w-5 h-5 text-green-400" />
-                  <p className="text-green-400 font-medium">Thank you for your message! We'll get back to you soon.</p>
+                  <CheckCircle2 className={styles.successIcon} />
+                  <p className={styles.successText}>Thank you for your message! We'll get back to you soon.</p>
                 </motion.div>
               )}
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.formRow}>
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="name" className={styles.label}>
                       Name *
                     </label>
                     <Input
@@ -82,11 +83,11 @@ export default function ContactPage() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="email" className={styles.label}>
                       Email *
                     </label>
                     <Input
@@ -97,14 +98,14 @@ export default function ContactPage() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className={styles.formRow}>
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="company" className={styles.label}>
                       Company
                     </label>
                     <Input
@@ -113,11 +114,11 @@ export default function ContactPage() {
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your Company"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="phone" className={styles.label}>
                       Phone
                     </label>
                     <Input
@@ -127,13 +128,13 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 123 456 7890"
-                      className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                      className={styles.input}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className={styles.label}>
                     Message *
                   </label>
                   <Textarea
@@ -144,13 +145,13 @@ export default function ContactPage() {
                     onChange={handleChange}
                     placeholder="Tell us about your project..."
                     rows={6}
-                    className="bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500"
+                    className={styles.textarea}
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full group bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white">
+                <Button type="submit" size="lg" variant="gradient" style={{ width: '100%' }}>
                   Send Message
-                  <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <Send className={styles.submitIcon} style={{ marginLeft: '0.5rem' }} />
                 </Button>
               </form>
             </motion.div>
@@ -161,88 +162,98 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className={styles.infoCards}
             >
-              <h2 className="text-3xl font-bold text-white mb-6">
+              <h2 className={styles.infoTitle}>
                 Get in touch
               </h2>
 
-              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
-                <CardHeader>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg mb-2 text-white">Visit Us</CardTitle>
-                      <p className="text-gray-300">
-                        13B Kasturba Nagar, Bhopal
-                        <br />
-                        {/* Singapore 409015 */}
-                      </p>
-                    </div>
+              <div className={styles.infoCard}>
+                <div className={styles.infoCardHeader}>
+                  <div className={styles.infoCardIconWrapper}>
+                    <MapPin className={styles.infoCardIcon} />
                   </div>
-                </CardHeader>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
-                <CardHeader>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-lg mb-2 text-white">Call Us</CardTitle>
-                      <div className="space-y-1 text-sm text-gray-300">
-                        <p>
-                          <a href="tel:+919669336333" className="hover:text-indigo-400">
-                            +91 9669336333
-                          </a>
-                        </p>
-                        <p>
-                          <a href="tel:+971581637510" className="hover:text-indigo-400">
-                            +971 581637510
-                          </a>
-                        </p>
-                        <p>
-                          <a href="tel:+6580867644" className="hover:text-indigo-400">
-                            +65 80867644
-                          </a>
-                        </p>
+                  <div className={styles.infoCardContent}>
+                    <div className={styles.infoCardTitle}>Our Headquarters</div>
+                    <div className={styles.addressList}>
+                      <div className={styles.addressItem}>
+                        <span className={styles.locationBadge}>🇮🇳</span>
+                        <div className={styles.addressDetails}>
+                          <div className={styles.addressCountry}>Bhopal, India</div>
+                          <p className={styles.addressText}>13B Kasturba Nagar</p>
+                        </div>
                       </div>
-                      <p className="text-sm text-gray-400 mt-1">
-                        Mon-Fri 9:00 AM - 6:00 PM IST
-                      </p>
                     </div>
                   </div>
-                </CardHeader>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 border-slate-700 backdrop-blur-sm hover:border-indigo-500/50 transition-all">
-                <CardHeader>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-white" />
+              <div className={styles.infoCard}>
+                <div className={styles.infoCardHeader}>
+                  <div className={styles.infoCardIconWrapper}>
+                    <Phone className={styles.infoCardIcon} />
+                  </div>
+                  <div className={styles.infoCardContent}>
+                    <div className={styles.infoCardTitle}>Call Us</div>
+                    <div className={styles.phoneList}>
+                      <div className={styles.phoneItem}>
+                        <span className={styles.countryFlag}>🇮🇳</span>
+                        <div className={styles.phoneDetails}>
+                          <span className={styles.countryLabel}>India</span>
+                          <a href="tel:+919669336333" className={styles.phoneLink}>
+                            +91 96693 36333
+                          </a>
+                        </div>
+                      </div>
+                      <div className={styles.phoneItem}>
+                        <span className={styles.countryFlag}>🇦🇪</span>
+                        <div className={styles.phoneDetails}>
+                          <span className={styles.countryLabel}>UAE</span>
+                          <a href="tel:+971581637510" className={styles.phoneLink}>
+                            +971 581 637 510
+                          </a>
+                        </div>
+                      </div>
+                      <div className={styles.phoneItem}>
+                        <span className={styles.countryFlag}>🇸🇬</span>
+                        <div className={styles.phoneDetails}>
+                          <span className={styles.countryLabel}>Singapore</span>
+                          <a href="tel:+6580867644" className={styles.phoneLink}>
+                            +65 8086 7644
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <CardTitle className="text-lg mb-2 text-white">Email Us</CardTitle>
-                      <p className="text-gray-300">
-                        <a href="mailto:info@ssrfintech.com" className="hover:text-indigo-400">
+                    <p className={styles.availability}>
+                      📅 Mon-Fri 9:00 AM - 6:00 PM IST
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.infoCard}>
+                <div className={styles.infoCardHeader}>
+                  <div className={styles.infoCardIconWrapper}>
+                    <Mail className={styles.infoCardIcon} />
+                  </div>
+                  <div className={styles.infoCardContent}>
+                    <div className={styles.infoCardTitle}>Email Us</div>
+                    <p className={styles.infoCardText}>
+                      <a href="mailto:info@ssrfintech.com" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>
                           contact@ssrfintech.com
                         </a>
                       </p>
-                      <p className="text-sm text-gray-400 mt-1">
+                      <p style={{ fontSize: 'var(--font-sm)', color: 'var(--text-tertiary)', marginTop: '0.25rem' }}>
                         We'll respond within 24 hours
                       </p>
-                    </div>
                   </div>
-                </CardHeader>
-              </Card>
+                </div>
+              </div>
 
               {/* <Card className="bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-indigo-500/20 backdrop-blur-sm">
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-white mb-2">Office Hours</h3>
-                  <div className="space-y-1 text-sm text-gray-300">
+                  <div className="space-y-1 text-sm text-gray-600">
                     <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
                     <p>Saturday: 10:00 AM - 2:00 PM</p>
                     <p>Sunday: Closed</p>

@@ -1,0 +1,228 @@
+/* howWeWork.module.css */
+
+.section {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-main);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-4xl);
+}
+
+.sectionTitle {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+.sectionDescription {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+  max-width: 60rem;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.sectionIcon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--color-accent);
+  margin: 0 auto var(--space-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.gridThreeCol {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.gridFourCol {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.modelCard,
+.channelCard,
+.metricCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  transition: all var(--transition-normal);
+}
+
+.modelCard:hover,
+.channelCard:hover,
+.metricCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-accent);
+}
+
+.modelIconContainer {
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.modelIcon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
+
+.modelTitle {
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.modelDescription {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.infoBox {
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  background: var(--bg-section);
+  border: 1px solid var(--border-color);
+  margin-bottom: var(--space-md);
+}
+
+.infoBoxHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.infoBoxIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoBoxContent {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.checklistTitle {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.checklistItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.checklistIcon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.channelIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.channelTitle {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.channelFrequency,
+.channelFormat {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}
+
+.metricValue {
+  font-size: var(--font-3xl);
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.metricTitle {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: var(--space-sm);
+}
+
+.metricDescription {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  margin-top: var(--space-xs);
+}
+
+.ctaSection {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-3xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.ctaButtons {
+  margin-top: var(--space-xl);
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.backgroundGradient {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(139, 92, 246, 0.08));
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: var(--font-3xl);
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+}

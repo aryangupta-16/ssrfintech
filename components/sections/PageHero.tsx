@@ -2,9 +2,11 @@
 
 import { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { colors, typography, spacing } from "@/lib/design-tokens";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import styles from "./PageHero.module.css";
 
 interface PageHeroProps {
   title: string;
@@ -19,15 +21,8 @@ interface PageHeroProps {
   };
   backgroundImage?: string;
   icon?: ReactNode;
-  gradient?: "indigo" | "purple" | "pink" | "multi";
+  breadcrumbs?: Array<{ label: string; href?: string }>;
 }
-
-const gradientMap = {
-  indigo: "from-indigo-600/20 via-purple-600/20 to-pink-600/20",
-  purple: "from-purple-600/20 via-pink-600/20 to-red-600/20",
-  pink: "from-pink-600/20 via-red-600/20 to-orange-600/20",
-  multi: "from-indigo-600/20 via-purple-600/20 to-pink-600/20",
-};
 
 /**
  * Reusable page hero component with consistent styling
@@ -39,13 +34,13 @@ export function PageHero({
   secondaryCTA,
   backgroundImage,
   icon,
-  gradient = "multi",
+  breadcrumbs,
 }: PageHeroProps) {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className={styles.pageHero}>
       {/* Background Image */}
       {backgroundImage && (
-        <div className="absolute inset-0 z-0">
+        <div className={styles.backgroundImage}>
           <Image
             src={backgroundImage}
             alt=""
@@ -53,27 +48,25 @@ export function PageHero({
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/80 to-slate-900/90" />
+          <div className={styles.overlay} />
         </div>
       )}
 
-      {/* Gradient Overlay - Only show if no background image */}
-      {!backgroundImage && (
-        <div className={`absolute inset-0 bg-gradient-to-br ${gradientMap[gradient]}`} />
-      )}
-
-      {/* Content */}
-      <div className={spacing.container}>
+      <div className={styles.content}>
         <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-4xl mx-auto text-center relative z-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
           {/* Icon */}
           {icon && (
-            <motion.div variants={fadeInUp} className="flex justify-center mb-6">
-              <div className={`w-20 h-20 rounded-2xl ${colors.iconBg} flex items-center justify-center text-white shadow-2xl`}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className={styles.iconContainer}
+            >
+              <div className={styles.icon}>
                 {icon}
               </div>
             </motion.div>
@@ -81,16 +74,20 @@ export function PageHero({
 
           {/* Title */}
           <motion.h1
-            variants={fadeInUp}
-            className={`${typography.h1} mb-6 ${colors.accentGradientText}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className={styles.title}
           >
             {title}
           </motion.h1>
 
           {/* Description */}
           <motion.p
-            variants={fadeInUp}
-            className={`${typography.lead} ${colors.subheading}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className={styles.description}
           >
             {description}
           </motion.p>
@@ -98,28 +95,53 @@ export function PageHero({
           {/* CTAs */}
           {(primaryCTA || secondaryCTA) && (
             <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap items-center justify-center gap-4 mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className={styles.buttonContainer}
             >
               {primaryCTA && (
-                <a
-                  href={primaryCTA.href}
-                  className={`${colors.primaryBtn} px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/30 inline-flex items-center gap-2`}
-                >
-                  {primaryCTA.text}
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
+                <Link href={primaryCTA.href}>
+                  <Button size="xl" variant="gradient">
+                    {primaryCTA.text}
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
               )}
               {secondaryCTA && (
-                <a
-                  href={secondaryCTA.href}
-                  className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-300"
-                >
-                  {secondaryCTA.text}
-                </a>
+                <Link href={secondaryCTA.href}>
+                  <Button size="xl" variant="secondary">
+                    {secondaryCTA.text}
+                  </Button>
+                </Link>
               )}
+            </motion.div>
+          )}
+
+          {/* Breadcrumbs */}
+          {breadcrumbs && breadcrumbs.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+              className={styles.breadcrumb}
+            >
+              <div className={styles.breadcrumbList}>
+                {breadcrumbs.map((crumb, index) => (
+                  <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    {crumb.href ? (
+                      <Link href={crumb.href} className={styles.breadcrumbItem}>
+                        {crumb.label}
+                      </Link>
+                    ) : (
+                      <span className={styles.breadcrumbItem}>{crumb.label}</span>
+                    )}
+                    {index < breadcrumbs.length - 1 && (
+                      <ChevronRight className={styles.breadcrumbSeparator} size={16} />
+                    )}
+                  </div>
+                ))}
+              </div>
             </motion.div>
           )}
         </motion.div>

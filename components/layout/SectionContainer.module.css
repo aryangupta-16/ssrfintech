@@ -1,0 +1,47 @@
+/* Section Spacing */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.sectionSm {
+  padding: var(--space-2xl) 0;
+}
+
+.sectionLg {
+  padding: 6rem 0;
+}
+
+/* Container Variants */
+.container {
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  padding: 0 var(--space-lg);
+}
+
+.containerNarrow {
+  margin: 0 auto;
+  max-width: 896px;
+  padding: 0 var(--space-lg);
+}
+
+.containerWide {
+  margin: 0 auto;
+  max-width: 1536px;
+  padding: 0 var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .container,
+  .containerNarrow,
+  .containerWide {
+    padding: 0 var(--space-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container,
+  .containerNarrow,
+  .containerWide {
+    padding: 0 var(--space-2xl);
+  }
+}

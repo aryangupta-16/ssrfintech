@@ -1,39 +1,58 @@
-// Design Tokens - Single source of truth for design system
+// Design Tokens - Professional Fintech Consulting Theme
+// All colors reference CSS variables defined in globals.css
 
 export const colors = {
-  // Background gradients
-  bgGradient: "bg-gradient-to-b from-[#0a0e1a] via-[#1e1b4b] to-[#0a0e1a]",
-  bgGradientRadial: "bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#1e1b4b] via-[#0a0e1a] to-[#0a0e1a]",
+  // Brand Colors
+  primary: "text-[var(--color-primary)]",
+  accent: "text-[var(--color-accent)]",
   
-  // Accent gradients
-  accentGradient: "bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600",
-  accentGradientText: "bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent",
+  // Backgrounds
+  bgMain: "bg-[var(--bg-main)]",
+  bgSection: "bg-[var(--bg-section)]",
+  bgCard: "bg-[var(--bg-card)]",
+  bgHeader: "bg-[var(--bg-header)]",
+  bgFooter: "bg-[var(--bg-footer)]",
+  bgDark: "bg-dark",
   
-  // Card styles
-  cardBg: "bg-gradient-to-br from-slate-800/50 to-slate-900/50",
-  cardBorder: "border-slate-700",
-  cardHover: "hover:border-indigo-500/50",
-  cardBackdrop: "backdrop-blur-sm",
+  // Text Colors
+  textPrimary: "text-[var(--text-primary)]",
+  textSecondary: "text-[var(--text-secondary)]",
+  textMuted: "text-[var(--text-muted)]",
+  textInverse: "text-[var(--text-inverse)]",
   
-  // Section backgrounds
-  sectionBg: "bg-gradient-to-br from-indigo-600/20 via-purple-600/20 to-pink-600/20",
-  sectionBgAlt: "bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-red-600/20",
+  // Semantic Text (commonly used aliases)
+  heading: "text-[var(--text-primary)]",
+  subheading: "text-[var(--text-secondary)]",
+  body: "text-[var(--text-primary)]",
   
-  // Text colors
-  heading: "text-white",
-  subheading: "text-gray-300",
-  body: "text-gray-400",
-  accent: "text-indigo-400",
-  accentPurple: "text-purple-400",
-  accentPink: "text-pink-400",
+  // Card Styles
+  cardBg: "bg-[var(--bg-card)]",
+  cardBorder: "border-[var(--border-color)]",
+  cardHover: "hover:border-[var(--color-accent)]",
   
-  // Button styles
-  primaryBtn: "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white",
-  secondaryBtn: "border-indigo-500/50 text-indigo-400 hover:bg-indigo-600/10",
+  // Borders
+  borderColor: "border-[var(--border-color)]",
+  borderLight: "border-[var(--border-light)]",
   
-  // Icon backgrounds
-  iconBg: "bg-gradient-to-br from-indigo-600 to-purple-600",
-  iconBgAlt: "bg-gradient-to-br from-purple-600 to-pink-600",
+  // Links
+  linkColor: "text-[var(--link-color)]",
+  linkHover: "hover:text-[var(--link-hover)]",
+  
+  // Icon Backgrounds
+  iconBg: "icon-bg",
+  
+  // Gradient Text
+  accentGradientText: "text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)]",
+  
+  // Button Styles
+  primaryBtn: "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent)]/90",
+  secondaryBtn: "bg-transparent text-[var(--color-accent)] border-[var(--color-accent)]",
+  
+  // Status Colors
+  success: "text-[var(--color-success)]",
+  warning: "text-[var(--color-warning)]",
+  error: "text-[var(--color-error)]",
+  info: "text-[var(--color-info)]",
 } as const;
 
 export const spacing = {
@@ -61,16 +80,24 @@ export const typography = {
 } as const;
 
 export const components = {
-  card: `${colors.cardBg} ${colors.cardBorder} ${colors.cardBackdrop} ${colors.cardHover} transition-all rounded-lg`,
-  cardNoBorder: `${colors.cardBg} ${colors.cardBackdrop} transition-all rounded-lg`,
+  card: "card",
+  cardNoBorder: "bg-[var(--bg-card)] rounded-lg transition-all",
   
   button: "px-6 py-3 rounded-lg font-semibold transition-all duration-300",
   buttonLg: "px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300",
+  buttonPrimary: "btn-primary",
+  buttonSecondary: "btn-secondary",
   
-  input: "bg-slate-900/50 border-slate-700 text-white placeholder:text-gray-500 rounded-lg px-4 py-3 w-full",
+  input: "bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-primary)] placeholder:text-[var(--text-muted)] rounded-lg px-4 py-3 w-full",
   
   badge: "px-3 py-1 rounded-full text-sm font-medium",
-  badgeAccent: "px-3 py-1 rounded-full text-sm font-medium bg-indigo-600/20 text-indigo-400 border border-indigo-500/30",
+  badgeAccent: "px-3 py-1 rounded-full text-sm font-medium bg-[var(--color-accent)]/10 text-[var(--color-accent)] border border-[var(--color-accent)]/30",
+} as const;
+
+export const shadows = {
+  sm: "shadow-sm",
+  md: "shadow-md",
+  lg: "shadow-lg",
 } as const;
 
 export const animations = {

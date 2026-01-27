@@ -1,0 +1,202 @@
+/* PAGE */
+
+.page {
+  background: var(--bg-main);
+  min-height: 100vh;
+  padding: var(--space-3xl) var(--space-lg);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.jobHeader {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.jobTitleRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.jobHeader h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.jobHeader span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.jobHeader p {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* FORM */
+
+.formCard {
+  background: var(--bg-card);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.formCard h3,
+.formCard h2,
+.formCard h1,
+.formCard p,
+.formCard span {
+  color: var(--text-primary);
+}
+
+.subtitle,
+.formCard p,
+.formCard span {
+  color: var(--text-secondary);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formSection h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* INPUTS */
+
+.field {
+  background: var(--bg-section);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.input,
+.textarea {
+  background: var(--bg-section);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  transition: border-color var(--transition-base), background-color var(--transition-base), color var(--transition-base);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.field :focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--bg-card);
+}
+
+/* BUTTON */
+
+.submitButton {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* SUCCESS */
+
+.successCard {
+  background: var(--bg-card);
+  max-width: 480px;
+  margin: 6rem auto;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.successCard h1 {
+  color: var(--text-primary);
+}
+
+.successCard p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.successIcon {
+  color: #16a34a;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+/* NOT FOUND */
+
+.notFoundCard {
+  background: var(--bg-card);
+  max-width: 420px;
+  margin: 6rem auto;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.notFoundCard h1,
+.notFoundCard p {
+  color: var(--text-primary);
+}

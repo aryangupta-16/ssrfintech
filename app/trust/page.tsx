@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { CTAButtons } from "@/components/ui/CTAButton";
 import { complianceFrameworks, securityPractices, privacyPractices, incidentResponse } from "@/data/compliance";
 import { Shield, Lock, ShieldCheck, Code, Eye, Users, GraduationCap, FileCheck, AlertTriangle } from "lucide-react";
-import { colors, components, typography, spacing } from "@/lib/design-tokens";
+import styles from "./trust.module.css";
 
 export default function TrustPage() {
   const iconMap: Record<string, any> = {
@@ -20,7 +20,7 @@ export default function TrustPage() {
   };
 
   return (
-    <GradientWrapper className="pt-20">
+    <GradientWrapper className={styles.pageWrapper}>
       <PageHero
         title="Trust & Compliance"
         description="Security and compliance are not checkboxes—they're the foundation of everything we do"
@@ -29,27 +29,25 @@ export default function TrustPage() {
           text: "Request Security Documentation",
           href: "/contact",
         }}
-        icon={<Shield className="w-10 h-10" />}
+        icon={<Shield className={styles.sectionIconLarge} />}
       />
 
       {/* Security Practices */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className={styles.sectionDark}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className={styles.headerCenter}
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
-              Our Security Practices
-            </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <h2 className={styles.sectionTitle}>Our Security Practices</h2>
+            <p className={styles.sectionSubtitle}>
               Enterprise-grade security measures protecting your most sensitive data
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`${styles.grid} ${styles.gridThree}`}>
             {securityPractices.map((practice, index) => {
               const Icon = iconMap[practice.icon] || Shield;
               return (
@@ -60,15 +58,13 @@ export default function TrustPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className={`${components.card} h-full hover:scale-105 transition-all duration-300 group`}>
-                    <CardHeader>
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                        <Icon className="w-7 h-7 text-white" />
+                  <Card className={styles.card}>
+                    <CardHeader className={styles.cardHeader}>
+                      <div className={styles.iconBadge}>
+                        <Icon className={styles.sectionIconLarge} />
                       </div>
-                      <CardTitle className={`${typography.h5} ${colors.heading} mb-2`}>
-                        {practice.title}
-                      </CardTitle>
-                      <CardDescription className={colors.subheading}>
+                      <CardTitle className={styles.cardTitle}>{practice.title}</CardTitle>
+                      <CardDescription className={styles.cardDescription}>
                         {practice.description}
                       </CardDescription>
                     </CardHeader>
@@ -81,25 +77,23 @@ export default function TrustPage() {
       </section>
 
       {/* Compliance Frameworks */}
-      <section className={`${spacing.section} relative`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 to-purple-600/10" />
-        <div className={`${spacing.container} relative z-10`}>
+      <section className={styles.sectionAlt}>
+        <div className={styles.sectionOverlay} />
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className={styles.headerCenter}
           >
-            <FileCheck className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
-              Compliance Frameworks
-            </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <FileCheck className={styles.sectionIconLarge} />
+            <h2 className={styles.sectionTitle}>Compliance Frameworks</h2>
+            <p className={styles.sectionSubtitle}>
               We align with international standards and regulatory requirements
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className={`${styles.grid} ${styles.gridThree}`}>
             {complianceFrameworks.map((framework, index) => (
               <motion.div
                 key={framework.id}
@@ -108,23 +102,17 @@ export default function TrustPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className={components.card}>
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-600/20 to-purple-600/20 flex items-center justify-center mb-4 border border-indigo-500/20">
-                      <FileCheck className="w-6 h-6 text-indigo-400" />
+                <Card className={styles.card}>
+                  <CardContent className={styles.cardBody}>
+                    <div className={styles.iconBadge}>
+                      <FileCheck className={styles.cardTitle} />
                     </div>
-                    <h3 className={`${typography.h5} ${colors.heading} mb-2`}>
-                      {framework.name}
-                    </h3>
-                    <p className="text-sm text-gray-400 mb-4">
-                      {framework.description}
-                    </p>
-                    <div className="text-xs text-indigo-400 font-semibold mb-2">
-                      Relevant For:
-                    </div>
-                    <div className="space-y-1">
+                    <h3 className={styles.cardTitle}>{framework.name}</h3>
+                    <p className={styles.cardDescription}>{framework.description}</p>
+                    <div className={styles.tagLabel}>Relevant For</div>
+                    <div className={styles.listItem}>
                       {framework.relevantFor.map((item, idx) => (
-                        <div key={idx} className="text-xs text-gray-400">
+                        <div key={idx} className={styles.listItem}>
                           • {item}
                         </div>
                       ))}
@@ -138,39 +126,33 @@ export default function TrustPage() {
       </section>
 
       {/* Privacy Practices */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className={styles.sectionDark}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className={styles.headerCenter}
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
-              {privacyPractices.title}
-            </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading}`}>
+            <h2 className={styles.sectionTitle}>{privacyPractices.title}</h2>
+            <p className={styles.sectionSubtitle}>
               Your data privacy is our top priority
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className={`${styles.grid} ${styles.gridTwo}`}>
             {privacyPractices.principles.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className={components.card}>
-                  <CardContent className="p-6">
-                    <h3 className={`${typography.h6} ${colors.heading} mb-2`}>
-                      {item.principle}
-                    </h3>
-                    <p className="text-sm text-gray-400">
-                      {item.description}
-                    </p>
+                <Card className={styles.card}>
+                  <CardContent className={styles.cardBody}>
+                    <h3 className={styles.cardTitle}>{item.principle}</h3>
+                    <p className={styles.cardDescription}>{item.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -180,67 +162,57 @@ export default function TrustPage() {
       </section>
 
       {/* Incident Response */}
-      <section className={`${spacing.section} relative`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 to-orange-600/10" />
-        <div className={`${spacing.container} relative z-10`}>
+      <section className={styles.sectionAlt}>
+        <div
+          className={styles.sectionOverlay}
+          style={{ background: "linear-gradient(135deg, rgba(239,68,68,0.12), rgba(249,115,22,0.12))" }}
+        />
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className={styles.narrow}
           >
-            <Card className={components.card}>
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
-                    <AlertTriangle className="w-7 h-7 text-white" />
+            <Card className={styles.card}>
+              <CardHeader className={styles.cardHeader}>
+                <div className={styles.rowLg}>
+                  <div className={styles.iconBadge}>
+                    <AlertTriangle className={styles.sectionIconLarge} />
                   </div>
                   <div>
-                    <CardTitle className={`${typography.h3} ${colors.heading}`}>
-                      {incidentResponse.title}
-                    </CardTitle>
-                    <CardDescription className={colors.subheading}>
+                    <CardTitle className={styles.sectionTitle}>{incidentResponse.title}</CardTitle>
+                    <CardDescription className={styles.cardDescription}>
                       {incidentResponse.description}
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-6">
+              <CardContent className={styles.cardBody}>
+                <div className={`${styles.grid} ${styles.gridTwo}`}>
                   {incidentResponse.process.map((phase, index) => (
-                    <div key={index} className="relative">
-                      <div className="flex items-start gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600/20 to-orange-600/20 flex items-center justify-center flex-shrink-0 border border-red-500/20">
-                          <span className="text-red-400 font-bold text-sm">
-                            {index + 1}
-                          </span>
+                    <div key={index}>
+                      <div className={styles.rowStart}>
+                        <div className={styles.miniBadge}>
+                          <span>{index + 1}</span>
                         </div>
                         <div>
-                          <h4 className={`${typography.h6} ${colors.heading} mb-1`}>
-                            {phase.phase}
-                          </h4>
-                          <p className="text-sm text-gray-400 mb-3">
-                            {phase.description}
-                          </p>
-                          <div className="text-xs text-red-400">
-                            {phase.timeline}
-                          </div>
+                          <h4 className={styles.cardTitle}>{phase.phase}</h4>
+                          <p className={styles.cardDescription}>{phase.description}</p>
+                          <div className={styles.tagLabel}>{phase.timeline}</div>
                         </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 p-4 rounded-lg bg-red-600/10 border border-red-500/20">
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                <div className={styles.alertBox}>
+                  <div className={styles.rowStart}>
+                    <AlertTriangle className={styles.sectionIconLarge} />
                     <div>
-                      <div className="text-sm font-semibold text-red-400 mb-1">
-                        24/7 Security Hotline
-                      </div>
-                      <div className="text-sm text-gray-400">
-                        In case of security concerns, contact our dedicated security team immediately. 
-                        Response within 15 minutes for critical incidents.
+                      <div className={styles.alertTitle}>24/7 Security Hotline</div>
+                      <div className={styles.alertText}>
+                        In case of security concerns, contact our dedicated security team immediately. Response within 15 minutes for critical incidents.
                       </div>
                     </div>
                   </div>
@@ -252,46 +224,40 @@ export default function TrustPage() {
       </section>
 
       {/* NDA Culture */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className={styles.sectionDark}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto text-center"
+            className={styles.headerCenter}
           >
-            <Lock className="w-12 h-12 text-indigo-400 mx-auto mb-4" />
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
-              NDA & Confidentiality Culture
-            </h2>
-            <p className={`${typography.bodyLg} ${colors.subheading} mb-6`}>
-              Every team member signs comprehensive NDAs before accessing client data. 
-              We maintain strict information barriers between clients and projects.
+            <Lock className={styles.sectionIconLarge} />
+            <h2 className={styles.sectionTitle}>NDA & Confidentiality Culture</h2>
+            <p className={styles.sectionSubtitle}>
+              Every team member signs comprehensive NDAs before accessing client data. We maintain strict information barriers between clients and projects.
             </p>
-            <p className={`${typography.body} ${colors.subheading}`}>
-              Your intellectual property, business strategies, and sensitive data remain strictly confidential. 
-              We can provide custom NDAs tailored to your specific requirements.
+            <p className={styles.cardDescription}>
+              Your intellectual property, business strategies, and sensitive data remain strictly confidential. We can provide custom NDAs tailored to your specific requirements.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className={spacing.section}>
-        <div className={spacing.container}>
+      <section className={styles.sectionAlt}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className={styles.headerCenter}
           >
-            <h2 className={`${typography.h2} ${colors.heading} mb-4`}>
-              Need More Information?
-            </h2>
-            <p className={`${typography.bodyXl} ${colors.subheading} mb-8`}>
+            <h2 className={styles.sectionTitle}>Need More Information?</h2>
+            <p className={styles.sectionSubtitle}>
               Request our comprehensive security documentation or speak with our compliance team
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className={styles.ctaButtons}>
               <CTAButtons.TalkToExpert />
               <CTAButtons.GetAssessment variant="secondary" />
             </div>

@@ -395,7 +395,7 @@ const cardBackdrop = "backdrop-blur-sm"
 
 // Text Colors
 const heading = "text-white"
-const subheading = "text-gray-300"
+const subheading = "text-gray-600"
 const body = "text-gray-400"
 const accent = "text-indigo-400"
 

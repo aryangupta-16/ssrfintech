@@ -7,6 +7,7 @@ import { GradientWrapper } from "@/components/layout/GradientWrapper";
 import { services } from "@/data/services";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import Link from "next/link";
+import styles from "./service-detail.module.css";
 
 const iconMap: Record<string, any> = {
   Landmark: () => (
@@ -55,28 +56,26 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   return (
     <GradientWrapper className="pt-20">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
+      <section className={styles.hero}>
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className={styles.heroBackground}
           style={{ backgroundImage: 'url(/ssrfintech_3.jpg)' }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/85 to-slate-900/90" />
+          <div className={styles.heroOverlay} />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className={styles.heroContent}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
+            className={styles.heroInner}
           >
-            {/* Icon */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 text-white mb-8 shadow-2xl shadow-blue-500/20"
+              className={styles.iconWrapper}
             >
               {Icon && <Icon />}
             </motion.div>
@@ -85,7 +84,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-5xl md:text-6xl font-bold text-white mb-6"
+              className={styles.heroTitle}
             >
               {service.title}
             </motion.h1>
@@ -94,7 +93,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl text-slate-300 leading-relaxed"
+              className={styles.heroDescription}
             >
               {service.description}
             </motion.p>
@@ -103,19 +102,13 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 flex flex-wrap items-center justify-center gap-4"
+              className={styles.ctaButtons}
             >
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2"
-              >
+              <Link href="/contact" className={styles.primaryButton}>
                 Get Started
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                href="/case-studies"
-                className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 inline-flex items-center gap-2"
-              >
+              <Link href="/case-studies" className={styles.secondaryButton}>
                 View Case Studies
                 <Sparkles className="w-5 h-5" />
               </Link>
@@ -125,24 +118,22 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       </section>
 
       {/* Features Section */}
-      <section className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className={styles.section}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className={styles.sectionHeader}
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Key Features
-            </h2>
-            <p className="text-xl text-slate-400">
+            <h2 className={styles.sectionTitle}>Key Features</h2>
+            <p className={styles.sectionSubtitle}>
               Comprehensive solutions tailored to your needs
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className={styles.featuresGrid}>
             {service.features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -150,13 +141,10 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative"
+                className={styles.featureCard}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 transition-all duration-300">
-                  <CheckCircle2 className="w-8 h-8 text-blue-400 mb-4" />
-                  <p className="text-white text-lg">{feature}</p>
-                </div>
+                <CheckCircle2 className={styles.featureIcon} />
+                <p className={styles.featureText}>{feature}</p>
               </motion.div>
             ))}
           </div>
@@ -164,24 +152,22 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className={styles.section}>
+        <div className={styles.container}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className={styles.sectionHeader}
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Business Benefits
-            </h2>
-            <p className="text-xl text-slate-400">
+            <h2 className={styles.sectionTitle}>Business Benefits</h2>
+            <p className={styles.sectionSubtitle}>
               Drive real value for your organization
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className={styles.benefitsGrid}>
             {service.benefits.map((benefit, index) => (
               <motion.div
                 key={index}
@@ -189,16 +175,11 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative group"
+                className={styles.benefitCard}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative p-8 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-300">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-xl">
-                      {index + 1}
-                    </div>
-                    <p className="text-white text-lg leading-relaxed">{benefit}</p>
-                  </div>
+                <div className={styles.benefitContent}>
+                  <div className={styles.benefitNumber}>{index + 1}</div>
+                  <div className={styles.benefitText}>{benefit}</div>
                 </div>
               </motion.div>
             ))}
@@ -207,25 +188,22 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaBackground} />
+        <div className={styles.ctaContent}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={styles.ctaTitle}>
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl text-slate-300 mb-8">
+            <p className={styles.ctaDescription}>
               Let's discuss how {service.title.toLowerCase()} can drive your success
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105"
-            >
+            <Link href="/contact" className={styles.ctaButton}>
               Schedule a Consultation
               <ArrowRight className="w-5 h-5" />
             </Link>

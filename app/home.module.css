@@ -1,0 +1,119 @@
+/* Home Page Styles */
+
+.whatWeDo {
+  padding: var(--space-4xl) 0;
+  position: relative;
+  background: var(--bg-section);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.contentWrapper {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4xl);
+  }
+}
+
+/* Text Content */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.title {
+  font-size: var(--font-4xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--font-5xl);
+  }
+}
+
+.description {
+  font-size: var(--font-lg);
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: var(--font-base);
+}
+
+/* Video Container */
+.videoWrapper {
+  position: relative;
+}
+
+.videoContainer {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.videoAspect {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.videoIframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Decorative Elements */
+.decorTop {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 6rem;
+  height: 6rem;
+  background: rgba(29, 181, 163, 0.1);
+  border-radius: 50%;
+  filter: blur(2rem);
+  z-index: -1;
+}
+
+.decorBottom {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(11, 37, 69, 0.1);
+  border-radius: 50%;
+  filter: blur(2rem);
+  z-index: -1;
+}

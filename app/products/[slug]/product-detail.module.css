@@ -1,0 +1,146 @@
+/* ===============================
+   HERO
+   =============================== */
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 37, 69, 0.75);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width);
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+.backButton {
+  margin-bottom: var(--space-lg);
+  font-weight: 500;
+}
+
+/* ===============================
+   SHARED
+   =============================== */
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ===============================
+   USE CASES
+   =============================== */
+
+.useCasesSection {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-section);
+}
+
+.useCasesInner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.useCasesTitle {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.useCasesSubtitle {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-3xl);
+  font-size: var(--font-lg);
+  color: var(--text-muted);
+}
+
+.useCasesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.useCaseCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.useCaseBullet {
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.useCaseText {
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===============================
+   CTA
+   =============================== */
+
+.ctaSection {
+  padding: var(--space-4xl) 0;
+}
+
+.ctaCard {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-3xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-2xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.ctaTitle {
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ctaSubtitle {
+  margin-top: var(--space-md);
+  font-size: var(--font-lg);
+  color: var(--text-muted);
+}
+
+.ctaButtons {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
