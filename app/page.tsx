@@ -5,11 +5,17 @@ import { WhoWeHelp } from "@/components/sections/WhoWeHelp";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import StatsPremium from "@/components/sections/StatsPremium";
 import { ProofSection } from "@/components/sections/ProofSection";
+import CaseStudiesGrid from "@/components/sections/CaseStudiesGrid";
+import ResourcesSection from "@/components/sections/ResourcesSection";
 import CTAPremium from "@/components/sections/CTAPremium";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { targetAudiences } from "@/data/whoWeHelp";
 import { processSteps } from "@/data/howWeWork";
 import { testimonials } from "@/data/testimonials";
+import { caseStudies } from "@/data/caseStudies";
+import { resources } from "@/data/resources";
 import styles from "./home.module.css";
 
 export default function Home() {
@@ -81,6 +87,32 @@ export default function Home() {
         testimonials={testimonials}
         title="Client Success Stories"
         description="Real results from real clients—see the impact we deliver"
+      />
+      
+      <section className={styles.caseStudiesSection}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.badge}>Success Stories</span>
+            <h2 className={styles.sectionTitle}>Proven Results Across Industries</h2>
+            <p className={styles.sectionDescription}>
+              See how we&apos;ve helped leading organizations transform their financial planning and analytics
+            </p>
+          </div>
+          <CaseStudiesGrid caseStudies={caseStudies} showCount={3} />
+          
+          <div className={styles.viewAllContainer}>
+            <Link href="/case-studies" className={styles.viewAllButton}>
+              View All Success Stories
+              <ArrowRight className={styles.viewAllIcon} size={20} />
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+      <ResourcesSection
+        resources={resources}
+        title="Resources & Documentation"
+        description="Access the tools and knowledge you need to maximize your SAP investment"
       />
       
       <CTAPremium />

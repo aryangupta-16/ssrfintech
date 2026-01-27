@@ -5,32 +5,32 @@ export interface WhySSRSection {
 }
 
 export const whySSR: WhySSRSection = {
-  problem: "We saw too many financial institutions struggling with outdated systems, trapped between the need for digital transformation and the fear of disruption. Legacy technology was holding them back, but traditional consulting firms offered only generic, one-size-fits-all solutions.",
+  problem: "Enterprises struggle with slow financial closes, fragmented planning processes, and difficulty accessing real-time insights across complex multi-entity consolidations. Legacy systems can't keep pace with modern business demands, leaving finance teams drowning in manual tasks and spreadsheets.",
   
-  failedSolutions: "Most consultancies treat financial technology as just another IT project. They lack deep domain expertise, prioritize billable hours over outcomes, and leave clients with solutions that don't scale. The result? Half-implemented systems, frustrated teams, and wasted budgets.",
+  failedSolutions: "Generic technology consultancies lack specialized SAP Planning & Consolidation expertise, offering cookie-cutter implementations that don't address unique financial process needs. They prioritize hours over outcomes, leaving behind unmaintained systems and frustrated teams struggling with solutions that don't fit their reality.",
   
-  ssrDifference: "SSR Fintech was founded by financial technology veterans who've been in your shoes. We combine deep financial services expertise with cutting-edge technical skills. We don't just consult—we partner with you, taking ownership of outcomes. Our solutions are built for the real world: compliant, secure, scalable, and designed to deliver measurable ROI from day one.",
+  ssrDifference: "SSR Fintech was founded by SAP financial automation experts with 20+ years of proven success. We're exclusively focused on SAP Planning & Consolidation, FP&A, and Group Reporting—not generalists. We don't just implement technology; we transform financial processes. Our rapid deployment methodology delivers go-live in just 3 months, with pre-configured solutions and proven best practices that drive immediate value.",
 };
 
 export const coreValues = [
   {
     icon: "Target",
-    title: "Outcome-Driven",
-    description: "We measure success by your results, not our deliverables.",
+    title: "Specialization Focus",
+    description: "Exclusive expertise in SAP Planning, Consolidation & FP&A—not a side service.",
   },
   {
-    icon: "Shield",
-    title: "Security First",
-    description: "Financial data requires fortress-level protection. We never compromise.",
+    icon: "Zap",
+    title: "Rapid Delivery",
+    description: "3-month go-live with pre-built solutions and proven methodologies.",
   },
   {
     icon: "Users",
     title: "True Partnership",
-    description: "We succeed when you succeed. Your challenges become our challenges.",
+    description: "40+ specialists dedicated to financial process transformation alongside you.",
   },
   {
-    icon: "Lightbulb",
-    title: "Innovation Mindset",
-    description: "We stay ahead of technology trends so you can stay ahead of competitors.",
+    icon: "TrendingUp",
+    title: "AI/ML Innovation",
+    description: "Predictive analytics and intelligent automation built into every solution.",
   },
 ];

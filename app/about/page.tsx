@@ -10,8 +10,48 @@ import { team } from "@/data/team";
 import { Linkedin, ArrowRight, Target, Eye, Award, Users, Mail } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import styles from "./about.module.css";
+import { useState } from "react";
+
+const globalLocations = [
+  {
+    id: "us",
+    country: "United States",
+    color: "primary",
+    position: { top: "45%", left: "20%" },
+    cities: ["New York", "San Francisco", "Chicago"]
+  },
+  {
+    id: "mena",
+    country: "MENA",
+    color: "accent",
+    position: { top: "35%", left: "50%" },
+    cities: ["Dubai, UAE", "Abu Dhabi, UAE", "Riyadh, KSA", "Dammam, KSA"]
+  },
+  {
+    id: "india",
+    country: "India",
+    color: "primary",
+    position: { top: "40%", right: "22%" },
+    cities: ["Bangalore", "Mumbai", "Delhi", "Pune"]
+  },
+  {
+    id: "uk",
+    country: "United Kingdom",
+    color: "accent",
+    position: { top: "15%", left: "45%" },
+    cities: ["London", "Manchester"]
+  },
+  {
+    id: "sg",
+    country: "Singapore",
+    color: "primary",
+    position: { top: "50%", right: "10%" },
+    cities: ["Singapore"]
+  }
+];
 
 export default function AboutPage() {
+  const [expandedLocation, setExpandedLocation] = useState<string | null>(null);
   return (
     <GradientWrapper>
       <PageHero
@@ -153,98 +193,62 @@ export default function AboutPage() {
 
           {/* Map Container with Pins */}
           <div className={styles.mapContainer}>
-            {/* United States Pin - Left side */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className={`${styles.pin} ${styles.pinUS}`}
-            >
-              <div className={styles.pinWrapper}>
-                {/* Pin - Arrow Shape */}
-                <div>
-                  <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
-                    {/* Pin Body */}
-                    <path
-                      d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
-                      fill="var(--color-primary)"
-                      stroke="white"
-                      strokeWidth="2"
-                    />
-                    {/* Inner Circle */}
-                    <circle cx="16" cy="12" r="4" fill="white" />
-                  </svg>
-                  <div className={`${styles.pinPulse} ${styles.pinPulsePrimary}`}></div>
+            {globalLocations.map((location, index) => (
+              <motion.div
+                key={location.id}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                className={styles.pin}
+                style={{
+                  top: location.position.top,
+                  left: location.position.left,
+                  right: location.position.right,
+                }}
+                onMouseEnter={() => setExpandedLocation(location.id)}
+                onMouseLeave={() => setExpandedLocation(null)}
+              >
+                <div className={styles.pinWrapper}>
+                  {/* Pin - Arrow Shape */}
+                  <div>
+                    <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
+                      {/* Pin Body */}
+                      <path
+                        d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
+                        fill={location.color === "primary" ? "var(--color-primary)" : "var(--color-accent)"}
+                        stroke="white"
+                        strokeWidth="2"
+                      />
+                      {/* Inner Circle */}
+                      <circle cx="16" cy="12" r="4" fill="white" />
+                    </svg>
+                    <div className={`${styles.pinPulse} ${location.color === "primary" ? styles.pinPulsePrimary : styles.pinPulseAccent}`}></div>
+                  </div>
+                  
+                  {/* Label */}
+                  <motion.div
+                    className={styles.pinLabel}
+                    animate={expandedLocation === location.id ? { opacity: 1, scale: 1 } : { opacity: 0.7, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <p className={styles.pinLabelText}>{location.country}</p>
+                    {expandedLocation === location.id && (
+                      <motion.div
+                        className={styles.citiesList}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2, delay: 0.1 }}
+                      >
+                        {location.cities.map((city, idx) => (
+                          <p key={idx} className={styles.cityName}>{city}</p>
+                        ))}
+                      </motion.div>
+                    )}
+                  </motion.div>
                 </div>
-                {/* Label */}
-                <div className={styles.pinLabel}>
-                  <p className={styles.pinLabelText}>United States</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Middle East Pin - Center */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className={`${styles.pin} ${styles.pinME}`}
-            >
-              <div className={styles.pinWrapper}>
-                {/* Pin - Arrow Shape */}
-                <div>
-                  <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
-                    {/* Pin Body */}
-                    <path
-                      d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
-                      fill="var(--color-accent)"
-                      stroke="white"
-                      strokeWidth="2"
-                    />
-                    {/* Inner Circle */}
-                    <circle cx="16" cy="12" r="4" fill="white" />
-                  </svg>
-                  <div className={`${styles.pinPulse} ${styles.pinPulseAccent}`}></div>
-                </div>
-                {/* Label */}
-                <div className={styles.pinLabel}>
-                  <p className={styles.pinLabelText}>Middle East</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* India Pin - Right side */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className={`${styles.pin} ${styles.pinIndia}`}
-            >
-              <div className={styles.pinWrapper}>
-                {/* Pin - Arrow Shape */}
-                <div>
-                  <svg width="32" height="40" viewBox="0 0 32 40" className={styles.pinSvg}>
-                    {/* Pin Body */}
-                    <path
-                      d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
-                      fill="var(--color-primary)"
-                      stroke="white"
-                      strokeWidth="2"
-                    />
-                    {/* Inner Circle */}
-                    <circle cx="16" cy="12" r="4" fill="white" />
-                  </svg>
-                  <div className={`${styles.pinPulse} ${styles.pinPulsePrimary}`}></div>
-                </div>
-                {/* Label */}
-                <div className={styles.pinLabel}>
-                  <p className={styles.pinLabelText}>India</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -329,35 +333,6 @@ export default function AboutPage() {
             ))}
           </div>
 
-          {/* Additional 4 Team Members - Simplified for now */}
-          <div className={styles.teamGrid} style={{ marginTop: 'var(--space-3xl)', maxWidth: '96rem' }}>
-            {[
-              { name: "Siddharth Agarwal", role: "Architect", initials: "SA" },
-              { name: "Yash Vaidya", role: "SAC", initials: "YV" },
-              { name: "Ankush Choudhary", role: "DataSphere", initials: "AC" },
-              { name: "Farry Jain (CA)", role: "Consolidation", initials: "FJ" }
-            ].map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-              >
-                <Card className={styles.teamCard}>
-                  <CardHeader>
-                    <div className={styles.teamMemberImage}>
-                      <div className={styles.memberImageFallback}>
-                        {member.initials}
-                      </div>
-                    </div>
-                    <CardTitle className={styles.memberName}>{member.name}</CardTitle>
-                    <CardDescription className={styles.memberRole}>{member.role}</CardDescription>
-                  </CardHeader>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
