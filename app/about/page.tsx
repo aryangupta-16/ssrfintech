@@ -32,7 +32,7 @@ const globalLocations = [
     country: "India",
     color: "primary",
     position: { top: "40%", right: "22%" },
-    cities: ["Bangalore", "Mumbai", "Delhi", "Pune"]
+    cities: ["Bangalore", "Bhopal (Headquarters)", "Mumbai", "Delhi", "Pune"]
   },
   {
     id: "uk",
@@ -303,6 +303,23 @@ export default function AboutPage() {
                       )}
                     </div>
                     <CardTitle className={styles.memberName}>{member.name}</CardTitle>
+                    {member.cofounder && (
+                      <div style={{
+                        background: 'var(--color-primary)',
+                        color: 'white',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '9999px',
+                        fontSize: '0.75rem',
+                        fontWeight: '600',
+                        letterSpacing: '0.5px',
+                        display: 'inline-block',
+                        margin: '0.5rem 0',
+                        textAlign: 'center',
+                        width: '100%'
+                      }}>
+                        COFOUNDER
+                      </div>
+                    )}
                     <CardDescription className={styles.memberRole}>{member.role}</CardDescription>
                   </CardHeader>
                   <CardContent>

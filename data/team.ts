@@ -30,6 +30,7 @@ export const team: TeamMember[] = [
     phone: "+91 9811 296764",
     linkedin: "https://www.linkedin.com/in/pankaj-gupta-ceo/",
     image: "/team/pankaj.jpeg",
+    cofounder: true,
   },
   {
     id: "4",

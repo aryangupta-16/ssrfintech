@@ -41,6 +41,7 @@ export interface TeamMember {
   image?: string;
   linkedin?: string;
   twitter?: string;
+  cofounder?: boolean;
 }
 
 export interface CaseStudyMetrics {

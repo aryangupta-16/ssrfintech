@@ -13,7 +13,7 @@ export const resources: Resource[] = [
     title: "SAP Help Portal",
     description: "Official documentation and guides for all SAP products and solutions",
     icon: "📚",
-    link: "https://help.sap.com/",
+    link: "https://help.sap.com/docs/",
     cta: "Browse Documentation"
   },
   {
@@ -21,7 +21,7 @@ export const resources: Resource[] = [
     title: "SAP GRDC",
     description: "Group Reporting Data Collection tool for enterprise consolidation and reporting",
     icon: "📊",
-    link: "https://www.sap.com/products/financial-management/group-reporting.html",
+    link: "https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-group-reporting-data-collection-in-brief/ba-p/13530661",
     cta: "Learn More"
   },
   {
@@ -37,7 +37,7 @@ export const resources: Resource[] = [
     title: "What's New in SAP",
     description: "Stay updated with the latest features, updates, and innovations from SAP",
     icon: "⭐",
-    link: "https://community.sap.com/topics/sap-news",
+    link: "https://help.sap.com/whats-new/8fcf4960eea24f78b1d7613da406a885",
     cta: "View Updates"
   }
 ];
