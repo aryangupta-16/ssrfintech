@@ -18,6 +18,24 @@ import { caseStudies } from "@/data/caseStudies";
 import { resources } from "@/data/resources";
 import styles from "./home.module.css";
 
+const clientLogos = [
+  { name: "Aboitiz", src: "/placeholders/aboitiz-logo.png" },
+  { name: "Advanz Pharma", src: "/placeholders/advanzpharma-logo.png" },
+  { name: "Averis", src: "/placeholders/averis-logo.png" },
+  { name: "CLSA", src: "/placeholders/clsa-logo.png" },
+  { name: "Globe", src: "/placeholders/globe-logo.png" },
+  { name: "Manila Water", src: "/placeholders/manilawater-logo.png" },
+  { name: "Mitsubishi Electric", src: "/placeholders/mitsubishielectric-logo.png" },
+  { name: "NBF", src: "/placeholders/nbf-logo.webp" },
+  { name: "Otto", src: "/placeholders/otto-logo.png" },
+  { name: "PA Media Group", src: "/placeholders/pamediagroup-logo.png" },
+  { name: "PIDG", src: "/placeholders/pidg-logo.png" },
+  { name: "Saudi Electricity Company", src: "/placeholders/saudielectricitycompany-logo.png" },
+  { name: "Standard Chartered", src: "/placeholders/standardchartered.png" },
+  { name: "TAQA", src: "/placeholders/taqa-logo.png" },
+  { name: "UCT", src: "/placeholders/uct-logo.png" },
+];
+
 export default function Home() {
   return (
     <GradientWrapper>
@@ -88,6 +106,26 @@ export default function Home() {
         title="Client Success Stories"
         description="Real results from real clients—see the impact we deliver"
       />
+
+      <section className={styles.clientLogosSection}>
+        <div className={styles.container}>
+          <div className={styles.logosHeader}>
+            <h2 className={styles.logosTitle}>Trusted by Leading Enterprises</h2>
+            <p className={styles.logosDescription}>
+              Our teams have delivered measurable impact for global brands across industries
+            </p>
+          </div>
+          <div className={styles.logoMarquee}>
+            <div className={styles.logoTrack}>
+              {clientLogos.concat(clientLogos).map((logo, index) => (
+                <div className={styles.logoItem} key={`${logo.name}-${index}`}>
+                  <img src={logo.src} alt={`${logo.name} logo`} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       
       <section className={styles.caseStudiesSection}>
         <div className={styles.container}>

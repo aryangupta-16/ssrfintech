@@ -1,8 +1,9 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Testimonial } from "@/lib/types";
-import { Star, Building2, TrendingUp } from "lucide-react";
+import { Star, Building2, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./ProofSection.module.css";
 
 interface ProofSectionProps {
@@ -15,6 +16,17 @@ interface ProofSectionProps {
  * Enhanced testimonials with metrics and company context
  */
 export function ProofSection({ testimonials, title, description }: ProofSectionProps) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400;
+      scrollContainerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section className={styles.proofSection}>
       <div className={styles.container}>
@@ -39,17 +51,28 @@ export function ProofSection({ testimonials, title, description }: ProofSectionP
           </motion.div>
         )}
 
-        {/* Testimonials Grid */}
-        <div className={styles.grid}>
-          {testimonials.slice(0, 6).map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <div className={styles.testimonialCard}>
+        {/* Testimonials Row with Arrows */}
+        <div className={styles.scrollContainer}>
+          <button
+            onClick={() => scroll("left")}
+            className={styles.scrollArrow + " " + styles.scrollArrowLeft}
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <div className={styles.scrollWrap} ref={scrollContainerRef}>
+            <div className={styles.scrollRow}>
+            {testimonials.slice(0, 6).map((testimonial, index) => (
+              <motion.div
+                key={testimonial.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={styles.scrollItem}
+              >
+                <div className={styles.testimonialCard}>
                 {/* Rating */}
                 <div className={styles.rating}>
                   {[...Array(5)].map((_, i) => (
@@ -108,9 +131,19 @@ export function ProofSection({ testimonials, title, description }: ProofSectionP
                     </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          </div>
+
+          <button
+            onClick={() => scroll("right")}
+            className={styles.scrollArrow + " " + styles.scrollArrowRight}
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
