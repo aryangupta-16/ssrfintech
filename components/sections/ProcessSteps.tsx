@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProcessStep } from "@/data/howWeWork";
 import { CheckCircle2 } from "lucide-react";
@@ -15,6 +16,9 @@ interface ProcessStepsProps {
  * Process timeline component showing how we work
  */
 export function ProcessSteps({ steps, title, description }: ProcessStepsProps) {
+  const [activeStepId, setActiveStepId] = useState<number | null>(steps[0]?.id ?? null);
+  const activeStep = steps.find((step) => step.id === activeStepId) ?? steps[0];
+
   return (
     <section className={styles.processSteps}>
       <div className={styles.container}>
@@ -40,72 +44,56 @@ export function ProcessSteps({ steps, title, description }: ProcessStepsProps) {
         )}
 
         {/* Process Steps */}
-        <div className={styles.stepsWrapper}>
-          {steps.map((step, index) => (
+        <div className={styles.stepsLayout}>
+          <div className={styles.stepsList}>
+            {steps.map((step) => (
+              <button
+                key={step.id}
+                type="button"
+                onClick={() => setActiveStepId(step.id)}
+                className={`${styles.stepTab} ${activeStep?.id === step.id ? styles.stepTabActive : ""}`}
+              >
+                <span className={styles.stepTabIndex}>{step.id}</span>
+                <span className={styles.stepTabContent}>
+                  <span className={styles.stepTabPhase}>{step.phase}</span>
+                  <span className={styles.stepTabTitle}>{step.title}</span>
+                </span>
+                <span className={styles.stepTabDuration}>{step.duration}</span>
+              </button>
+            ))}
+          </div>
+
+          {activeStep && (
             <motion.div
-              key={step.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={styles.stepItem}
+              key={activeStep.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              className={styles.stepDetail}
             >
-              {/* Timeline Line */}
-              {index < steps.length - 1 && (
-                <div className={styles.timelineLine} />
-              )}
-
-              {/* Step Card */}
-              <div className={styles.stepGrid}>
-                {/* Step Number */}
-                <div className={styles.stepNumber}>
-                  <div className={styles.numberBadge}>
-                    {step.id}
-                  </div>
-                  <div className={styles.durationBadgeHidden}>
-                    {step.duration}
-                  </div>
+              <div className={styles.stepDetailHeader}>
+                <div>
+                  <div className={styles.stepPhase}>{activeStep.phase}</div>
+                  <h3 className={styles.stepTitle}>{activeStep.title}</h3>
                 </div>
+                <span className={styles.durationBadge}>{activeStep.duration}</span>
+              </div>
 
-                {/* Step Content */}
-                <div className={styles.stepCard}>
-                  <div className={styles.stepHeader}>
-                    <div>
-                      <div className={styles.stepPhase}>
-                        {step.phase}
-                      </div>
-                      <h3 className={styles.stepTitle}>
-                        {step.title}
-                      </h3>
-                    </div>
-                    <div className={styles.durationBadgeMobile}>
-                      {step.duration}
-                    </div>
-                  </div>
+              <p className={styles.stepDescription}>{activeStep.description}</p>
 
-                  <p className={styles.stepDescription}>
-                    {step.description}
-                  </p>
-
-                  {/* Deliverables */}
-                  <div className={styles.deliverables}>
-                    <div className={styles.deliverablesTitle}>Key Deliverables:</div>
-                    <div className={styles.deliverablesGrid}>
-                      {step.deliverables.map((deliverable, idx) => (
-                        <div
-                          key={idx}
-                          className={styles.deliverableItem}
-                        >
-                          <CheckCircle2 className={styles.checkIcon} />
-                          <span className={styles.deliverableText}>{deliverable}</span>
-                        </div>
-                      ))}
+              <div className={styles.deliverables}>
+                <div className={styles.deliverablesTitle}>Key Deliverables:</div>
+                <div className={styles.deliverablesGrid}>
+                  {activeStep.deliverables.map((deliverable, idx) => (
+                    <div key={idx} className={styles.deliverableItem}>
+                      <CheckCircle2 className={styles.checkIcon} />
+                      <span className={styles.deliverableText}>{deliverable}</span>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
-          ))}
+          )}
         </div>
       </div>
     </section>

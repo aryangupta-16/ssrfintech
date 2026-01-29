@@ -18,15 +18,11 @@ const navigation = {
   ],
   industries: [
     { name: "Banking & Financial Services", href: "/industries/banking-financial-services" },
-    { name: "Automobile & Manufacturing", href: "/industries/automobile-manufacturing" },
-    { name: "Mining & Resources", href: "/industries/mining-resources" },
-    { name: "Oil & Gas", href: "/industries/oil-gas" },
-    { name: "FMCG & Retail", href: "/industries/fmcg-retail" },
-    { name: "Logistics & Supply Chain", href: "/industries/logistics-supply-chain" },
-    { name: "Pharmaceutical & Life Sciences", href: "/industries/pharma-life-sciences" },
-    { name: "Utilities & Energy", href: "/industries/utilities-energy" },
-    { name: "Ports & Maritime", href: "/industries/ports-maritime" },
-    { name: "Private Equity & Investment Firms", href: "/industries/private-equity-investment" },
+    { name: "Insurance", href: "/industries/insurance" },
+    { name: "Wealth Management", href: "/industries/wealth-management" },
+    { name: "Payment Processing", href: "/industries/payment-processing" },
+    { name: "Capital Markets", href: "/industries/capital-markets" },
+    { name: "Fintech Startups", href: "/industries/fintech-startups" },
   ],
   products: {
     financial: [
@@ -282,41 +278,62 @@ export function Header() {
             </Link>
           </div>
 
-          {/* CTA Button & Theme Toggle */}
+          {/* CTA Button */}
           <div className={styles.ctaContainer}>
-            {mounted && (
-              <motion.button
-                onClick={toggleTheme}
-                className={styles.themeToggle}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <Sun className={styles.themeIcon} />
-                ) : (
-                  <Moon className={styles.themeIcon} />
-                )}
-              </motion.button>
-            )}
             <Link href="/contact">
               <Button size="default">
                 Contact Us
               </Button>
             </Link>
+            {/* Theme Toggle Button - Always visible */}
+            {mounted && (
+              <motion.button
+                onClick={toggleTheme}
+                className={styles.themeToggleDesktop}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                {isDark ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </motion.button>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className={styles.mobileMenuButton}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className={styles.menuIcon} />
-            ) : (
-              <Menu className={styles.menuIcon} />
+          {/* Mobile Controls */}
+          <div className={styles.mobileControls}>
+            {/* Mobile Menu Button */}
+            <button
+              className={styles.mobileMenuButton}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className={styles.menuIcon} />
+              ) : (
+                <Menu className={styles.menuIcon} />
+              )}
+            </button>
+
+            {/* Theme Toggle Button */}
+            {mounted && (
+              <motion.button
+                onClick={toggleTheme}
+                className={styles.themeToggleButton}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                {isDark ? (
+                  <Sun className="w-6 h-6" />
+                ) : (
+                  <Moon className="w-6 h-6" />
+                )}
+              </motion.button>
             )}
-          </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

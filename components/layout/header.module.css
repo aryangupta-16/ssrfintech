@@ -9,8 +9,8 @@
 }
 
 .header.default {
-  background-color: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(8px);
+  background-color: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
 }
 
 .header.scrolled {
@@ -90,7 +90,7 @@
   gap: var(--space-xl);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
   .desktopNav {
     display: flex;
   }
@@ -267,7 +267,21 @@
   cursor: pointer;
 }
 
-@media (min-width: 1024px) {
+/* Mobile Controls Container - Hamburger + Theme Toggle */
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1400px) {
+  .mobileControls {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
   .mobileMenuButton {
     display: none;
   }
@@ -276,6 +290,17 @@
 .menuIcon {
   width: 24px;
   height: 24px;
+}
+
+.themeToggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 /* Mobile Menu */
@@ -295,7 +320,7 @@
   overflow-y: auto;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
   .mobileMenu {
     display: none;
   }
@@ -332,12 +357,6 @@
   padding: var(--space-lg);
   flex: 1;
   overflow-y: auto;
-}
-
-@media (min-width: 1024px) {
-  .mobileMenu {
-    display: none;
-  }
 }
 
 .mobileNavLink {
@@ -473,10 +492,28 @@
   flex-shrink: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
   .ctaContainer {
     display: flex;
   }
+}
+
+.themeToggleDesktop {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  color: white;
+}
+
+.themeToggleDesktop:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .themeToggle {
@@ -490,7 +527,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-base);
-  color: white;
+  color: white
 }
 
 .themeToggle:hover {
@@ -534,4 +571,3 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
 }
-

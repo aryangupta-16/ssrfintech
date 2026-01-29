@@ -168,7 +168,7 @@ export default function ContactPage() {
                 Get in touch
               </h2>
 
-              <div className={styles.infoCard}>
+              {/* <div className={styles.infoCard}>
                 <div className={styles.infoCardHeader}>
                   <div className={styles.infoCardIconWrapper}>
                     <MapPin className={styles.infoCardIcon} />
@@ -186,7 +186,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className={styles.infoCard}>
                 <div className={styles.infoCardHeader}>
@@ -224,9 +224,9 @@ export default function ContactPage() {
                         </div>
                       </div>
                     </div>
-                    <p className={styles.availability}>
+                    {/* <p className={styles.availability}>
                       📅 Mon-Fri 9:00 AM - 6:00 PM IST
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -240,12 +240,12 @@ export default function ContactPage() {
                     <div className={styles.infoCardTitle}>Email Us</div>
                     <p className={styles.infoCardText}>
                       <a href="mailto:info@ssrfintech.com" style={{ color: 'var(--color-accent)', textDecoration: 'none' }}>
-                          contact@ssrfintech.com
-                        </a>
-                      </p>
-                      <p style={{ fontSize: 'var(--font-sm)', color: 'var(--text-tertiary)', marginTop: '0.25rem' }}>
-                        We'll respond within 24 hours
-                      </p>
+                        contact@ssrfintech.com
+                      </a>
+                    </p>
+                    <p style={{ fontSize: 'var(--font-sm)', color: 'var(--text-tertiary)', marginTop: '0.25rem' }}>
+                      We'll respond within 24 hours
+                    </p>
                   </div>
                 </div>
               </div>
