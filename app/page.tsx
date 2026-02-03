@@ -6,7 +6,6 @@ import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import StatsPremium from "@/components/sections/StatsPremium";
 import { ProofSection } from "@/components/sections/ProofSection";
 import CaseStudiesGrid from "@/components/sections/CaseStudiesGrid";
-import ResourcesSection from "@/components/sections/ResourcesSection";
 import CTAPremium from "@/components/sections/CTAPremium";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -15,7 +14,6 @@ import { targetAudiences } from "@/data/whoWeHelp";
 import { processSteps } from "@/data/howWeWork";
 import { testimonials } from "@/data/testimonials";
 import { caseStudies } from "@/data/caseStudies";
-import { resources } from "@/data/resources";
 import styles from "./home.module.css";
 
 const clientLogos = [
@@ -146,12 +144,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      <ResourcesSection
-        resources={resources}
-        title="Resources & Documentation"
-        description="Access the tools and knowledge you need to maximize your SAP investment"
-      />
       
       <CTAPremium />
     </GradientWrapper>

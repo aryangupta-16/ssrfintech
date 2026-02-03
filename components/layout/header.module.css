@@ -93,6 +93,8 @@
 @media (min-width: 1400px) {
   .desktopNav {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

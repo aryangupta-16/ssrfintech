@@ -215,11 +215,11 @@ export function Footer() {
               <div className={styles.contactList}>
                 <a href="tel:+911234567890" className={styles.contactItem}>
                   <Phone className={styles.contactIcon} />
-                  <span>+91 123 456 7890</span>
+                  <span>+91 96693 36333</span>
                 </a>
                 <a href="mailto:info@ssrfintech.com" className={styles.contactItem}>
                   <Mail className={styles.contactIcon} />
-                  <span>info@ssrfintech.com</span>
+                  <span>contact@ssrfintech.com</span>
                 </a>
               </div>
             </div>
@@ -258,7 +258,7 @@ export function Footer() {
         </div>
 
         {/* Global Presence */}
-        <div className={styles.globalPresence}>
+        {/* <div className={styles.globalPresence}>
           <div className={styles.globalContent}>
             <h3 className={styles.globalTitle}>
               <MapPin className={styles.mapIcon} />
@@ -277,7 +277,7 @@ export function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>

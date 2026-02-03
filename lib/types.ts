@@ -42,6 +42,7 @@ export interface TeamMember {
   linkedin?: string;
   twitter?: string;
   cofounder?: boolean;
+  teamMembers?: { name: string; role: string; }[]; // Sub-team members
 }
 
 export interface CaseStudyMetrics {
