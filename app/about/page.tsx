@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { GradientWrapper } from "@/components/layout/GradientWrapper";
 import { PageHero } from "@/components/sections/PageHero";
+import ResourcesSection from "@/components/sections/ResourcesSection";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { team } from "@/data/team";
+import { resources } from "@/data/resources";
 import { Linkedin, ArrowRight, Target, Eye, Award, Users, Mail } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 import styles from "./about.module.css";
@@ -16,7 +18,7 @@ const globalLocations = [
   {
     id: "us",
     country: "United States",
-    color: "primary",
+    color: "accent",
     position: { top: "45%", left: "20%" },
     cities: ["New York", "San Francisco", "Chicago"]
   },
@@ -25,12 +27,12 @@ const globalLocations = [
     country: "MENA",
     color: "accent",
     position: { top: "35%", left: "50%" },
-    cities: ["Dubai, UAE", "Abu Dhabi, UAE", "Riyadh, KSA", "Dammam, KSA"]
+    cities: ["Dubai", "Abu Dhabi", "Fujairah", "Riyadh", "Dammam"]
   },
   {
     id: "india",
     country: "India",
-    color: "primary",
+    color: "accent",
     position: { top: "40%", right: "22%" },
     cities: ["Bangalore", "Bhopal (Headquarters)", "Mumbai", "Delhi", "Pune"]
   },
@@ -44,14 +46,33 @@ const globalLocations = [
   {
     id: "sg",
     country: "Singapore",
-    color: "primary",
+    color: "accent",
     position: { top: "50%", right: "10%" },
     cities: ["Singapore"]
+  },
+  {
+    id: "ph",
+    country: "Philippines",
+    color: "accent",
+    position: { top: "45%", right: "5%" },
+    cities: ["Manila"]
+  },
+  {
+    id: "kr",
+    country: "South Korea",
+    color: "accent",
+    position: { top: "30%", right: "2%" },
+    cities: ["Seoul"]
   }
 ];
 
 export default function AboutPage() {
   const [expandedLocation, setExpandedLocation] = useState<string | null>(null);
+  
+  // Split team into leadership (first 3) and others (rest)
+  const leadership = team.slice(0, 3);
+  const others = team.slice(3);
+  
   return (
     <GradientWrapper>
       <PageHero
@@ -191,7 +212,7 @@ export default function AboutPage() {
             </motion.p>
           </motion.div>
 
-          {/* Map Container with Pins */}
+          {/* Map Container with Pins - Desktop Only */}
           <div className={styles.mapContainer}>
             {globalLocations.map((location, index) => (
               <motion.div
@@ -250,6 +271,48 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Card Layout - Mobile/Tablet Only */}
+          <div className={styles.locationsCards}>
+            {globalLocations.map((location, index) => (
+              <motion.div
+                key={location.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className={styles.locationCard}>
+                  <CardHeader>
+                    <div className={styles.locationCardHeader}>
+                      <div className={styles.locationIcon}>
+                        <svg width="24" height="30" viewBox="0 0 32 40">
+                          <path
+                            d="M16 0C9.4 0 4 5.4 4 12c0 8 12 28 12 28s12-20 12-28c0-6.6-5.4-12-12-12z"
+                            fill="var(--color-accent)"
+                            stroke="white"
+                            strokeWidth="2"
+                          />
+                          <circle cx="16" cy="12" r="4" fill="white" />
+                        </svg>
+                      </div>
+                      <CardTitle className={styles.locationCardTitle}>{location.country}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className={styles.locationCitiesGrid}>
+                      {location.cities.map((city, idx) => (
+                        <div key={idx} className={styles.locationCityItem}>
+                          <div className={styles.locationCityDot}></div>
+                          <span>{city}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -264,15 +327,16 @@ export default function AboutPage() {
             className={styles.header}
           >
             <motion.h2 variants={fadeInUp} className={styles.title}>
-              Meet Our Leadership Team
+              Our Leadership Team
             </motion.h2>
             <motion.p variants={fadeInUp} className={styles.description}>
               Expert professionals driving innovation in fintech
             </motion.p>
           </motion.div>
 
-          <div className={styles.teamGrid}>
-            {team.map((member, index) => (
+          {/* Leadership Row - First 3 */}
+          <div className={styles.leadershipGrid}>
+            {leadership.map((member, index) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -290,7 +354,6 @@ export default function AboutPage() {
                             alt={member.name}
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             onError={(e) => {
-                              // Fallback to initials if image fails to load
                               e.currentTarget.style.display = 'none';
                               e.currentTarget.parentElement!.innerHTML = `<div class="${styles.memberImageFallback}">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
                             }}
@@ -303,43 +366,62 @@ export default function AboutPage() {
                       )}
                     </div>
                     <CardTitle className={styles.memberName}>{member.name}</CardTitle>
-                    {member.cofounder && (
-                      <div style={{
-                        background: 'var(--color-primary)',
-                        color: 'white',
-                        padding: '0.25rem 0.75rem',
-                        borderRadius: '9999px',
-                        fontSize: '0.75rem',
-                        fontWeight: '600',
-                        letterSpacing: '0.5px',
-                        display: 'inline-block',
-                        margin: '0.5rem 0',
-                        textAlign: 'center',
-                        width: '100%'
-                      }}>
-                        COFOUNDER
-                      </div>
-                    )}
                     <CardDescription className={styles.memberRole}>{member.role}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <p className={styles.memberBio}>{member.bio}</p>
-                    
-                    {member.email && (
-                      <div className={styles.memberLinkedIn} style={{ marginBottom: '0.5rem' }}>
-                        <Mail className={styles.linkedInIcon} />
-                        <a href={`mailto:${member.email}`}>
-                          {member.email}
-                        </a>
-                      </div>
-                    )}
-                    
                     {member.linkedin && (
                       <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.5rem' }}>
-                        <Link
-                          href={member.linkedin}
-                          className={styles.memberLinkedIn}
-                        >
+                        <Link href={member.linkedin} className={styles.memberLinkedIn}>
+                          <Linkedin className={styles.linkedInIcon} />
+                        </Link>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Others Row - Next 4 */}
+          <div className={styles.managersGrid}>
+            {others.map((member, index) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className={styles.teamCard}>
+                  <CardHeader>
+                    <div className={styles.teamMemberImage}>
+                      {member.image ? (
+                        <div className={styles.memberImage}>
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.parentElement!.innerHTML = `<div class="${styles.memberImageFallback}">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
+                            }}
+                          />
+                        </div>
+                      ) : (
+                        <div className={styles.memberImageFallback}>
+                          {member.name.split(" ").map(n => n[0]).join("")}
+                        </div>
+                      )}
+                    </div>
+                    <CardTitle className={styles.memberName}>{member.name}</CardTitle>
+                    <CardDescription className={styles.memberRole}>{member.role}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className={styles.memberBio}>{member.bio}</p>
+                    {member.linkedin && (
+                      <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.5rem' }}>
+                        <Link href={member.linkedin} className={styles.memberLinkedIn}>
                           <Linkedin className={styles.linkedInIcon} />
                         </Link>
                       </div>
@@ -352,6 +434,13 @@ export default function AboutPage() {
 
         </div>
       </section>
+
+      {/* Resources Section */}
+      <ResourcesSection
+        resources={resources}
+        title="Resources & Documentation"
+        description="Access the tools and knowledge you need to maximize your SAP investment"
+      />
 
       {/* CTA */}
       <section className={styles.values}>
