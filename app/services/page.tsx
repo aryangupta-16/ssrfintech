@@ -9,11 +9,15 @@ import Link from "next/link";
 import styles from "./services.module.css";
 
 export default function ServicesPage() {
-  const consultingServices = services.filter(s => 
-    s.slug.includes('consulting') || s.slug.includes('erp')
+  const financialServices = services.filter(s => 
+    s.slug.includes('financial-planning') || 
+    s.slug.includes('consolidation') || 
+    s.slug.includes('reporting') ||
+    s.slug.includes('implementation')
   );
-  const technologyServices = services.filter(s => 
-    s.slug.includes('cloud') || s.slug.includes('software') || s.slug.includes('data')
+  const transformationServices = services.filter(s => 
+    s.slug.includes('epm-transformations') || 
+    s.slug.includes('support-optimization')
   );
   const securityServices = services.filter(s => 
     s.slug.includes('cybersecurity')
@@ -38,7 +42,7 @@ export default function ServicesPage() {
 
       <section className={styles.section}>
         <div className={styles.container}>
-          {/* Consulting Services */}
+          {/* Financial Services */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,14 +50,14 @@ export default function ServicesPage() {
             className={styles.categorySection}
           >
             <div className={styles.header}>
-              <h2 className={styles.categoryTitle}>Consulting Services</h2>
+              <h2 className={styles.categoryTitle}>Financial Services</h2>
               <p className={styles.categoryDescription}>
-                Strategic guidance from experienced financial technology experts
+                Strategic financial planning, consolidation, and analytics solutions
               </p>
             </div>
 
             <div className={`${styles.grid} ${styles.gridTwoCol}`}>
-              {consultingServices.map((service, index) => (
+              {financialServices.map((service, index) => (
                 <motion.div key={service.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
                   <Link href={`/services/${service.slug}`}>
                     <div className={styles.card}>
@@ -80,17 +84,17 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* Technology Services */}
+          {/* Transformation Services */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className={styles.categorySection}>
             <div className={styles.header}>
-              <h2 className={styles.categoryTitle}>Technology Services</h2>
+              <h2 className={styles.categoryTitle}>Transformation & Support</h2>
               <p className={styles.categoryDescription}>
-                Cutting-edge technical solutions for modern financial institutions
+                SAP EPM transformations and ongoing management services
               </p>
             </div>
 
             <div className={`${styles.grid} ${styles.gridThreeCol}`}>
-              {technologyServices.map((service, index) => (
+              {transformationServices.map((service, index) => (
                 <motion.div key={service.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
                   <Link href={`/services/${service.slug}`}>
                     <div className={styles.card}>

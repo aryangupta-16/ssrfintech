@@ -105,15 +105,15 @@ export function Footer() {
               >
                 <Youtube className={styles.socialIcon} />
               </a>
-              <a
+              {/* <a
                 href="#"
                 className={styles.socialLink}
                 aria-label="Twitter"
               >
                 <Twitter className={styles.socialIcon} />
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="https://www.facebook.com/p/SSR-Fintech-61568719633136/"
                 className={styles.socialLink}
                 aria-label="Facebook"
               >

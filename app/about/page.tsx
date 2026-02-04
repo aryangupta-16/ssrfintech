@@ -34,7 +34,7 @@ const globalLocations = [
     country: "India",
     color: "accent",
     position: { top: "40%", right: "22%" },
-    cities: ["Bangalore", "Bhopal (Headquarters)", "Mumbai", "Delhi", "Pune"]
+    cities: ["Bangalore", "Bhopal (HQ)", "Mumbai", "Delhi", "Pune"]
   },
   {
     id: "uk",
@@ -401,7 +401,7 @@ export default function AboutPage() {
                           <img
                             src={member.image}
                             alt={member.name}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            style={{ width: '100%', height: '100%' }}
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
                               e.currentTarget.parentElement!.innerHTML = `<div class="${styles.memberImageFallback}">${member.name.split(" ").map(n => n[0]).join("")}</div>`;
