@@ -9,20 +9,25 @@ import styles from "./header.module.css";
 
 const navigation = {
   services: [
-    { name: "Financial Technology Consulting", href: "/services/financial-technology-consulting" },
-    { name: "ERP Implementation & Support", href: "/services/erp-implementation-support" },
-    { name: "Cloud Solutions & Migration", href: "/services/cloud-solutions-migration" },
-    { name: "Data Analytics & BI", href: "/services/data-analytics-business-intelligence" },
+    { name: "Financial Planning & Forecasting", href: "/services/financial-planning-forecasting" },
+    { name: "Financial Consolidation & Close", href: "/services/financial-consolidation-close" },
+    { name: "Reporting & Analytics", href: "/services/reporting-analytics" },
+    { name: "SAP EPM Transformations", href: "/services/sap-epm-transformations" },
+    { name: "Implementation & Rollouts", href: "/services/implementation-rollouts" },
+    { name: "Support & Optimization - AMS", href: "/services/support-optimization-ams" },
     { name: "Cybersecurity Services", href: "/services/cybersecurity-services" },
-    { name: "Custom Software Development", href: "/services/custom-software-development" },
   ],
   industries: [
     { name: "Banking & Financial Services", href: "/industries/banking-financial-services" },
-    { name: "Insurance", href: "/industries/insurance" },
-    { name: "Wealth Management", href: "/industries/wealth-management" },
-    { name: "Payment Processing", href: "/industries/payment-processing" },
-    { name: "Capital Markets", href: "/industries/capital-markets" },
-    { name: "Fintech Startups", href: "/industries/fintech-startups" },
+    { name: "Automobile & Manufacturing", href: "/industries/automobile-manufacturing" },
+    { name: "Oil & Gas", href: "/industries/oil-gas" },
+    { name: "Mining & Resources", href: "/industries/mining-resources" },
+    { name: "FMCG & Retail", href: "/industries/fmcg-retail" },
+    { name: "Logistics & Supply Chain", href: "/industries/logistics-supply-chain" },
+    { name: "Pharmaceutical & Life Sciences", href: "/industries/pharma-life-sciences" },
+    { name: "Utilities & Energy", href: "/industries/utilities-energy" },
+    { name: "Ports & Maritime", href: "/industries/ports-maritime" },
+    { name: "Private Equity & Investment", href: "/industries/private-equity-investment" },
   ],
   products: {
     financial: [

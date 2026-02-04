@@ -44,6 +44,9 @@
   padding: var(--space-xl);
   text-align: center;
   transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .valueCard:hover {
@@ -232,7 +235,13 @@
 }
 
 .gridTwoCol {
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+  .gridTwoCol {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Position Card Styles */

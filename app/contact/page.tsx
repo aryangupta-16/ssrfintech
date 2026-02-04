@@ -203,6 +203,9 @@ export default function ContactPage() {
                           <a href="tel:+919669336333" className={styles.phoneLink}>
                             +91 96693 36333
                           </a>
+                          <a href="tel:+919811296764" className={styles.phoneLink}>
+                            +91 98112 96764
+                          </a>
                         </div>
                       </div>
                       <div className={styles.phoneItem}>
