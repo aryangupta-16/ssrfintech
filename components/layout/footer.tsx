@@ -52,15 +52,45 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [showNewsletterSuccess, setShowNewsletterSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [newsletterError, setNewsletterError] = useState<string | null>(null);
 
-  const handleNewsletterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    if (email) {
-      console.log("Newsletter subscription:", email);
+
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setNewsletterError(null);
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Failed to subscribe');
+      }
+
       setShowNewsletterSuccess(true);
       setEmail("");
       setTimeout(() => setShowNewsletterSuccess(false), 5000);
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setNewsletterError(
+        err instanceof Error
+          ? err.message
+          : 'Failed to subscribe. Please try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -241,6 +271,11 @@ export function Footer() {
                 <p className={styles.successText}>Thank you for subscribing!</p>
               </div>
             )}
+            {newsletterError && (
+              <div className={styles.errorMessage}>
+                <p className={styles.errorText}>{newsletterError}</p>
+              </div>
+            )}
             <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
               <input
                 type="email"
@@ -248,10 +283,15 @@ export function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
+                disabled={isSubmitting}
                 className={styles.emailInput}
               />
-              <button type="submit" className={styles.subscribeButton}>
-                Subscribe
+              <button
+                type="submit"
+                className={styles.subscribeButton}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </button>
             </form>
           </div>
@@ -289,9 +329,9 @@ export function Footer() {
               <Link href="/privacy-policy" className={styles.legalLink}>
                 Privacy Policy
               </Link>
-              <Link href="/terms-of-service" className={styles.legalLink}>
+              {/* <Link href="/terms-of-service" className={styles.legalLink}>
                 Terms of Service
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -73,7 +73,7 @@ export const team: TeamMember[] = [
     id: "7",
     name: "Farry Jain (CA)",
     role: "Group Reporting & Consolidation Solution Architect",
-    bio: "Consolidation and close process expert aligning finance controls with analytics outcomes. Specialist in statutory and management consolidation.",
+    bio: "As a SAP Group Reporting Consultant and Chartered Accountant, Farry supports organizations in building robust consolidation and reporting frameworks. Her expertise spans SAP Group Reporting configuration, financial close processes, and compliance-driven reporting, enabling finance teams to operate with clarity and control.",
     image: "/team/farry.jpeg",
     teamMembers: [
       { name: "Deepak Agarwal", role: "Consolidation Analyst" },
