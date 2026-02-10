@@ -48,6 +48,13 @@
 }
 
 /* Logo */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-shrink: 0;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -82,6 +89,32 @@
   font-size: var(--font-xs);
   color: rgba(255, 255, 255, 0.6);
   line-height: 1.2;
+}
+
+/* SAP Partner Badge */
+.partnerBadge {
+  display: none;
+  align-items: center;
+  padding-left: var(--space-lg);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .partnerBadge {
+    display: flex;
+  }
+}
+
+.sapLogo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
+}
+
+.sapLogo:hover {
+  opacity: 1;
 }
 
 /* Desktop Navigation */

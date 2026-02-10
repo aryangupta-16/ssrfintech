@@ -49,15 +49,15 @@ export default function CaseStudiesGrid({
             <div className={styles.cardContent}>
               {/* Logo */}
               {caseStudy.logo && (
-                <div className={styles.logoWrapper}>
+                // <div className={styles.logoWrapper}>
                   <Image
                     src={caseStudy.logo}
                     alt={caseStudy.client}
-                    width={140}
-                    height={70}
+                    width={200}
+                    height={100}
                     className={styles.logo}
                   />
-                </div>
+                // </div>
               )}
 
               {/* Industry Badge */}

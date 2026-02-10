@@ -12,7 +12,7 @@ const navigation = {
     { name: "Financial Planning & Forecasting", href: "/services/financial-planning-forecasting" },
     { name: "Financial Consolidation & Close", href: "/services/financial-consolidation-close" },
     { name: "Reporting & Analytics", href: "/services/reporting-analytics" },
-    { name: "SAP EPM Transformations", href: "/services/sap-epm-transformations" },
+    { name: "SAP ERP Transformations", href: "/services/sap-erp-transformations" },
     { name: "Implementation & Rollouts", href: "/services/implementation-rollouts" },
     { name: "Support & Optimization - AMS", href: "/services/support-optimization-ams" },
     { name: "Cybersecurity Services", href: "/services/cybersecurity-services" },
@@ -97,22 +97,31 @@ export function Header() {
       <nav className={styles.nav}>
         <div className={styles.navContent}>
           {/* Logo */}
-          <Link href="/" className={styles.logo}>
-            <div className={styles.logoImage}>
-              <img 
-                src="/ssrfintechLogo.webp" 
-                alt="SSR Fintech Logo"
+          <div className={styles.logoContainer}>
+            <Link href="/" className={styles.logo}>
+              <div className={styles.logoImage}>
+                <img
+                  src="/ssrfintechLogo.webp"
+                  alt="SSR Fintech Logo"
+                />
+              </div>
+              {/* <div className={styles.logoText}>
+                <span className={styles.logoTitle}>
+                  SSR Fintech
+                </span>
+                <span className={styles.logoSubtitle}>
+                  Financial Technology Experts
+                </span>
+              </div> */}
+            </Link>
+            <div className={styles.partnerBadge}>
+              <img
+                src="/sapLogo.png"
+                alt="SAP Partner"
+                className={styles.sapLogo}
               />
             </div>
-            <div className={styles.logoText}>
-              <span className={styles.logoTitle}>
-                SSR Fintech
-              </span>
-              <span className={styles.logoSubtitle}>
-                Financial Technology Experts
-              </span>
-            </div>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className={styles.desktopNav}>
