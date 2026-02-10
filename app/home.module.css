@@ -121,7 +121,7 @@
 /* Client Logos Marquee */
 .clientLogosSection {
   padding: var(--space-4xl) 0;
-  background: var(--bg-main);
+  background: var(--bg-section);
   position: relative;
   overflow: hidden;
 }
@@ -164,18 +164,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 140px;
-  height: 70px;
+  min-width: 240px;
+  height: 140px;
   padding: 0 var(--space-md);
-  background: var(--bg-card);
+  background: white;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.logoItem:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
 }
 
 .logoItem img {
-  max-width: 120px;
-  max-height: 40px;
+  max-width: 200px;
+  max-height: 150px;
   object-fit: contain;
   transition: all 0.3s ease;
 }

@@ -3,75 +3,27 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  Landmark,
-  Settings,
-  Cloud,
+  TrendingUp,
+  Layers,
   BarChart3,
+  Zap,
+  Rocket,
+  Settings,
   Shield,
-  Code,
   ArrowRight,
 } from "lucide-react";
+import { services as servicesData } from "@/data/services";
 import styles from "./ServicesPremium.module.css";
 
 const iconMap: Record<string, any> = {
-  Landmark,
-  Settings,
-  Cloud,
+  TrendingUp,
+  Layers,
   BarChart3,
+  Zap,
+  Rocket,
+  Settings,
   Shield,
-  Code,
 };
-
-const services = [
-  {
-    id: "1",
-    title: "Financial Technology Consulting",
-    description:
-      "Transform your financial operations with cutting-edge technology solutions.",
-    icon: "Landmark",
-    link: "/services/financial-technology-consulting",
-  },
-  {
-    id: "2",
-    title: "ERP Implementation",
-    description:
-      "Streamline business processes with enterprise resource planning solutions.",
-    icon: "Settings",
-    link: "/services/erp-implementation-support",
-  },
-  {
-    id: "3",
-    title: "Cloud Solutions",
-    description:
-      "Leverage cloud technology to scale your infrastructure securely.",
-    icon: "Cloud",
-    link: "/services/cloud-solutions-migration",
-  },
-  {
-    id: "4",
-    title: "Data Analytics & BI",
-    description:
-      "Unlock actionable insights with advanced analytics and intelligence.",
-    icon: "BarChart3",
-    link: "/services/data-analytics-business-intelligence",
-  },
-  {
-    id: "5",
-    title: "Cybersecurity",
-    description:
-      "Protect your assets with comprehensive security solutions.",
-    icon: "Shield",
-    link: "/services/cybersecurity-services",
-  },
-  {
-    id: "6",
-    title: "Custom Development",
-    description:
-      "Build bespoke financial applications for your unique needs.",
-    icon: "Code",
-    link: "/services/custom-software-development",
-  },
-];
 
 export default function ServicesPremium() {
   return (
@@ -94,8 +46,8 @@ export default function ServicesPremium() {
         </motion.div>
 
         <div className={styles.grid}>
-          {services.map((service, index) => {
-            const Icon = iconMap[service.icon];
+          {servicesData.map((service, index) => {
+            const Icon = iconMap[service.icon] || Settings;
             return (
               <motion.div
                 key={service.id}
@@ -104,7 +56,7 @@ export default function ServicesPremium() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Link href={service.link} className={styles.card}>
+                <Link href={`/services/${service.slug}`} className={styles.card}>
                   <div className={styles.iconContainer}>
                     <Icon className={styles.icon} />
                   </div>

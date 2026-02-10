@@ -69,8 +69,8 @@ export const services: Service[] = [
   },
   {
     id: "4",
-    title: "SAP EPM Transformations",
-    slug: "sap-epm-transformations",
+    title: "SAP ERP Transformations",
+    slug: "sap-erp-transformations",
     description:
       "Legacy consolidation system replacement, ECC to S/4HANA EPM transition, and SAP EPM roadmap definition and architecture design.",
     icon: "Zap",

@@ -12,7 +12,8 @@
   /* Backgrounds */
   --bg-main: #FFFFFF;
   --bg-section: #F5F7FA;
-  --bg-card: #FAFBFC;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F9FAFB;
   --bg-dark: #0B2545;
   --bg-dark-secondary: #081C33;
   --bg-slate-800: #1e293b;
@@ -101,7 +102,8 @@
     /* Backgrounds */
     --bg-main: #0F172A;
     --bg-section: #1E293B;
-    --bg-card: #1A2332;
+    --bg-card: #1E293B;
+    --bg-hover: #252F3F;
     --bg-dark: #0F172A;
     --bg-dark-secondary: #0A0F1B;
     
@@ -139,7 +141,8 @@ html[data-theme="light"] {
   /* Backgrounds */
   --bg-main: #FFFFFF;
   --bg-section: #F5F7FA;
-  --bg-card: #FAFBFC;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F9FAFB;
   --bg-dark: #0B2545;
   --bg-dark-secondary: #081C33;
   
@@ -176,7 +179,8 @@ html[data-theme="dark"] {
   /* Backgrounds */
   --bg-main: #0F172A;
   --bg-section: #1E293B;
-  --bg-card: #1A2332;
+  --bg-card: #1E293B;
+  --bg-hover: #252F3F;
   --bg-dark: #0F172A;
   --bg-dark-secondary: #0A0F1B;
   

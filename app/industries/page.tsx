@@ -19,6 +19,10 @@ export default function IndustriesPage() {
     "/ssrfintech_3.jpg",
     "/ssrfintech_1.jpg",
     "/ssrfintech_2.jpg",
+    "/ssrfintech_3.jpg",
+    "/ssrfintech_3.jpg",
+    "/ssrfintech_1.jpg",
+    "/ssrfintech_2.jpg",
     "/ssrfintech_3.jpg"
   ];
 

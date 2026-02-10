@@ -89,7 +89,7 @@ export default function ServicesPage() {
             <div className={styles.header}>
               <h2 className={styles.categoryTitle}>Transformation & Support</h2>
               <p className={styles.categoryDescription}>
-                SAP EPM transformations and ongoing management services
+                SAP ERP transformations and ongoing management services
               </p>
             </div>
 
