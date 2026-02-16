@@ -84,6 +84,12 @@
   gap: var(--space-2xl);
 }
 
+@media (max-width: 480px) {
+  .grid {
+    gap: var(--space-sm);
+  }
+}
+
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
@@ -115,6 +121,13 @@
   transition: all var(--transition-base);
 }
 
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-md);
+    border-radius: var(--radius-xl);
+  }
+}
+
 .card:hover {
   transform: scale(1.05);
   border-color: var(--color-accent);
@@ -133,10 +146,22 @@
   display: block;
 }
 
+@media (max-width: 480px) {
+  .statValue {
+    font-size: 1.5rem;
+  }
+}
+
 .statLabel {
   color: var(--text-primary);
   font-size: var(--font-base);
   font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .statLabel {
+    font-size: var(--font-xs);
+  }
 }
 
 /* Animation for numbers */

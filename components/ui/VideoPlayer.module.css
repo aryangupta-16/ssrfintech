@@ -1,0 +1,84 @@
+.aspectWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+}
+
+.thumbnail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 37, 69, 0.15) 0%,
+    rgba(11, 37, 69, 0.55) 100%
+  );
+  transition: background var(--transition-base);
+}
+
+.preview:hover .overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 37, 69, 0.1) 0%,
+    rgba(11, 37, 69, 0.45) 100%
+  );
+}
+
+.playButton {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.preview:hover .playButton {
+  transform: scale(1.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+}
+
+.playIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-primary);
+  margin-left: 4px; /* optical center for play triangle */
+}
+
+.playLabel {
+  color: white;
+  font-size: var(--font-sm);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}

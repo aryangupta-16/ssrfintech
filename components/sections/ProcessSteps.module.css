@@ -75,6 +75,15 @@
   cursor: pointer;
   transition: all var(--transition-base);
   text-align: left;
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .stepTab {
+    grid-template-columns: auto 1fr;
+    padding: var(--space-sm) var(--space-md);
+    gap: var(--space-sm);
+  }
 }
 
 .stepTab:hover {
@@ -109,11 +118,11 @@
 }
 
 .stepTabPhase {
-  font-size: var(--font-2xs);
+  font-size: var(--font-xs);
   font-weight: 700;
   color: var(--color-accent);
   text-transform: uppercase;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
 }
 
 .stepTabTitle {
@@ -132,6 +141,12 @@
   white-space: nowrap;
 }
 
+@media (max-width: 480px) {
+  .stepTabDuration {
+    display: none;
+  }
+}
+
 .stepDetail {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -147,6 +162,7 @@
   justify-content: space-between;
   margin-bottom: var(--space-md);
   gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .durationBadge {

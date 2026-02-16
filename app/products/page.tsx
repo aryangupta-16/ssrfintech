@@ -18,7 +18,7 @@ export default function ProductsPage() {
       <PageHero
         title="Enterprise SAP Solutions Portfolio"
         description="Comprehensive SAP solutions for digital transformation, financial management, and enterprise optimization"
-        backgroundImage="/ssrfintech_3.jpg"
+        backgroundImage="/3d-graph-computer-illustration.jpg"
         primaryCTA={{
           text: "Schedule a Demo",
           href: "/contact",

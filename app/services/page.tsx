@@ -28,7 +28,7 @@ export default function ServicesPage() {
       <PageHero
         title="Our Services"
         description="Comprehensive financial technology solutions designed to transform your business"
-        backgroundImage="/ssrfintech_3.jpg"
+        backgroundImage="/business-concept-with-graphic-holography.jpg"
         primaryCTA={{
           text: "Get a Free Assessment",
           href: "/contact",
