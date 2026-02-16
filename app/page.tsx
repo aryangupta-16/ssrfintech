@@ -83,7 +83,7 @@ export default function Home() {
                     preload="metadata"
                     playsInline
                   >
-                    <source src="/ssrFintechIntro.mp4" type="video/mp4" />
+                    <source src="https://github.com/user-attachments/assets/4486f855-86f8-4d1b-b2a0-f905d3f3437d" type="video/mp4" />
                   </video>
                 </div>
                 {/* Decorative Elements */}
