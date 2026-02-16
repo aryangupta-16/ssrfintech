@@ -13,7 +13,7 @@ export default function CaseStudiesPage() {
       <PageHero
         title="Success Stories"
         description="Real results for real clients — see how we've transformed businesses across industries"
-        backgroundImage="/ssrfintech_1.jpg"
+        backgroundImage="/businessman-using-tablet-with-digital-graphics.jpg"
         primaryCTA={{ text: "Start Your Project", href: "/contact" }}
         icon={<Award className="w-10 h-10" />}
       />

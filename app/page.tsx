@@ -8,7 +8,7 @@ import { ProofSection } from "@/components/sections/ProofSection";
 import CaseStudiesGrid from "@/components/sections/CaseStudiesGrid";
 import CTAPremium from "@/components/sections/CTAPremium";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { targetAudiences } from "@/data/whoWeHelp";
 import { processSteps } from "@/data/howWeWork";
@@ -39,40 +39,52 @@ export default function Home() {
     <GradientWrapper>
       <HeroPremium />
       
-      {/* What We Do Video Section */}
+      {/* What We Do / Intro Video Section */}
       <section className={styles.whatWeDo}>
         <div className={styles.container}>
           <div className={styles.contentWrapper}>
             <div className={styles.grid}>
               {/* Text Content */}
               <div className={styles.textContent}>
-                <h2 className={styles.title}>
-                  What We Do
-                </h2>
+                {/* <span className={styles.sectionBadge}>Company Overview</span> */}
+                <h2 className={styles.title}>What We Do</h2>
                 <p className={styles.description}>
-                  At SSR Fintech, we specialize in transforming complex financial challenges into streamlined, 
-                  scalable solutions. Our expert team combines deep industry knowledge with cutting-edge 
-                  technology to help financial institutions and fintech startups navigate regulatory compliance, 
-                  optimize operations, and accelerate digital transformation.
+                  At SSR Fintech, we specialize in transforming complex financial challenges into
+                  streamlined, scalable solutions. Our expert team combines deep industry knowledge
+                  with cutting-edge technology to help financial institutions navigate regulatory
+                  compliance and accelerate digital transformation.
                 </p>
-                <p className={styles.subtitle}>
-                  From strategic consulting to hands-on implementation, we partner with you to build 
-                  robust financial systems that drive growth and innovation.
-                </p>
+                {/* <ul className={styles.highlights}>
+                  <li className={styles.highlight}>
+                    <CheckCircle2 className={styles.highlightIcon} />
+                    <span>SAP FICO &amp; ERP implementations for financial institutions</span>
+                  </li>
+                  <li className={styles.highlight}>
+                    <CheckCircle2 className={styles.highlightIcon} />
+                    <span>Regulatory compliance consulting and digital transformation</span>
+                  </li>
+                  <li className={styles.highlight}>
+                    <CheckCircle2 className={styles.highlightIcon} />
+                    <span>End-to-end fintech product development and managed services</span>
+                  </li>
+                </ul> */}
+                <Link href="/about" className={styles.learnMoreLink}>
+                  Learn About SSR Fintech
+                  <ArrowRight className={styles.arrowIcon} />
+                </Link>
               </div>
 
               {/* Video Container */}
               <div className={styles.videoWrapper}>
                 <div className={styles.videoContainer}>
-                  <div className={styles.videoAspect}>
-                    <iframe
-                      src="https://www.youtube.com/embed/EHrxlZNRHrk?rel=1&modestbranding=1"
-                      title="What We Do - SSR Fintech"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className={styles.videoIframe}
-                    />
-                  </div>
+                  <video
+                    className={styles.videoElement}
+                    controls
+                    preload="metadata"
+                    playsInline
+                  >
+                    <source src="/ssrFintechIntro.mp4" type="video/mp4" />
+                  </video>
                 </div>
                 {/* Decorative Elements */}
                 <div className={styles.decorTop} />

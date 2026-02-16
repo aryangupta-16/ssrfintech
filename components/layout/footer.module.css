@@ -1,14 +1,16 @@
-/* Footer Base */
+/* ==============================
+   FOOTER BASE
+   ============================== */
+
 .footer {
   background-color: rgb(2, 6, 23);
-  color: rgba(255, 255, 255, 0.9);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .container {
   margin: 0 auto;
-  padding: var(--space-3xl) var(--space-lg);
   max-width: var(--container-max-width);
+  padding: var(--space-3xl) var(--space-lg);
 }
 
 @media (min-width: 640px) {
@@ -19,68 +21,66 @@
 
 @media (min-width: 1024px) {
   .container {
-    padding: var(--space-4xl) var(--space-2xl);
+    padding: var(--space-3xl) var(--space-2xl);
   }
 }
 
-/* Grid Layout */
-.grid {
+/* ==============================
+   3-COLUMN BODY
+   ============================== */
+
+.body {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-2xl);
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2xl);
+@media (min-width: 640px) {
+  .body {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--space-xl);
+  .body {
+    grid-template-columns: 1.6fr 1.2fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
   }
 }
 
-/* Company Info */
-.companyInfo {
+/* ==============================
+   COLUMN 1 — BRAND
+   ============================== */
+
+.brand {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
 }
 
-@media (min-width: 1024px) {
-  .companyInfo {
-    grid-column: span 2;
-  }
-}
-
 .logoContainer {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  text-decoration: none;
 }
 
 .logoImage {
-  width: 64px;
-  height: 64px;
-}
-
-.logoImage img {
-  width: 100%;
-  height: 100%;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .logoText {
   display: flex;
   flex-direction: column;
+  gap: 1px;
 }
 
 .logoTitle {
-  font-size: var(--font-xl);
+  font-size: var(--font-base);
   font-weight: 700;
   color: white;
   line-height: 1.2;
@@ -88,134 +88,87 @@
 
 .logoSubtitle {
   font-size: var(--font-xs);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.45);
   line-height: 1.2;
 }
 
 .description {
   font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 340px;
 }
 
-/* Social Links */
 .socialLinks {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .socialLink {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-xl);
-  background-color: rgb(15, 23, 42);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-lg);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.65);
   transition: all var(--transition-base);
 }
 
 .socialLink:hover {
   background-color: var(--color-accent);
-  border-color: transparent;
+  border-color: var(--color-accent);
+  color: white;
 }
 
 .socialIcon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
-/* Footer Sections */
-.section {
-  display: flex;
-  flex-direction: column;
-}
+/* ==============================
+   COLUMN 2 — GET IN TOUCH
+   ============================== */
 
-.sectionTitle {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  color: white;
-  font-size: var(--font-lg);
-  font-weight: 600;
-  margin-bottom: var(--space-lg);
-}
-
-.titleBar {
-  width: 4px;
-  height: 24px;
-  background-color: var(--color-accent);
-  border-radius: var(--radius-full);
-}
-
-.linkList {
+.contactCol {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  list-style: none;
-  padding: 0;
+}
+
+.colTitle {
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
   margin: 0;
 }
 
-.linkItem {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.link {
+.contactTagline {
   font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color var(--transition-base);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.link:hover {
-  color: var(--color-accent);
-}
-
-.linkUnderline {
-  width: 0;
-  height: 1px;
-  background-color: var(--color-accent);
-  transition: width var(--transition-base);
-}
-
-.link:hover .linkUnderline {
-  width: 8px;
-}
-
-/* Quick Contact */
-.quickContact {
-  margin-top: var(--space-xl);
-  padding-top: var(--space-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.quickContactTitle {
-  color: white;
-  font-size: var(--font-sm);
-  font-weight: 600;
-  margin-bottom: var(--space-md);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .contactList {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  margin-top: var(--space-xs);
 }
 
 .contactItem {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  font-size: var(--font-xs);
-  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
   transition: color var(--transition-base);
 }
 
@@ -224,241 +177,98 @@
 }
 
 .contactIcon {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
+  color: var(--color-accent);
 }
 
-/* Newsletter */
-.newsletter {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
-.newsletterContent {
-  max-width: 672px;
-  margin: 0 auto;
-}
-
-.newsletterTitle {
-  color: white;
-  font-size: var(--font-2xl);
-  font-weight: 600;
-  margin-bottom: var(--space-md);
-}
-
-.newsletterDescription {
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: var(--space-xl);
-}
-
-.successMessage {
-  margin-bottom: var(--space-lg);
-  padding: var(--space-lg);
-  background-color: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  border-radius: var(--radius-lg);
-  display: flex;
+.ctaLink {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: gap var(--transition-base);
 }
 
-.successIcon {
-  width: 20px;
-  height: 20px;
-  color: rgb(74, 222, 128);
+.ctaLink:hover {
+  gap: var(--space-sm);
+  color: var(--color-accent);
 }
 
-.successText {
-  color: rgb(74, 222, 128);
-  font-weight: 500;
+.ctaArrow {
+  width: 14px;
+  height: 14px;
 }
 
-.errorMessage {
-  margin-bottom: var(--space-lg);
-  padding: var(--space-lg);
-  background-color: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: var(--radius-lg);
-  text-align: center;
-}
+/* ==============================
+   COLUMN 3 — QUICK LINKS
+   ============================== */
 
-.errorText {
-  color: rgb(248, 113, 113);
-  font-weight: 500;
-}
-
-.newsletterForm {
+.linksCol {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  max-width: 448px;
-  margin: 0 auto;
+}
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: var(--space-sm);
+  column-gap: var(--space-lg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+/* ==============================
+   BOTTOM BAR
+   ============================== */
+
+.bottomBar {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
 }
 
 @media (min-width: 640px) {
-  .newsletterForm {
-    flex-direction: row;
-  }
-}
-
-.emailInput {
-  flex: 1;
-  padding: var(--space-md) var(--space-lg);
-  background-color: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgb(51, 65, 85);
-  border-radius: var(--radius-lg);
-  color: white;
-  font-size: var(--font-sm);
-  transition: border-color var(--transition-base);
-}
-
-.emailInput::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.emailInput:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-.emailInput:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.subscribeButton {
-  padding: var(--space-md) var(--space-xl);
-  background-color: var(--color-accent);
-  color: white;
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: all var(--transition-base);
-}
-
-.subscribeButton:hover {
-  background-color: var(--color-accent-dark);
-  box-shadow: var(--shadow-lg);
-}
-
-.subscribeButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.subscribeButton:disabled:hover {
-  background-color: var(--color-accent);
-  box-shadow: none;
-}
-
-/* Global Presence */
-.globalPresence {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.globalContent {
-  max-width: 896px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.globalTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
-  color: white;
-  font-size: var(--font-lg);
-  font-weight: 600;
-  margin-bottom: var(--space-xl);
-}
-
-.mapIcon {
-  width: 20px;
-  height: 20px;
-  color: var(--color-accent);
-}
-
-.locationGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-lg);
-}
-
-.locationCard {
-  background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
-  border: 1px solid rgb(51, 65, 85);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md) var(--space-lg);
-  transition: border-color var(--transition-base);
-}
-
-.locationCard:hover {
-  border-color: rgba(29, 181, 163, 0.5);
-}
-
-.locationContent {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.locationFlag {
-  font-size: var(--font-2xl);
-}
-
-.locationName {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: var(--font-sm);
-  transition: color var(--transition-base);
-}
-
-.locationCard:hover .locationName {
-  color: var(--color-accent);
-}
-
-/* Bottom Bar */
-.bottomBar {
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.bottomContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-@media (min-width: 768px) {
-  .bottomContent {
+  .bottomBar {
     flex-direction: row;
     justify-content: space-between;
+    text-align: left;
   }
 }
 
 .copyright {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.legalLinks {
-  display: flex;
-  gap: var(--space-xl);
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.35);
+  margin: 0;
 }
 
 .legalLink {
-  font-size: var(--font-sm);
-  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.35);
   text-decoration: none;
   transition: color var(--transition-base);
 }

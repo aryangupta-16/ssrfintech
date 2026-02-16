@@ -15,15 +15,15 @@ export default function IndustriesPage() {
   // Industry images mapping
   const industryImages = [
     "/ssrfintech_1.jpg",
-    "/ssrfintech_2.jpg", 
-    "/ssrfintech_3.jpg",
-    "/ssrfintech_1.jpg",
     "/ssrfintech_2.jpg",
     "/ssrfintech_3.jpg",
-    "/ssrfintech_3.jpg",
-    "/ssrfintech_1.jpg",
-    "/ssrfintech_2.jpg",
-    "/ssrfintech_3.jpg"
+    "/ssrfintech_4.jpg",
+    "/ssrfintech_5.jpg",
+    "/ssrfintech_6.jpg",
+    "/ssrfintech_7.jpg",
+    "/mobile-business-analytics.jpg",
+    "/3d-graph-computer-illustration.jpg",
+    "/business-concept-with-graphic-holography.jpg"
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function IndustriesPage() {
       <PageHero
         title="Industries We Serve"
         description="Deep domain expertise across financial services sectors, delivering tailored solutions that address your unique challenges"
-        backgroundImage="/ssrfintech_1.jpg"
+        backgroundImage="/online-shopping-concept.jpg"
         primaryCTA={{
           text: "Discuss Your Industry Needs",
           href: "/contact",

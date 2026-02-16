@@ -104,7 +104,7 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className={styles.description}
             >
-              Empowering financial institutions with innovative technology
+              Empovering corporates and public institutions with innovative technology
               solutions, cutting-edge security, and seamless digital
               transformation.
             </motion.p>

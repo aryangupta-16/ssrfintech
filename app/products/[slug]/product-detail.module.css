@@ -106,6 +106,82 @@
   line-height: 1.6;
 }
 
+.useCaseNumber {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: var(--font-sm);
+}
+
+.useCaseContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  text-align: left;
+}
+
+.useCaseTitle {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.useCaseDescription {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ===============================
+   WHY CHOOSE
+   =============================== */
+
+.whyChooseSection {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-main);
+}
+
+.whyChooseInner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.whyChooseList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-2xl);
+  text-align: left;
+}
+
+.whyChooseItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.whyChooseIcon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
 /* ===============================
    CTA
    =============================== */

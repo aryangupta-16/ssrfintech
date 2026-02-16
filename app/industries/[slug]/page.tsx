@@ -24,7 +24,7 @@ export default function IndustryPage({ params }: { params: Promise<{ slug: strin
         {/* Background Image with Overlay */}
         <div
           className={styles.heroBackground}
-          style={{ backgroundImage: 'url(/ssrfintech_2.jpg)' }}
+          style={{ backgroundImage: 'url(/close-up-hand-holding-smartphone.jpg)' }}
         >
           <div className={styles.heroOverlay} />
         </div>

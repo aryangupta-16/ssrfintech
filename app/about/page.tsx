@@ -11,6 +11,7 @@ import { team } from "@/data/team";
 import { resources } from "@/data/resources";
 import { Linkedin, ArrowRight, Target, Eye, Award, Users, Mail } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import styles from "./about.module.css";
 import { useState } from "react";
 
@@ -78,7 +79,7 @@ export default function AboutPage() {
       <PageHero
         title="Transforming Finance Through Technology"
         description="With over a decade of excellence in financial technology, we empower institutions to innovate, scale, and succeed in the digital age."
-        backgroundImage="/ssrfintech_2.jpg"
+        backgroundImage="/light-trails-buildings.jpg"
         primaryCTA={{
           text: "Join Our Team",
           href: "/careers",
@@ -138,6 +139,38 @@ export default function AboutPage() {
               </Card>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Intro Video */}
+      <section className={styles.introVideo}>
+        <div className={styles.container}>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={styles.videoSectionHeader}
+          >
+            <span className={styles.videoBadge}>Our Story</span>
+            <h2 className={styles.videoSectionTitle}>See SSR Fintech in Action</h2>
+            <p className={styles.videoSectionDesc}>
+              Watch how we&apos;re transforming financial services through innovation, expertise,
+              and a commitment to delivering measurable results for our clients.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            className={styles.videoSectionFrame}
+          >
+            <VideoPlayer
+              videoId="IHs_1-85D08"
+              title="SSR Fintech — Company Introduction"
+            />
+          </motion.div>
         </div>
       </section>
 

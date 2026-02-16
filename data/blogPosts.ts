@@ -16,8 +16,8 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-  "id": "sap-epm-finance-transformation-clarity",
-  "slug": "understanding-s4hana-and-sap-epm-for-finance-transformation",
+  "id": "sap-erp-finance-transformation-clarity",
+  "slug": "understanding-s4hana-and-sap-erp-for-finance-transformation",
   "title": "Understanding S/4HANA and SAP EPM: A Practical View on Finance Transformation",
   "excerpt": "Finance leaders navigating SAP’s evolving EPM landscape face critical decisions. This article breaks down the options, challenges, and strategic considerations for a successful finance transformation.",
   "author": "Pankaj Gupta",
@@ -393,7 +393,7 @@ Supply chain and finance integration is increasingly becoming a competitive adva
   "category": "ERP",
   "tags": ["SAP", "Clean Core", "Implementation", "Best Practices"],
   "featured": false,
-  "image": "/ssrfintech_8.jpg",
+  "image": "/mobile-business-analytics (1).jpg",
   "content": `
 # Clean Core Strategy: Building Sustainable SAP Implementations
 
@@ -463,7 +463,7 @@ Clean Core is not about eliminating all customization but about being intentiona
   "category": "Finance Transformation",
   "tags": ["Revenue Recognition", "IFRS 15", "ASC 606", "Compliance", "Accounting"],
   "featured": false,
-  "image": "/ssrfintech_9.jpg",
+  "image": "/payment-solutions-financial-technology-with-businessman-using-tablet-background.jpg",
   "content": `
 # Mastering Revenue Recognition: IFRS 15 and ASC 606 Compliance
 

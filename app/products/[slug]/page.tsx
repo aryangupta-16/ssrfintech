@@ -26,7 +26,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
       <section className={styles.hero}>
         <div
           className={styles.heroBackground}
-          style={{ backgroundImage: "url(/ssrfintech_5.jpg)" }}
+          style={{ backgroundImage: "url(/payment-solutions-financial-technology-with-businessman-using-tablet-background.jpg)" }}
         />
         <div className={styles.heroOverlay} />
 
@@ -64,7 +64,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             >
               <h2 className={styles.useCasesTitle}>Common Use Cases</h2>
               <p className={styles.useCasesSubtitle}>
-                See how organizations leverage {product.title}
+                See how organisations leverage {product.title}
               </p>
 
               <div className={styles.useCasesList}>
@@ -77,8 +77,47 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                     transition={{ delay: index * 0.05 }}
                     className={styles.useCaseCard}
                   >
-                    <span className={styles.useCaseBullet} />
-                    <span className={styles.useCaseText}>{useCase}</span>
+                    <div className={styles.useCaseNumber}>{index + 1}</div>
+                    <div className={styles.useCaseContent}>
+                      <span className={styles.useCaseTitle}>{useCase.title}</span>
+                      {useCase.description && (
+                        <p className={styles.useCaseDescription}>{useCase.description}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* WHY CHOOSE SSR */}
+      {product.whyChoose && product.whyChoose.length > 0 && (
+        <section className={styles.whyChooseSection}>
+          <div className={styles.container}>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className={styles.whyChooseInner}
+            >
+              <h2 className={styles.useCasesTitle}>Why Choose SSR Fintech?</h2>
+              <p className={styles.useCasesSubtitle}>
+                Our proven expertise and delivery methodology sets us apart
+              </p>
+              <div className={styles.whyChooseList}>
+                {product.whyChoose.map((point, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className={styles.whyChooseItem}
+                  >
+                    <ArrowLeft className={styles.whyChooseIcon} style={{ transform: 'rotate(180deg)' }} />
+                    <span>{point}</span>
                   </motion.div>
                 ))}
               </div>

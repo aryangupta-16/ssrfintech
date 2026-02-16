@@ -7,7 +7,7 @@
 .card {
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-color);
-  background-color: white;
+  background-color: var(--bg-card);
   padding: var(--space-xl);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--transition-base);
@@ -15,7 +15,7 @@
 
 /* Card Variants */
 .gradient {
-  background: linear-gradient(to bottom right, white, var(--bg-section));
+  background: linear-gradient(to bottom right, var(--bg-card), var(--bg-section));
 }
 
 .hover:hover {

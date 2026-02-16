@@ -88,7 +88,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
       <section className={styles.hero}>
         <div
           className={styles.heroBackground}
-          style={{ backgroundImage: 'url(/ssrfintech_3.jpg)' }}
+          style={{ backgroundImage: 'url(/businessman-using-tablet-with-digital-graphics.jpg)' }}
         >
           <div className={styles.heroOverlay} />
         </div>

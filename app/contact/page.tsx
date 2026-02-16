@@ -42,7 +42,7 @@ export default function ContactPage() {
       <PageHero
         title="Contact Us"
         description="Get in touch with our team to discuss your financial technology needs"
-        backgroundImage="/ssrfintech_1.jpg"
+        backgroundImage="/hand-pointing-currency-blockchain-technology-background.jpg"
         icon={<Mail className="w-10 h-10" />}
       />
 

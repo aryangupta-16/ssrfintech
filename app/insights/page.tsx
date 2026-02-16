@@ -34,7 +34,7 @@ export default function InsightsPage() {
       <PageHero
         title="Insights & Thought Leadership"
         description="Expert perspectives on financial technology, industry trends, and best practices from our team"
-        backgroundImage="/ssrfintech_2.jpg"
+        backgroundImage="/mobile-business-analytics.jpg"
         primaryCTA={{
           text: "Subscribe to Newsletter",
           href: "#newsletter",
