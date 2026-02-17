@@ -27,6 +27,14 @@ export interface NewsletterSubscriptionData {
   email: string;
 }
 
+export interface ContactSubmissionData {
+  name: string;
+  email: string;
+  company?: string;
+  phone?: string;
+  message: string;
+}
+
 /**
  * Send career application notification to admin
  */
@@ -356,6 +364,177 @@ function generateNewsletterNotificationEmailHTML(subscriberEmail: string): strin
 
           <p style="color: #6b7280; font-size: 14px; margin: 0;">
             This subscription was made through the SSR Fintech website newsletter form.
+          </p>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
+ * Send contact form notification to admin
+ */
+export async function sendContactNotificationEmail(data: ContactSubmissionData) {
+  try {
+    const { data: emailData, error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: ADMIN_EMAIL,
+      subject: `New Contact Form Submission from ${data.name}`,
+      html: generateContactNotificationEmailHTML(data),
+      replyTo: data.email,
+    });
+
+    if (error) {
+      console.error('Error sending contact notification email:', error);
+      return { success: false, error };
+    }
+
+    return { success: true, data: emailData };
+  } catch (error) {
+    console.error('Failed to send contact notification email:', error);
+    return { success: false, error };
+  }
+}
+
+/**
+ * Send confirmation email to contact form submitter
+ */
+export async function sendContactConfirmationEmail(data: ContactSubmissionData) {
+  try {
+    const { data: emailData, error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: data.email,
+      subject: "We've received your message — SSR Fintech",
+      html: generateContactConfirmationEmailHTML(data),
+    });
+
+    if (error) {
+      console.error('Error sending contact confirmation email:', error);
+      return { success: false, error };
+    }
+
+    return { success: true, data: emailData };
+  } catch (error) {
+    console.error('Failed to send contact confirmation email:', error);
+    return { success: false, error };
+  }
+}
+
+/**
+ * Generate HTML for contact notification email (to admin)
+ */
+function generateContactNotificationEmailHTML(data: ContactSubmissionData): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Contact Form Submission</title>
+      </head>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #0B2545 0%, #1DB5A3 100%); padding: 30px; border-radius: 8px 8px 0 0; text-align: center;">
+          <h1 style="color: white; margin: 0; font-size: 24px;">New Contact Form Submission</h1>
+        </div>
+
+        <div style="background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px;">
+          <p style="font-size: 16px; color: #111827; margin-bottom: 20px;">
+            A new message has been submitted through the SSR Fintech contact form.
+          </p>
+
+          <div style="background: #f9fafb; padding: 20px; border-radius: 6px; margin: 20px 0;">
+            <h2 style="color: #0B2545; font-size: 18px; margin-top: 0;">Contact Details</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600; color: #374151; width: 120px;">Name:</td>
+                <td style="padding: 8px 0; color: #111827;">${data.name}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600; color: #374151;">Email:</td>
+                <td style="padding: 8px 0;"><a href="mailto:${data.email}" style="color: #1DB5A3; text-decoration: none;">${data.email}</a></td>
+              </tr>
+              ${data.company ? `
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600; color: #374151;">Company:</td>
+                <td style="padding: 8px 0; color: #111827;">${data.company}</td>
+              </tr>` : ''}
+              ${data.phone ? `
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600; color: #374151;">Phone:</td>
+                <td style="padding: 8px 0; color: #111827;">${data.phone}</td>
+              </tr>` : ''}
+              <tr>
+                <td style="padding: 8px 0; font-weight: 600; color: #374151;">Submitted:</td>
+                <td style="padding: 8px 0; color: #111827;">${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST</td>
+              </tr>
+            </table>
+          </div>
+
+          <div style="background: #f9fafb; padding: 20px; border-radius: 6px; margin: 20px 0;">
+            <h3 style="color: #0B2545; font-size: 16px; margin-top: 0;">Message</h3>
+            <p style="color: #374151; white-space: pre-wrap; margin: 0; line-height: 1.7;">${data.message}</p>
+          </div>
+
+          <a href="mailto:${data.email}" style="display: inline-block; background: linear-gradient(135deg, #0B2545, #1DB5A3); color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: 10px;">
+            Reply to ${data.name}
+          </a>
+
+          <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
+          <p style="color: #6b7280; font-size: 14px; margin: 0;">
+            This message was submitted through the SSR Fintech contact page.
+          </p>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
+ * Generate HTML for contact confirmation email (to user)
+ */
+function generateContactConfirmationEmailHTML(data: ContactSubmissionData): string {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Message Received</title>
+      </head>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="background: linear-gradient(135deg, #0B2545 0%, #1DB5A3 100%); padding: 30px; border-radius: 8px 8px 0 0; text-align: center;">
+          <h1 style="color: white; margin: 0; font-size: 24px;">Message Received!</h1>
+        </div>
+
+        <div style="background: #ffffff; padding: 30px; border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px;">
+          <p style="font-size: 16px; color: #111827;">Hi ${data.name},</p>
+
+          <p style="font-size: 16px; color: #374151; line-height: 1.8;">
+            Thank you for reaching out to SSR Fintech. We've received your message and one of our team members will get back to you within <strong>24 hours</strong>.
+          </p>
+
+          <div style="background: #f0fdf4; border-left: 4px solid #1DB5A3; padding: 16px; margin: 24px 0; border-radius: 4px;">
+            <p style="margin: 0; color: #065f46; font-size: 14px;">
+              <strong>Your message summary:</strong><br><br>
+              ${data.message.length > 200 ? data.message.substring(0, 200) + '...' : data.message}
+            </p>
+          </div>
+
+          <p style="font-size: 15px; color: #374151; line-height: 1.8;">
+            In the meantime, feel free to explore our work:
+          </p>
+
+          <ul style="color: #374151; font-size: 15px; line-height: 1.8;">
+            <li><a href="https://ssrfintech.com/services" style="color: #1DB5A3; text-decoration: none;">Our Services</a></li>
+            <li><a href="https://ssrfintech.com/case-studies" style="color: #1DB5A3; text-decoration: none;">Case Studies</a></li>
+            <li><a href="https://ssrfintech.com/about" style="color: #1DB5A3; text-decoration: none;">About SSR Fintech</a></li>
+          </ul>
+
+          <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
+          <p style="color: #6b7280; font-size: 14px; margin: 0;">
+            Best regards,<br>
+            <strong style="color: #111827;">SSR Fintech Team</strong><br>
+            <a href="mailto:contact@ssrfintech.com" style="color: #1DB5A3; text-decoration: none;">contact@ssrfintech.com</a>
           </p>
         </div>
       </body>

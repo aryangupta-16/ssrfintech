@@ -1,3 +1,4 @@
+import { sql } from '@vercel/postgres';
 import { NextRequest, NextResponse } from 'next/server';
 import {
   sendNewsletterWelcomeEmail,
@@ -88,8 +89,12 @@ export async function POST(request: NextRequest) {
       console.log('Admin notification sent successfully');
     }
 
-    // Store subscription (you can add database integration here)
-    // Example: await saveSubscriptionToDatabase(email);
+    // Save subscription to database
+    await sql`
+      INSERT INTO newsletter_subscriptions (email)
+      VALUES (${email})
+      ON CONFLICT (email) DO NOTHING
+    `;
 
     // Log the subscription
     console.log('Newsletter subscription received:', {

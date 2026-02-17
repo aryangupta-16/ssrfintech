@@ -15,6 +15,8 @@ export default function InsightsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [showNewsletterSuccess, setShowNewsletterSuccess] = useState(false);
+  const [isNewsletterLoading, setIsNewsletterLoading] = useState(false);
+  const [newsletterError, setNewsletterError] = useState("");
 
   const categories = Array.from(new Set(blogPosts.map(p => p.category)));
 
@@ -22,11 +24,32 @@ export default function InsightsPage() {
     ? blogPosts.filter(p => p.category === selectedCategory)
     : blogPosts;
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowNewsletterSuccess(true);
-    setTimeout(() => setShowNewsletterSuccess(false), 3000);
-    setNewsletterEmail("");
+    setIsNewsletterLoading(true);
+    setNewsletterError("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setNewsletterError(data.message || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setShowNewsletterSuccess(true);
+      setNewsletterEmail("");
+      setTimeout(() => setShowNewsletterSuccess(false), 5000);
+    } catch {
+      setNewsletterError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsNewsletterLoading(false);
+    }
   };
 
   return (
@@ -165,7 +188,7 @@ export default function InsightsPage() {
             {showNewsletterSuccess ? (
               <div className={styles.successMessage}>
                 <CheckCircle2 />
-                You’re subscribed!
+                You're subscribed!
               </div>
             ) : (
               <form onSubmit={handleNewsletterSubmit} className={styles.newsletterForm}>
@@ -175,11 +198,15 @@ export default function InsightsPage() {
                   value={newsletterEmail}
                   onChange={e => setNewsletterEmail(e.target.value)}
                   required
+                  disabled={isNewsletterLoading}
                 />
-                <button type="submit">
-                  Subscribe
+                <button type="submit" disabled={isNewsletterLoading}>
+                  {isNewsletterLoading ? "Subscribing..." : "Subscribe"}
                 </button>
               </form>
+            )}
+            {newsletterError && (
+              <p className={styles.newsletterError}>{newsletterError}</p>
             )}
           </motion.div>
         </div>

@@ -59,27 +59,21 @@ export default function JobApplicationPage({
     setError(null);
 
     try {
-      // Prepare application data
-      const applicationData = {
-        jobId: job!.id,
-        jobTitle: job!.title,
-        fullName: formData.fullName,
-        email: formData.email,
-        linkedIn: formData.linkedIn || undefined,
-        portfolio: formData.portfolio || undefined,
-        coverLetter: formData.coverLetter,
-        // Note: Resume file upload would need separate handling (e.g., upload to cloud storage)
-        // For now, we'll just note that a resume was provided
-        resumeUrl: formData.resume ? `Resume: ${formData.resume.name}` : undefined,
-      };
+      // Build multipart form data (includes resume file)
+      const payload = new FormData();
+      payload.append('jobId', job!.id);
+      payload.append('jobTitle', job!.title);
+      payload.append('fullName', formData.fullName);
+      payload.append('email', formData.email);
+      if (formData.linkedIn) payload.append('linkedIn', formData.linkedIn);
+      if (formData.portfolio) payload.append('portfolio', formData.portfolio);
+      payload.append('coverLetter', formData.coverLetter);
+      if (formData.resume) payload.append('resume', formData.resume);
 
-      // Submit to API
+      // Submit to API (browser sets Content-Type with multipart boundary automatically)
       const response = await fetch('/api/careers', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(applicationData),
+        body: payload,
       });
 
       const result = await response.json();

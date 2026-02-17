@@ -60,6 +60,21 @@
   font-weight: 500;
 }
 
+.errorMessage {
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: var(--radius-lg);
+}
+
+.errorText {
+  color: var(--color-error);
+  font-weight: 500;
+  margin: 0;
+  font-size: var(--font-sm);
+}
+
 .form {
   display: flex;
   flex-direction: column;
