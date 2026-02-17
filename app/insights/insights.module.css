@@ -258,3 +258,10 @@
   font-size: var(--font-lg);
   font-weight: 700;
 }
+
+.newsletterError {
+  margin-top: 0.75rem;
+  font-size: var(--font-sm);
+  color: var(--color-error, #ef4444);
+  text-align: center;
+}

@@ -21,14 +21,36 @@ export default function ContactPage() {
     message: "",
   });
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add form submission logic here
-    setShowSuccess(true);
-    setFormData({ name: "", email: "", company: "", phone: "", message: "" });
-    setTimeout(() => setShowSuccess(false), 5000);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setShowSuccess(true);
+      setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+      setTimeout(() => setShowSuccess(false), 6000);
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -68,6 +90,15 @@ export default function ContactPage() {
                 >
                   <CheckCircle2 className={styles.successIcon} />
                   <p className={styles.successText}>Thank you for your message! We'll get back to you soon.</p>
+                </motion.div>
+              )}
+              {errorMessage && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={styles.errorMessage}
+                >
+                  <p className={styles.errorText}>{errorMessage}</p>
                 </motion.div>
               )}
               <form onSubmit={handleSubmit} className={styles.form}>
@@ -149,9 +180,9 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" variant="gradient" style={{ width: '100%' }}>
-                  Send Message
-                  <Send className={styles.submitIcon} style={{ marginLeft: '0.5rem' }} />
+                <Button type="submit" size="lg" variant="gradient" style={{ width: '100%' }} disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {!isSubmitting && <Send className={styles.submitIcon} style={{ marginLeft: '0.5rem' }} />}
                 </Button>
               </form>
             </motion.div>

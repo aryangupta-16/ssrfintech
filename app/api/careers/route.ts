@@ -1,3 +1,5 @@
+import { sql } from '@vercel/postgres';
+import { put } from '@vercel/blob';
 import { NextRequest, NextResponse } from 'next/server';
 import {
   sendCareerApplicationEmail,
@@ -26,12 +28,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Parse the request body
-    const body = await request.json();
+    // Parse multipart form data
+    const formData = await request.formData();
+
+    const jobId = formData.get('jobId') as string;
+    const jobTitle = formData.get('jobTitle') as string;
+    const fullName = formData.get('fullName') as string;
+    const email = formData.get('email') as string;
+    const coverLetter = formData.get('coverLetter') as string;
+    const linkedIn = formData.get('linkedIn') as string | null;
+    const portfolio = formData.get('portfolio') as string | null;
+    const resumeFile = formData.get('resume') as File | null;
 
     // Validate required fields
-    const { jobId, jobTitle, fullName, email, coverLetter } = body;
-
     if (!jobId || !jobTitle || !fullName || !email || !coverLetter) {
       return NextResponse.json(
         {
@@ -56,16 +65,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Upload resume to Vercel Blob if provided
+    let resumeUrl: string | undefined;
+    if (resumeFile && resumeFile.size > 0) {
+      const blob = await put(
+        `resumes/${Date.now()}-${resumeFile.name}`,
+        resumeFile,
+        { access: 'public' }
+      );
+      resumeUrl = blob.url;
+    }
+
     // Prepare application data
     const applicationData: CareerApplicationData = {
       jobId,
       jobTitle,
       fullName,
       email,
-      linkedIn: body.linkedIn || undefined,
-      portfolio: body.portfolio || undefined,
+      linkedIn: linkedIn || undefined,
+      portfolio: portfolio || undefined,
       coverLetter,
-      resumeUrl: body.resumeUrl || undefined,
+      resumeUrl,
     };
 
     // Send notification email to admin
@@ -88,8 +108,13 @@ export async function POST(request: NextRequest) {
       // Don't fail the request if confirmation email fails
     }
 
-    // Store application data (you can add database integration here)
-    // Example: await saveToDatabase(applicationData);
+    // Save application to database
+    await sql`
+      INSERT INTO career_applications (job_id, job_title, full_name, email, linkedin, portfolio, cover_letter, resume_url)
+      VALUES (${applicationData.jobId}, ${applicationData.jobTitle}, ${applicationData.fullName}, ${applicationData.email},
+              ${applicationData.linkedIn || null}, ${applicationData.portfolio || null},
+              ${applicationData.coverLetter}, ${applicationData.resumeUrl || null})
+    `;
 
     // Log the application for tracking
     console.log('Career application received:', {
